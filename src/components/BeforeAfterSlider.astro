@@ -1,0 +1,98 @@
+---
+interface Props {
+  beforeSrc: string;
+  afterSrc: string;
+  beforeAlt: string;
+  afterAlt: string;
+}
+const { beforeSrc, afterSrc, beforeAlt, afterAlt } = Astro.props;
+
+const uid = Math.random().toString(36).slice(2, 8);
+---
+
+<div class="slider-container select-none" data-slider={uid} role="img" aria-label="Vorher-Nachher Vergleich der Fahrzeugaufbereitung">
+  <!-- Base layer: always the "after" result, showing through wherever the "before" overlay is clipped away -->
+  <img
+    src={afterSrc}
+    alt={afterAlt}
+    class="w-full h-full object-cover block"
+    draggable="false"
+    width="900"
+    height="600"
+    loading="lazy"
+  />
+
+  <!-- Overlay layer: the "before" photo, clipped to only ever cover the left side up to the divider -->
+  <div class="slider-clip" data-clip={uid} style="clip-path: inset(0 50% 0 0);">
+    <img
+      src={beforeSrc}
+      alt={beforeAlt}
+      class="w-full h-full object-cover block absolute inset-0"
+      draggable="false"
+      width="900"
+      height="600"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="slider-divider" data-divider={uid} style="left: 50%;" aria-hidden="true">
+    <div class="slider-handle">&#8596;</div>
+  </div>
+
+  <!-- Static labels: always in the same corner, never clipped, so it's always unambiguous which side is which -->
+  <span class="absolute top-4 left-4 z-20 bg-gray-900/80 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow tracking-wide uppercase">
+    Vorher
+  </span>
+  <span class="absolute top-4 right-4 z-20 flex items-center gap-1.5 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow tracking-wide uppercase" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+    <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+    </svg>
+    Nachher
+  </span>
+</div>
+
+<script define:vars={{ uid }}>
+  const slider = document.querySelector(`[data-slider="${uid}"]`);
+  const clipLayer = document.querySelector(`[data-clip="${uid}"]`);
+  const divider = document.querySelector(`[data-divider="${uid}"]`);
+
+  let dragging = false;
+
+  function clearHintTransition() {
+    divider.style.transition = "";
+    clipLayer.style.transition = "";
+  }
+
+  function setPosition(x) {
+    const rect = slider.getBoundingClientRect();
+    let pct = ((x - rect.left) / rect.width) * 100;
+    pct = Math.min(98, Math.max(2, pct));
+    divider.style.left = `${pct}%`;
+    clipLayer.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+  }
+
+  slider.addEventListener("mousedown", (e) => { clearHintTransition(); dragging = true; setPosition(e.clientX); });
+  window.addEventListener("mousemove", (e) => { if (dragging) setPosition(e.clientX); });
+  window.addEventListener("mouseup", () => { dragging = false; });
+
+  slider.addEventListener("touchstart", (e) => { clearHintTransition(); dragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener("touchmove", (e) => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener("touchend", () => { dragging = false; });
+
+  // Brief "peek" hint on load to signal the slider is draggable
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const easing = "left 0.6s cubic-bezier(0.16,1,0.3,1), clip-path 0.6s cubic-bezier(0.16,1,0.3,1)";
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        divider.style.transition = easing;
+        clipLayer.style.transition = easing;
+        setTimeout(() => setPosition(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width * 0.38), 500);
+        setTimeout(() => { setPosition(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width * 0.5); }, 1150);
+        setTimeout(clearHintTransition, 1800);
+      });
+    }, { threshold: 0.5 });
+    io.observe(slider);
+  }
+</script>

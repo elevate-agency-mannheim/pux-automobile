@@ -1,0 +1,36 @@
+---
+interface Props {
+  items: string[];
+  title?: string;
+}
+const { items, title = "Checkliste" } = Astro.props;
+const uid = Math.random().toString(36).slice(2, 8);
+---
+
+<div class="reveal not-prose my-8 rounded-2xl border border-gray-100 bg-white shadow-sm p-6" data-checklist={uid}>
+  <h3 class="font-bold text-gray-900 mb-4">{title}</h3>
+  <ul class="space-y-1">
+    {items.map((item, i) => (
+      <li>
+        <label class="flex items-start gap-3 py-2 px-2 -mx-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+          <input type="checkbox" class="checklist-box mt-0.5 w-4.5 h-4.5 rounded border-gray-300 accent-[#3A7BD5] flex-shrink-0" id={`check-${uid}-${i}`} />
+          <span class="checklist-label text-sm text-gray-700 leading-relaxed transition-colors">{item}</span>
+        </label>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-checklist]").forEach((box) => {
+    if (box.dataset.bound) return;
+    box.dataset.bound = "true";
+    box.querySelectorAll<HTMLInputElement>(".checklist-box").forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        const label = checkbox.closest("label")?.querySelector(".checklist-label");
+        label?.classList.toggle("line-through", checkbox.checked);
+        label?.classList.toggle("text-gray-400", checkbox.checked);
+      });
+    });
+  });
+</script>

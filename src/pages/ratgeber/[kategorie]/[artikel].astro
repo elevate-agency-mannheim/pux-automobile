@@ -1,0 +1,88 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import ArtikelLayout from "../../../layouts/ArtikelLayout.astro";
+import InfoBox from "../../../components/ratgeber/InfoBox.astro";
+import StepByStep from "../../../components/ratgeber/StepByStep.astro";
+import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
+import ProConTable from "../../../components/ratgeber/ProConTable.astro";
+import Checklist from "../../../components/ratgeber/Checklist.astro";
+import Calculator from "../../../components/ratgeber/Calculator.tsx";
+import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
+
+const mdxComponents = { InfoBox, StepByStep, ComparisonTable, ProConTable, Checklist, Calculator, ContactCTA, LocalCitiesWidget };
+
+export async function getStaticPaths() {
+  const entries = await getCollection("ratgeber");
+  return entries
+    .filter((e) => e.data.category !== "standorte")
+    .map((entry) => ({
+      params: { kategorie: entry.data.category, artikel: entry.data.slug },
+      props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+
+const CATEGORY_LABELS: Record<string, string> = {
+  autoaufbereitung: "Autoaufbereitung",
+  fahrzeugverkauf: "Auto verkaufen",
+  fahrzeugankauf: "Gebrauchtwagen kaufen",
+  wissen: "Wissen",
+};
+
+// Strip import statements and JSX/component syntax so the word count reflects
+// actual prose, not MDX plumbing (import lines, prop objects, tag noise).
+const proseOnly = (entry.body ?? "")
+  .replace(/^import .+$/gm, " ")
+  .replace(/<[^>]+>/g, " ")
+  .replace(/[{}]/g, " ");
+const wordCount = proseOnly.trim().split(/\s+/).filter(Boolean).length;
+const readingMinutes = Math.max(1, Math.round(wordCount / 200));
+
+const allEntries = await getCollection("ratgeber");
+const related = (
+  await Promise.all(
+    entry.data.relatedArticles.map(async (relSlug: string) => {
+      const found = allEntries.find((e) => `${e.data.category}/${e.data.slug}` === relSlug);
+      if (!found) return null;
+      return {
+        title: found.data.title,
+        url: `/ratgeber/${found.data.category}/${found.data.slug}`,
+        category: CATEGORY_LABELS[found.data.category] ?? found.data.category,
+        excerpt: found.data.metaDescription,
+      };
+    })
+  )
+).filter((r): r is NonNullable<typeof r> => r !== null);
+
+const categoryUrl = `/ratgeber/${entry.data.category}`;
+const canonicalUrl = `https://pux-automobile.de/ratgeber/${entry.data.category}/${entry.data.slug}`;
+---
+
+<ArtikelLayout
+  seoTitle={entry.data.seoTitle}
+  metaDescription={entry.data.metaDescription}
+  canonical={canonicalUrl}
+  url={`/ratgeber/${entry.data.category}/${entry.data.slug}`}
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Ratgeber", href: "/ratgeber" },
+    { label: CATEGORY_LABELS[entry.data.category] ?? entry.data.category, href: categoryUrl },
+    { label: entry.data.title },
+  ]}
+  title={entry.data.title}
+  categoryLabel={CATEGORY_LABELS[entry.data.category] ?? entry.data.category}
+  categoryUrl={categoryUrl}
+  readingMinutes={readingMinutes}
+  publishDate={entry.data.publishDate}
+  updatedDate={entry.data.updatedDate}
+  headings={headings}
+  summary={entry.data.summary}
+  faq={entry.data.faq}
+  related={related}
+  schemaTypes={entry.data.schemaType}
+>
+  <Content components={mdxComponents} />
+</ArtikelLayout>

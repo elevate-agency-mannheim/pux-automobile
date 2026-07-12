@@ -1,0 +1,24 @@
+---
+import Icons from "../Icons.astro";
+
+interface Props {
+  points: string[];
+  title?: string;
+}
+const { points, title = "Das Wichtigste auf einen Blick" } = Astro.props;
+---
+
+<div class="reveal rounded-2xl border border-[#1B2B6B]/15 bg-[#EEF3FB] p-6 md:p-7 my-8">
+  <h2 class="flex items-center gap-2 text-base font-bold text-[#1B2B6B] mb-4">
+    <Icons name="list" class="w-5 h-5 flex-shrink-0" />
+    {title}
+  </h2>
+  <ul class="space-y-2.5">
+    {points.map((point) => (
+      <li class="flex items-start gap-2.5 text-sm text-gray-700 leading-relaxed">
+        <Icons name="check-circle" class="w-4 h-4 text-[#3A7BD5] mt-0.5 flex-shrink-0" />
+        <span>{point}</span>
+      </li>
+    ))}
+  </ul>
+</div>

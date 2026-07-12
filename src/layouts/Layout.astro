@@ -1,0 +1,100 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = "PUX Automobile – Mobile Autoaufbereitung & An-/Verkauf | Mannheim",
+  description = "Professionelle mobile Autoaufbereitung direkt vor Ihrer Haustür im Raum Mannheim (30 km). Zudem fairer An- & Verkauf von Fahrzeugen. Jetzt unverbindlich anfragen.",
+  canonical = "https://pux-automobile.de",
+} = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "PUX Automobile",
+  "description": description,
+  "url": canonical,
+  "telephone": "+49-178-3108402",
+  "email": "luca@pux-automobile.de",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Hirschhorner Straße 32",
+    "postalCode": "68259",
+    "addressLocality": "Mannheim",
+    "addressRegion": "Baden-Württemberg",
+    "addressCountry": "DE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 49.4875,
+    "longitude": 8.4660
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.4875,
+      "longitude": 8.4660
+    },
+    "geoRadius": "30000"
+  },
+  "serviceType": ["Autoaufbereitung", "Fahrzeugankauf", "Fahrzeugverkauf"],
+  "priceRange": "€€"
+};
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://pux-automobile.de/logo.png" />
+    <meta property="og:locale" content="de_DE" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="/favicon-180.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="bg-white text-gray-900 antialiased" style="overflow-x:clip; max-width:100vw;">
+    <div style="overflow-x:clip; width:100%; max-width:100vw; position:relative;">
+      <slot />
+    </div>
+    <script>
+      // threshold is a ratio of the *target element's own area*, so tall containers
+      // (e.g. article grids with 50+ items) can scroll past without ever satisfying
+      // a >0 threshold. Firing on any pixel intersection avoids elements getting
+      // stuck at opacity:0 forever while still catching them as they scroll in.
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } }),
+        { threshold: 0, rootMargin: "0px 0px -5% 0px" }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+---
+interface Props {
+  headers: string[];
+  rows: (string | number)[][];
+  title?: string;
+  highlightColumn?: number;
+}
+const { headers, rows, title, highlightColumn } = Astro.props;
+---
+
+<div class="reveal not-prose my-8">
+  {title && <h3 class="text-lg font-bold text-gray-900 mb-4">{title}</h3>}
+  <div class="overflow-x-auto rounded-2xl border border-gray-100 shadow-sm -mx-4 px-4 sm:mx-0 sm:px-0">
+    <table class="w-full text-sm border-collapse min-w-[500px]">
+      <thead>
+        <tr>
+          {headers.map((h, i) => (
+            <th class={`text-left px-4 py-3 font-bold text-xs uppercase tracking-wide whitespace-nowrap ${i === highlightColumn ? "text-white" : "text-[#1B2B6B] bg-[#EEF3FB]"}`}
+              style={i === highlightColumn ? "background:linear-gradient(135deg,#1B2B6B,#3A7BD5);" : undefined}>
+              {h}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row, ri) => (
+          <tr class={ri % 2 === 1 ? "bg-gray-50/60" : ""}>
+            {row.map((cell, ci) => (
+              <td class={`px-4 py-3 border-b border-gray-100 text-gray-700 ${ci === highlightColumn ? "font-semibold bg-[#EEF3FB]/50" : ""}`}>
+                {cell}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>

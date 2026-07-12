@@ -1,0 +1,30 @@
+---
+import Layout from "./Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import Breadcrumb from "../components/ratgeber/Breadcrumb.astro";
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  breadcrumbs: Crumb[];
+  containerClass?: string;
+}
+const { title, description, canonical, breadcrumbs, containerClass = "max-w-4xl" } = Astro.props;
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <Nav />
+  <main class="pt-28 md:pt-32 pb-24 px-6">
+    <div class={`${containerClass} mx-auto mb-6`}>
+      <Breadcrumb items={breadcrumbs} />
+    </div>
+    <slot />
+  </main>
+  <Footer />
+</Layout>

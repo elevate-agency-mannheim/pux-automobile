@@ -1,0 +1,358 @@
+---
+import Icons from "./Icons.astro";
+---
+
+<div class="bg-white rounded-3xl border border-gray-100 shadow-xl p-8 md:p-12">
+  <!-- Tab Selector -->
+  <div class="flex flex-col sm:flex-row gap-3 mb-10 p-1.5 bg-gray-50 rounded-2xl">
+    <button type="button" class="tab-btn active flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-200 text-gray-600" data-tab="aufbereitung" aria-selected="true">
+      Aufbereitung
+    </button>
+    <button type="button" class="tab-btn flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-200 text-gray-600" data-tab="ankauf" aria-selected="false">
+      Fahrzeug verkaufen
+    </button>
+    <button type="button" class="tab-btn flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-200 text-gray-600" data-tab="verkauf" aria-selected="false">
+      Fahrzeug kaufen
+    </button>
+  </div>
+
+  <form id="contact-form" novalidate>
+    <input type="hidden" id="selected-tab" name="anliegen" value="Aufbereitung" />
+
+    <!-- General error banner -->
+    <div id="form-general-error" class="hidden mb-6 flex items-start gap-3 rounded-2xl bg-red-50 border border-red-200 p-4">
+      <svg class="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+      </svg>
+      <p id="form-general-error-text" class="text-sm text-red-700 leading-relaxed">Es ist ein Fehler aufgetreten.</p>
+    </div>
+
+    <!-- Common fields -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">Name *</label>
+        <input type="text" id="name" name="name" placeholder="Max Mustermann"
+          class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+        <p id="error-name" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+      </div>
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">Telefon *</label>
+        <input type="tel" id="phone" name="telefon" placeholder="+49 621 XXXXXXX"
+          class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+        <p id="error-telefon" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+      </div>
+    </div>
+
+    <div class="mb-5">
+      <label for="email" class="block text-sm font-medium text-gray-700 mb-1.5">E-Mail <span class="font-normal text-gray-400">(optional)</span></label>
+      <input type="email" id="email" name="email" placeholder="max@beispiel.de"
+        class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+      <p id="error-email" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+    </div>
+
+    <!-- Aufbereitung specific -->
+    <div id="tab-aufbereitung" class="tab-content space-y-6">
+      <div>
+        <label for="plz" class="block text-sm font-medium text-gray-700 mb-1.5">PLZ *</label>
+        <input type="text" id="plz" name="plz" inputmode="numeric" maxlength="5" placeholder="z. B. 68159"
+          class="w-full sm:w-48 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+        <p id="error-plz" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2.5">Fahrzeuggröße <span class="font-normal text-gray-400">(optional)</span></label>
+        <div class="flex flex-wrap gap-3">
+          {["Klein", "Mittel", "Groß"].map((size) => (
+            <label class="has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] has-[:checked]:text-[#1B2B6B] border-2 border-gray-200 rounded-xl px-5 py-2.5 text-sm font-medium text-gray-600 cursor-pointer transition-all">
+              <input type="radio" name="fahrzeuggroesse" value={size} class="sr-only" />
+              {size}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2.5">Gewünschte Leistung *</label>
+        <div class="space-y-3">
+          {[
+            { value: "Innenreinigung", hasExtra: true },
+            { value: "Außenreinigung", hasExtra: true },
+            { value: "Komplettpaket", hasExtra: false },
+          ].map(({ value, hasExtra }) => (
+            <div class="leistung-item">
+              <label class="has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] relative flex items-center gap-3 border-2 border-gray-200 rounded-xl px-4 py-3.5 cursor-pointer transition-all">
+                <input type="radio" name="leistung" value={value} class="peer sr-only" />
+                <span class="w-5 h-5 rounded-full border-2 border-gray-300 peer-checked:border-[#3A7BD5] flex items-center justify-center flex-shrink-0 transition-colors">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#3A7BD5] scale-0 peer-checked:scale-100 transition-transform"></span>
+                </span>
+                <span class="text-sm font-medium text-gray-700">{value}</span>
+              </label>
+
+              {hasExtra && (
+                <label class="extra-service-toggle items-center gap-3 mt-2 ml-4 pl-4 py-2 border-l-2 border-gray-200 cursor-pointer" style="display:none;">
+                  <input type="checkbox" name="extra_service" value="Polieren + Keramikversiegelung" class="w-4 h-4 rounded border-gray-300 accent-[#3A7BD5] flex-shrink-0" />
+                  <span class="text-sm text-gray-600">+ Extra-Service: Polieren + Keramikversiegelung <span class="text-gray-400">(350 €)</span></span>
+                </label>
+              )}
+            </div>
+          ))}
+        </div>
+        <p id="error-leistung" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+      </div>
+    </div>
+
+    <!-- Ankauf specific (user sells their car to PUX) -->
+    <div id="tab-ankauf" class="tab-content hidden space-y-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div>
+          <label for="fahrzeug-ank" class="block text-sm font-medium text-gray-700 mb-1.5">Fahrzeug (Marke & Modell) *</label>
+          <input type="text" id="fahrzeug-ank" name="fahrzeug_ankauf" placeholder="z. B. BMW 3er"
+            class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+          <p id="error-fahrzeug_ankauf" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+        </div>
+        <div>
+          <label for="baujahr-ank" class="block text-sm font-medium text-gray-700 mb-1.5">Baujahr</label>
+          <input type="number" id="baujahr-ank" name="baujahr_ankauf" placeholder="2019" min="1990" max="2026"
+            class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div>
+          <label for="km-ank" class="block text-sm font-medium text-gray-700 mb-1.5">Kilometerstand</label>
+          <input type="number" id="km-ank" name="km_ankauf" placeholder="85000"
+            class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+        </div>
+        <div>
+          <label for="zustand-ank" class="block text-sm font-medium text-gray-700 mb-1.5">Zustand</label>
+          <select id="zustand-ank" name="zustand_ankauf"
+            class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm bg-white">
+            <option value="">Bitte wählen...</option>
+            <option>Sehr gut (wie neu)</option>
+            <option>Gut (normale Gebrauchsspuren)</option>
+            <option>Gebraucht (sichtbare Mängel)</option>
+            <option>Beschädigt / Unfall</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Verkauf specific (user wants to buy from PUX) -->
+    <div id="tab-verkauf" class="tab-content hidden space-y-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div>
+          <label for="wunsch-fzg" class="block text-sm font-medium text-gray-700 mb-1.5">Gewünschtes Fahrzeug</label>
+          <input type="text" id="wunsch-fzg" name="wunsch_fahrzeug" placeholder="z. B. Mercedes C-Klasse, Benzin"
+            class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+        </div>
+        <div>
+          <label for="budget" class="block text-sm font-medium text-gray-700 mb-1.5">Budget (ca.)</label>
+          <input type="text" id="budget" name="budget" placeholder="z. B. 15.000 €"
+            class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Message -->
+    <div class="mt-5">
+      <label for="message" class="block text-sm font-medium text-gray-700 mb-1.5">Nachricht / Anmerkungen</label>
+      <textarea id="message" name="nachricht" rows="3" placeholder="Weitere Infos zu Ihrem Anliegen..."
+        class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm resize-none"></textarea>
+    </div>
+
+    <!-- Next steps -->
+    <div class="mt-8 flex items-start gap-3 rounded-2xl bg-[#EEF3FB] p-5">
+      <Icons name="check-circle" class="w-5 h-5 text-[#3A7BD5] flex-shrink-0 mt-0.5" />
+      <p class="text-sm text-gray-600 leading-relaxed">
+        Die Anfrage ist unverbindlich. Wir melden uns so schnell es geht und stimmen uns zu Fragen und zu einem passenden Termin ab.
+      </p>
+    </div>
+
+    <button type="submit" id="submit-btn" class="btn-primary w-full justify-center mt-8 text-base">
+      <span id="submit-btn-text">Anfrage absenden →</span>
+    </button>
+
+    <p class="text-xs text-gray-400 text-center mt-4">
+      Keine Weitergabe Ihrer Daten an Dritte.
+    </p>
+  </form>
+
+  <!-- Success state -->
+  <div id="form-success" class="hidden text-center py-12 px-6 rounded-2xl bg-green-50 border border-green-200">
+    <div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
+      <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+      </svg>
+    </div>
+    <h3 class="text-2xl font-bold text-gray-900 mb-3">Anfrage erhalten!</h3>
+    <p id="form-success-text" class="text-gray-600 text-base max-w-sm mx-auto">
+      Vielen Dank! Wir haben deine Anfrage erhalten und melden uns so schnell wie möglich bei dir.
+    </p>
+  </div>
+</div>
+
+<script>
+  // Tabs
+  const tabBtns = document.querySelectorAll<HTMLButtonElement>(".tab-btn");
+  const tabContents = document.querySelectorAll<HTMLElement>(".tab-content");
+  const selectedTab = document.getElementById("selected-tab") as HTMLInputElement;
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tab = btn.dataset.tab!;
+      tabBtns.forEach((b) => { b.classList.remove("active"); b.setAttribute("aria-selected", "false"); });
+      tabContents.forEach((c) => c.classList.add("hidden"));
+      btn.classList.add("active");
+      btn.setAttribute("aria-selected", "true");
+      document.getElementById(`tab-${tab}`)?.classList.remove("hidden");
+      selectedTab.value = btn.textContent?.trim() ?? tab;
+      clearErrors();
+    });
+  });
+
+  // Extra-Service: nur unter Innenreinigung / Außenreinigung anzeigbar, nicht bei Komplettpaket
+  const leistungRadios = document.querySelectorAll<HTMLInputElement>('input[name="leistung"]');
+
+  function updateExtraServiceVisibility() {
+    document.querySelectorAll<HTMLElement>(".extra-service-toggle").forEach((toggle) => {
+      const item = toggle.closest(".leistung-item")!;
+      const radio = item.querySelector<HTMLInputElement>('input[name="leistung"]')!;
+      const show = radio.checked;
+      toggle.style.display = show ? "flex" : "none";
+      if (!show) {
+        const checkbox = toggle.querySelector<HTMLInputElement>('input[name="extra_service"]')!;
+        checkbox.checked = false;
+      }
+    });
+  }
+
+  leistungRadios.forEach((radio) => radio.addEventListener("change", updateExtraServiceVisibility));
+  updateExtraServiceVisibility();
+
+  // Form submit + validation
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const generalError = document.getElementById("form-general-error")!;
+  const generalErrorText = document.getElementById("form-general-error-text")!;
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const submitBtnText = document.getElementById("submit-btn-text")!;
+
+  const ERROR_INPUT_CLASSES = ["border-red-400", "focus:ring-red-200"];
+
+  function clearErrors() {
+    form.querySelectorAll<HTMLElement>(".field-error").forEach((el) => {
+      el.classList.add("hidden");
+      el.textContent = "";
+    });
+    form.querySelectorAll<HTMLElement>("input, select, textarea").forEach((el) => {
+      el.classList.remove(...ERROR_INPUT_CLASSES);
+    });
+    generalError.classList.add("hidden");
+  }
+
+  function showFieldError(field: string, message: string) {
+    const errorEl = document.getElementById(`error-${field}`);
+    if (errorEl) {
+      errorEl.textContent = message;
+      errorEl.classList.remove("hidden");
+    }
+    form.querySelectorAll<HTMLElement>(`[name="${field}"]`).forEach((el) => {
+      el.classList.add(...ERROR_INPUT_CLASSES);
+    });
+  }
+
+  function showGeneralError(message: string) {
+    generalErrorText.textContent = message;
+    generalError.classList.remove("hidden");
+    generalError.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  function validateClientSide(activeTab: string, data: FormData): Record<string, string> {
+    const errors: Record<string, string> = {};
+    const name = (data.get("name") as string || "").trim();
+    const telefon = (data.get("telefon") as string || "").trim();
+    const email = (data.get("email") as string || "").trim();
+
+    if (!name) errors.name = "Bitte gib deinen Namen an.";
+    if (!telefon) errors.telefon = "Bitte gib deine Telefonnummer an.";
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.email = "Bitte gib eine gültige E-Mail-Adresse an.";
+    }
+
+    if (activeTab === "aufbereitung") {
+      const plz = (data.get("plz") as string || "").trim();
+      if (!plz) errors.plz = "Bitte gib deine Postleitzahl an.";
+      else if (!/^\d{5}$/.test(plz)) errors.plz = "Bitte gib eine gültige 5-stellige Postleitzahl an.";
+
+      const leistung = (data.get("leistung") as string || "").trim();
+      if (!leistung) errors.leistung = "Bitte wähle eine gewünschte Leistung aus.";
+    } else if (activeTab === "ankauf") {
+      const fahrzeug = (data.get("fahrzeug_ankauf") as string || "").trim();
+      if (!fahrzeug) errors.fahrzeug_ankauf = "Bitte gib Marke und Modell deines Fahrzeugs an.";
+    }
+
+    return errors;
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    clearErrors();
+
+    const activeTab = document.querySelector<HTMLButtonElement>(".tab-btn.active")?.dataset.tab || "aufbereitung";
+    const formData = new FormData(form);
+    const errors = validateClientSide(activeTab, formData);
+
+    if (Object.keys(errors).length > 0) {
+      Object.entries(errors).forEach(([field, message]) => showFieldError(field, message));
+      const firstField = Object.keys(errors)[0];
+      document.getElementById(`error-${firstField}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+
+    const payload = Object.fromEntries(formData.entries());
+
+    submitBtn.disabled = true;
+    submitBtn.classList.add("opacity-70", "cursor-not-allowed");
+    const originalText = submitBtnText.textContent;
+    submitBtnText.textContent = "Wird gesendet...";
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await res.json();
+
+      if (res.ok && result.success) {
+        const name = (payload.name as string || "").split(" ")[0];
+        const successText = document.getElementById("form-success-text")!;
+        successText.textContent = name
+          ? `Vielen Dank, ${name}! Wir haben deine Anfrage erhalten und melden uns so schnell wie möglich bei dir.`
+          : "Vielen Dank! Wir haben deine Anfrage erhalten und melden uns so schnell wie möglich bei dir.";
+        form.classList.add("hidden");
+        document.getElementById("form-success")!.classList.remove("hidden");
+      } else if (result.errors) {
+        let hasFieldError = false;
+        Object.entries(result.errors as Record<string, string>).forEach(([field, message]) => {
+          if (field === "_general") {
+            showGeneralError(message);
+          } else {
+            showFieldError(field, message);
+            hasFieldError = true;
+          }
+        });
+        if (hasFieldError) {
+          const firstField = Object.keys(result.errors).find((f) => f !== "_general");
+          if (firstField) document.getElementById(`error-${firstField}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      } else {
+        showGeneralError("Es ist ein unerwarteter Fehler aufgetreten. Bitte versuche es erneut.");
+      }
+    } catch {
+      showGeneralError("Die Anfrage konnte nicht gesendet werden. Bitte prüfe deine Internetverbindung und versuche es erneut.");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+      submitBtnText.textContent = originalText;
+    }
+  });
+</script>

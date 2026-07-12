@@ -1,0 +1,81 @@
+---
+import { getCollection } from "astro:content";
+import KategorieLayout from "../../../layouts/KategorieLayout.astro";
+
+export async function getStaticPaths() {
+  const CATEGORIES = [
+    {
+      slug: "autoaufbereitung",
+      eyebrow: "Autoaufbereitung",
+      title: "Ratgeber: Autoaufbereitung",
+      intro: "Alles rund um Politur, Lackpflege, Innenreinigung und mehr – fundiert und praxisnah für Ihr Fahrzeug im Raum Mannheim.",
+      subcategories: [
+        { name: "Autopolitur & Lackpflege", url: "/ratgeber/autoaufbereitung/autopolitur" },
+        { name: "Kratzer- & Dellenentfernung", url: "/ratgeber/autoaufbereitung/kratzer-entfernen" },
+        { name: "Innenraumreinigung", url: "/ratgeber/autoaufbereitung/innenreinigung" },
+        { name: "Lackversiegelung & Keramikversiegelung", url: "/ratgeber/autoaufbereitung/lackversiegelung" },
+        { name: "Außenreinigung & Handwäsche", url: "/ratgeber/autoaufbereitung/aussenreinigung" },
+        { name: "Kosten & Preise", url: "/ratgeber/autoaufbereitung/kosten-autoaufbereitung" },
+      ],
+    },
+    {
+      slug: "fahrzeugverkauf",
+      eyebrow: "Fahrzeugverkauf",
+      title: "Ratgeber: Auto verkaufen",
+      intro: "Sie möchten Ihr Auto verkaufen? Hier finden Sie alles zum Ablauf, zu Unterlagen und zur fairen Bewertung.",
+      subcategories: [],
+    },
+    {
+      slug: "fahrzeugankauf",
+      eyebrow: "Fahrzeugankauf",
+      title: "Ratgeber: Gebrauchtwagen kaufen",
+      intro: "Sie suchen einen Gebrauchtwagen? Hier finden Sie Kaufberatung, Checklisten und Praxistipps.",
+      subcategories: [],
+    },
+    {
+      slug: "wissen",
+      eyebrow: "Wissen",
+      title: "Ratgeber & Wissen",
+      intro: "Saisonale Pflegetipps, Produktvergleiche und Antworten auf die häufigsten Fragen rund ums Auto.",
+      subcategories: [],
+    },
+  ];
+
+  return CATEGORIES.map((cat) => ({ params: { kategorie: cat.slug }, props: cat }));
+}
+
+const { slug, eyebrow, title, intro, subcategories } = Astro.props;
+
+const allEntries = await getCollection("ratgeber");
+const entries = allEntries.filter((e) => e.data.category === slug);
+
+const CATEGORY_LABELS: Record<string, string> = {
+  autoaufbereitung: "Autoaufbereitung",
+  fahrzeugverkauf: "Auto verkaufen",
+  fahrzeugankauf: "Gebrauchtwagen kaufen",
+  wissen: "Wissen",
+};
+
+const articles = entries.map((e) => ({
+  title: e.data.title,
+  url: `/ratgeber/${slug}/${e.data.slug}`,
+  excerpt: e.data.metaDescription,
+  badge: CATEGORY_LABELS[slug],
+}));
+---
+
+<KategorieLayout
+  seoTitle={`${title} | PUX Automobile`}
+  metaDescription={intro.slice(0, 155)}
+  canonical={`https://pux-automobile.de/ratgeber/${slug}`}
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Ratgeber", href: "/ratgeber" },
+    { label: eyebrow },
+  ]}
+  eyebrow={eyebrow}
+  title={title}
+  intro={intro}
+  subcategories={subcategories}
+  articles={articles}
+/>

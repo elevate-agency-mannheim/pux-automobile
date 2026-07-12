@@ -1,0 +1,125 @@
+---
+import RatgeberLayout from "./RatgeberLayout.astro";
+import ArticleHeader from "../components/ratgeber/ArticleHeader.astro";
+import ArticleSidebar from "../components/ratgeber/ArticleSidebar.astro";
+import ArticleSchema from "../components/ratgeber/ArticleSchema.astro";
+import Summary from "../components/ratgeber/Summary.astro";
+import FAQ from "../components/ratgeber/FAQ.astro";
+import RelatedArticles from "../components/ratgeber/RelatedArticles.astro";
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+interface FaqItem {
+  frage: string;
+  antwort: string;
+}
+interface RelatedItem {
+  title: string;
+  url: string;
+  category: string;
+  excerpt?: string;
+}
+interface Props {
+  seoTitle: string;
+  metaDescription: string;
+  canonical?: string;
+  breadcrumbs: Crumb[];
+  title: string;
+  categoryLabel: string;
+  categoryUrl: string;
+  readingMinutes: number;
+  updatedDate?: Date;
+  publishDate: Date;
+  headings?: Heading[];
+  summary: string[];
+  faq?: FaqItem[];
+  related?: RelatedItem[];
+  schemaTypes?: string[];
+  url: string;
+}
+const {
+  seoTitle,
+  metaDescription,
+  canonical,
+  breadcrumbs,
+  title,
+  categoryLabel,
+  categoryUrl,
+  readingMinutes,
+  updatedDate,
+  publishDate,
+  headings = [],
+  summary,
+  faq = [],
+  related = [],
+  schemaTypes = ["Article"],
+  url,
+} = Astro.props;
+---
+
+<RatgeberLayout title={seoTitle} description={metaDescription} canonical={canonical} breadcrumbs={breadcrumbs} containerClass="max-w-6xl">
+  <ArticleSchema title={seoTitle} description={metaDescription} url={url} datePublished={publishDate} dateModified={updatedDate} schemaTypes={schemaTypes} />
+
+  <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
+    <article class="min-w-0 flex-1 max-w-3xl">
+      <ArticleHeader title={title} category={categoryLabel} categoryUrl={categoryUrl} readingMinutes={readingMinutes} updatedDate={updatedDate ?? publishDate} headings={headings} />
+
+      <Summary points={summary} />
+
+      <div class="prose-article text-gray-700 leading-relaxed">
+        <slot />
+      </div>
+
+      <Summary points={summary} title="Zusammenfassung" />
+
+      {faq.length > 0 && <FAQ items={faq} />}
+
+      <RelatedArticles items={related} />
+    </article>
+
+    <ArticleSidebar headings={headings} related={related.map((r) => ({ title: r.title, url: r.url }))} />
+  </div>
+</RatgeberLayout>
+
+<style is:global>
+  /* Typography for MDX article body content */
+  .prose-article h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #111827;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    scroll-margin-top: 96px;
+  }
+  .prose-article h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    scroll-margin-top: 96px;
+  }
+  .prose-article p {
+    margin-bottom: 1.1rem;
+    font-size: 0.975rem;
+  }
+  .prose-article ul, .prose-article ol {
+    margin-bottom: 1.1rem;
+    padding-left: 1.5rem;
+    font-size: 0.975rem;
+  }
+  .prose-article ul { list-style: disc; }
+  .prose-article ol { list-style: decimal; }
+  .prose-article li { margin-bottom: 0.4rem; }
+  .prose-article a { color: #1B2B6B; text-decoration: underline; text-underline-offset: 2px; }
+  .prose-article a:hover { color: #3A7BD5; }
+  .prose-article strong { color: #111827; font-weight: 700; }
+  .prose-article img { border-radius: 1rem; margin: 1.5rem 0; }
+</style>

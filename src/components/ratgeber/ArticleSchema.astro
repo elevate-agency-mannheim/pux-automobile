@@ -1,0 +1,71 @@
+---
+interface HowToStep {
+  name: string;
+  text: string;
+}
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: Date;
+  dateModified?: Date;
+  schemaTypes: string[];
+  howToSteps?: HowToStep[];
+  image?: string;
+}
+const {
+  title,
+  description,
+  url,
+  datePublished,
+  dateModified,
+  schemaTypes,
+  howToSteps = [],
+  image = "/logo.png",
+} = Astro.props;
+
+const siteUrl = "https://pux-automobile.de";
+const absUrl = new URL(url, siteUrl).toString();
+const absImage = new URL(image, siteUrl).toString();
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description,
+  image: absImage,
+  datePublished: datePublished.toISOString(),
+  dateModified: (dateModified ?? datePublished).toISOString(),
+  author: {
+    "@type": "Person",
+    name: "Luca Härle",
+    jobTitle: "Inhaber",
+    url: `${siteUrl}/#kontakt`,
+    worksFor: { "@type": "Organization", name: "PUX Automobile", url: siteUrl },
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "PUX Automobile",
+    logo: { "@type": "ImageObject", url: `${siteUrl}/logo.png` },
+  },
+  mainEntityOfPage: { "@type": "WebPage", "@id": absUrl },
+};
+
+const howToSchema =
+  schemaTypes.includes("HowTo") && howToSteps.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: title,
+        description,
+        step: howToSteps.map((s) => ({
+          "@type": "HowToStep",
+          name: s.name,
+          text: s.text,
+        })),
+      }
+    : null;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+{howToSchema && <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />}

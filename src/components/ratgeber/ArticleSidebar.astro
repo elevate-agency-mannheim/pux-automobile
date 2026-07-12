@@ -1,0 +1,80 @@
+---
+import CTAButton from "./CTAButton.astro";
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+interface RelatedItem {
+  title: string;
+  url: string;
+}
+interface Props {
+  headings?: Heading[];
+  related?: RelatedItem[];
+}
+const { headings = [], related = [] } = Astro.props;
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+<aside class="hidden lg:block w-72 flex-shrink-0">
+  <div class="sticky top-24 space-y-6">
+    {tocHeadings.length > 0 && (
+      <nav class="rounded-2xl border border-gray-100 bg-white shadow-sm p-5" aria-label="Inhaltsverzeichnis">
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-3">Inhaltsverzeichnis</p>
+        <ul class="toc-list space-y-2 text-sm border-l-2 border-gray-100">
+          {tocHeadings.map((h) => (
+            <li class={h.depth === 3 ? "pl-7" : "pl-4"}>
+              <a href={`#${h.slug}`} data-slug={h.slug} class="toc-link block -ml-0.5 border-l-2 border-transparent pl-3.5 py-0.5 text-gray-500 hover:text-[#1B2B6B] transition-colors">
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
+
+    <div class="rounded-2xl p-5 text-center" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+      <p class="text-white font-bold mb-1">Fragen zu diesem Thema?</p>
+      <p class="text-blue-100 text-xs mb-4 leading-relaxed">Wir beraten Sie unverbindlich und melden uns schnell zurück.</p>
+      <CTAButton text="Kontakt aufnehmen" class="w-full text-sm !py-2.5" />
+    </div>
+
+    {related.length > 0 && (
+      <div class="rounded-2xl border border-gray-100 bg-white shadow-sm p-5">
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-3">Verwandte Artikel</p>
+        <ul class="space-y-3">
+          {related.slice(0, 4).map((r) => (
+            <li>
+              <a href={r.url} class="text-sm text-gray-700 hover:text-[#1B2B6B] leading-snug transition-colors">{r.title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+</aside>
+
+<script>
+  // Highlight active TOC entry on scroll
+  const links = document.querySelectorAll<HTMLAnchorElement>(".toc-link");
+  if (links.length) {
+    const targets = [...links]
+      .map((l) => document.getElementById(l.dataset.slug || ""))
+      .filter((el): el is HTMLElement => !!el);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          links.forEach((l) => l.classList.remove("border-[#3A7BD5]", "text-[#1B2B6B]", "font-semibold"));
+          const active = document.querySelector<HTMLAnchorElement>(`.toc-link[data-slug="${entry.target.id}"]`);
+          active?.classList.add("border-[#3A7BD5]", "text-[#1B2B6B]", "font-semibold");
+        });
+      },
+      { rootMargin: "-90px 0px -70% 0px" }
+    );
+    targets.forEach((t) => observer.observe(t));
+  }
+</script>

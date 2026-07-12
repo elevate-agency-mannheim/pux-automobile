@@ -1,0 +1,72 @@
+---
+import Icons from "../Icons.astro";
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+interface Props {
+  title: string;
+  category: string;
+  categoryUrl: string;
+  readingMinutes: number;
+  updatedDate?: Date;
+  headings?: Heading[];
+}
+const { title, category, categoryUrl, readingMinutes, updatedDate, headings = [] } = Astro.props;
+
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
+
+const dateLabel = updatedDate
+  ? new Intl.DateTimeFormat("de-DE", { day: "2-digit", month: "long", year: "numeric" }).format(updatedDate)
+  : null;
+---
+
+<header class="mb-8 reveal">
+  <a href={categoryUrl} class="inline-block bg-[#EEF3FB] text-[#1B2B6B] text-xs font-bold px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase hover:bg-[#1B2B6B] hover:text-white transition-colors">
+    {category}
+  </a>
+
+  <h1 class="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-gray-900 leading-tight tracking-tight mb-5">
+    {title}
+  </h1>
+
+  <div class="flex items-center gap-2.5 mb-4">
+    <img src="/luca.jpg" alt="Luca Härle" class="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+    <p class="text-sm text-gray-700">
+      <span class="font-semibold text-gray-900">Luca Härle</span>
+      <span class="text-gray-400"> · </span>
+      <span class="text-gray-500">Inhaber, PUX Automobile</span>
+    </p>
+  </div>
+
+  <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-gray-500 mb-6">
+    <span class="flex items-center gap-1.5">
+      <Icons name="clock" class="w-4 h-4" />
+      {readingMinutes} Min. Lesezeit
+    </span>
+    {dateLabel && (
+      <span class="flex items-center gap-1.5">
+        <Icons name="document" class="w-4 h-4" />
+        Aktualisiert am {dateLabel}
+      </span>
+    )}
+  </div>
+
+  {tocHeadings.length > 0 && (
+    <details class="lg:hidden rounded-2xl border border-gray-100 bg-gray-50 p-4 mb-2" open={false}>
+      <summary class="flex items-center gap-2 font-semibold text-sm text-gray-900 cursor-pointer">
+        <Icons name="list" class="w-4 h-4 text-[#3A7BD5]" />
+        Inhaltsverzeichnis
+      </summary>
+      <ul class="mt-3 space-y-2 text-sm">
+        {tocHeadings.map((h) => (
+          <li class={h.depth === 3 ? "pl-4" : ""}>
+            <a href={`#${h.slug}`} class="text-gray-600 hover:text-[#1B2B6B] transition-colors">{h.text}</a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  )}
+</header>

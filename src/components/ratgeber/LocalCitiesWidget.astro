@@ -1,0 +1,29 @@
+---
+import Icons from "../Icons.astro";
+
+interface Props {
+  currentCity?: string;
+}
+const { currentCity } = Astro.props;
+
+const CITIES = ["Mannheim", "Heidelberg", "Ludwigshafen", "Karlsruhe", "Heilbronn", "Weinheim", "Schwetzingen"];
+
+function slugify(s: string) {
+  return s.toLowerCase();
+}
+---
+
+<div class="not-prose my-8 rounded-2xl border border-gray-100 bg-[#EEF3FB]/50 p-6">
+  <h3 class="flex items-center gap-2 font-bold text-gray-900 mb-4">
+    <Icons name="map-pin" class="w-5 h-5 text-[#3A7BD5]" />
+    Wir sind auch für Sie da in:
+  </h3>
+  <div class="flex flex-wrap gap-2.5">
+    {CITIES.filter((c) => c !== currentCity).map((city) => (
+      <a href={`/ratgeber/standorte/${slugify(city)}`}
+        class="inline-flex items-center gap-1.5 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-gray-700 hover:border-[#3A7BD5] hover:text-[#1B2B6B] transition-colors">
+        {city}
+      </a>
+    ))}
+  </div>
+</div>

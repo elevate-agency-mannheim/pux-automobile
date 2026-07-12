@@ -1,0 +1,688 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import BeforeAfterSlider from "../components/BeforeAfterSlider.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Icons from "../components/Icons.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+  <Nav />
+
+  <!-- HERO -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center bg-white pt-24" style="overflow: clip;">
+    <div id="hero-orbs" class="absolute inset-0 pointer-events-none" style="overflow:clip;">
+      <div class="absolute top-0 -right-24 h-full w-auto md:top-1/2 md:h-auto md:w-[min(1000px,110vw)] md:-translate-y-1/2">
+        <img src="/x-mark.webp" alt="" class="h-full w-auto md:h-auto md:w-full opacity-60" />
+      </div>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2.5 text-[#1B2B6B] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-8 border border-[#1B2B6B]/15 bg-[#EEF3FB] reveal" style="max-width:calc(100vw - 3rem);">
+        <span class="pulse-dot"></span>
+        <span class="whitespace-nowrap overflow-hidden text-ellipsis">Mannheim &amp; Umgebung · 30 km</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-[1.08] tracking-tight mb-6 reveal" style="transition-delay:0.1s">
+        Ihr Auto.<br />
+        <span class="gradient-text">Perfekt aufbereitet.</span><br />
+        Direkt vor Ihrer Tür.
+      </h1>
+
+      <p class="text-lg sm:text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed reveal" style="transition-delay:0.2s">
+        Mobile Fahrzeugaufbereitung auf Profi-Niveau & fairer An-/Verkauf von Gebrauchtfahrzeugen
+        im Raum Mannheim.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center reveal" style="transition-delay:0.3s">
+        <a href="#kontakt" class="btn-primary text-base group">
+          Unverbindlich anfragen
+          <Icons name="arrow-right" class="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+        </a>
+        <a href="#ablauf" class="btn-ghost text-base">
+          Ablauf ansehen
+        </a>
+      </div>
+
+      <div class="reveal stagger flex flex-wrap justify-center gap-8 mt-16" style="transition-delay:0.4s">
+        {[
+          { icon: "check-circle" as const, label: "Mobiler Service" },
+          { icon: "check-circle" as const, label: "Faire Preise" },
+          { icon: "check-circle" as const, label: "Profi-Ergebnisse" },
+          { icon: "check-circle" as const, label: "24h Reaktionszeit" },
+        ].map(({ icon, label }) => (
+          <span class="flex items-center gap-2 text-sm text-gray-500 font-medium">
+            <Icons name={icon} class="w-4 h-4 text-[#3A7BD5]" />
+            {label}
+          </span>
+        ))}
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section class="py-24 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-block bg-[#EEF3FB] text-[#1B2B6B] text-xs font-bold px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">Autoaufbereitung</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Unser PUX-Effekt</h2>
+        <p class="text-gray-500 text-lg max-w-xl mx-auto">Ziehen Sie den Regler und erleben Sie die Verwandlung – innen wie außen.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="reveal flex flex-col gap-3" style="transition-delay:0.05s">
+          <div class="flex items-center gap-2 mb-1">
+            <div class="w-7 h-7 rounded-lg flex items-center justify-center text-white flex-shrink-0" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+              <Icons name="sparkles" class="w-4 h-4" />
+            </div>
+            <span class="font-semibold text-gray-800">Außenreinigung</span>
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded-2xl shadow-md">
+            <BeforeAfterSlider
+              beforeSrc="/aussen-vorher.jpg"
+              afterSrc="/aussen-nachher.jpg"
+              beforeAlt="Fahrzeugaußenseite vor der Aufbereitung – verschmutzt"
+              afterAlt="Fahrzeugaußenseite nach der Aufbereitung durch PUX – glänzend sauber"
+            />
+          </div>
+          <p class="text-xs text-gray-400 text-center tracking-wide">← Regler ziehen →</p>
+        </div>
+
+        <div class="reveal flex flex-col gap-3" style="transition-delay:0.15s">
+          <div class="flex items-center gap-2 mb-1">
+            <div class="w-7 h-7 rounded-lg flex items-center justify-center text-white flex-shrink-0" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+              <Icons name="star" class="w-4 h-4" />
+            </div>
+            <span class="font-semibold text-gray-800">Innenreinigung</span>
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded-2xl shadow-md">
+            <BeforeAfterSlider
+              beforeSrc="/innen-vorher.jpg"
+              afterSrc="/innen-nachher.jpg"
+              beforeAlt="Fahrzeuginnenraum vor der Aufbereitung – verschmutzt"
+              afterAlt="Fahrzeuginnenraum nach der Aufbereitung durch PUX – makellos sauber"
+            />
+          </div>
+          <p class="text-xs text-gray-400 text-center tracking-wide">← Regler ziehen →</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="leistungen" class="py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <span class="inline-block bg-[#EEF3FB] text-[#1B2B6B] text-xs font-bold px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">Leistungen</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Alles aus einer Hand</h2>
+        <p class="text-gray-500 text-lg max-w-lg mx-auto">Von der Aufbereitung bis zum Fahrzeughandel – Ihr Partner rund ums Auto.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+
+        <!-- Aufbereitung -->
+        <div class="reveal spotlight bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col h-full">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-white flex-shrink-0" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+            <Icons name="sparkles" class="w-6 h-6" />
+          </div>
+          <div class="flex items-center gap-2 mb-3 flex-wrap">
+            <h3 class="text-xl font-bold text-gray-900">Autoaufbereitung</h3>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-[#1B2B6B]">Mobil vor Ort</span>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed mb-6">Professionelle Innen- & Außenreinigung auf höchstem Niveau – wir kommen direkt zu Ihnen nach Hause.</p>
+          <ul class="reveal stagger space-y-2.5 mb-6 flex-1">
+            {["Innenreinigung & Desinfektion", "Außenwäsche & Politur", "Felgen & Reifenpflege", "Lackversiegelung auf Anfrage"].map((d) => (
+              <li class="flex items-start gap-2.5 text-sm text-gray-600">
+                <Icons name="check-circle" class="w-4 h-4 text-[#3A7BD5] mt-0.5 flex-shrink-0" />
+                {d}
+              </li>
+            ))}
+          </ul>
+          <p class="text-xs text-gray-400 mb-5 border-t border-gray-100 pt-4 leading-relaxed">Kostenlos im 30-km-Umkreis Mannheim. Darüber hinaus zzgl. Anfahrtspauschale.</p>
+          <a href="#kontakt" data-tab="aufbereitung" class="group mt-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5 transition-all duration-200">
+            Jetzt anfragen <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        </div>
+
+        <!-- Fahrzeughandel – single unified card -->
+        <div class="reveal spotlight bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden" style="transition-delay:0.1s">
+
+          <!-- Shared header -->
+          <div class="flex items-center gap-3 px-8 py-5 border-b border-gray-100" style="background: linear-gradient(135deg,#f0f4ff,#e8f0fb);">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white flex-shrink-0" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+              <Icons name="car" class="w-5 h-5" />
+            </div>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">Fahrzeughandel</p>
+              <p class="text-xs text-gray-400 mt-0.5">An- & Verkauf aus einer Hand</p>
+            </div>
+          </div>
+
+          <!-- Ankauf -->
+          <div class="p-7 flex flex-col flex-1">
+            <div class="flex items-start gap-4 mb-4">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white flex-shrink-0" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+                <Icons name="banknote" class="w-5 h-5" />
+              </div>
+              <div>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <h3 class="text-lg font-bold text-gray-900">Fahrzeugankauf</h3>
+                  <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">Faire Preise</span>
+                </div>
+                <p class="text-gray-500 text-sm mt-1 leading-relaxed">Wir kaufen Ihr Fahrzeug schnell und unkompliziert zu einem fairen Marktpreis.</p>
+              </div>
+            </div>
+            <ul class="reveal stagger space-y-2 mb-5 pl-0">
+              {["Kostenlose Fahrzeugbewertung", "Sofortige Kaufzusage", "Barzahlung oder Überweisung", "Abmeldung inklusive"].map((d) => (
+                <li class="flex items-center gap-2 text-sm text-gray-600">
+                  <Icons name="check-circle" class="w-4 h-4 text-[#3A7BD5] flex-shrink-0" />
+                  {d}
+                </li>
+              ))}
+            </ul>
+            <a href="#kontakt" data-tab="ankauf" class="group inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5 transition-all duration-200">
+              Fahrzeug verkaufen <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </div>
+
+          <!-- Divider -->
+          <div class="flex items-center gap-4 mx-7">
+            <div class="flex-1 h-px bg-gray-100"></div>
+            <span class="text-xs font-semibold text-gray-300 tracking-widest uppercase">oder</span>
+            <div class="flex-1 h-px bg-gray-100"></div>
+          </div>
+
+          <!-- Verkauf -->
+          <div class="p-7 flex flex-col flex-1">
+            <div class="flex items-start gap-4 mb-4">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white flex-shrink-0" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+                <Icons name="star" class="w-5 h-5" />
+              </div>
+              <div>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <h3 class="text-lg font-bold text-gray-900">Fahrzeugverkauf</h3>
+                  <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700">Rundum-Service</span>
+                </div>
+                <p class="text-gray-500 text-sm mt-1 leading-relaxed">Wir vermarkten Ihr Fahrzeug professionell und finden den richtigen Käufer.</p>
+              </div>
+            </div>
+            <ul class="reveal stagger space-y-2 mb-5 pl-0">
+              {["Professionelle Fahrzeugfotos", "Inserate auf allen Portalen", "Kaufberatung & Besichtigung", "Sichere Abwicklung"].map((d) => (
+                <li class="flex items-center gap-2 text-sm text-gray-600">
+                  <Icons name="check-circle" class="w-4 h-4 text-[#3A7BD5] flex-shrink-0" />
+                  {d}
+                </li>
+              ))}
+            </ul>
+            <a href="#kontakt" data-tab="verkauf" class="group inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5 transition-all duration-200">
+              Fahrzeug kaufen <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAKETE -->
+  <section id="pakete" class="py-24 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <span class="inline-block bg-[#EEF3FB] text-[#1B2B6B] text-xs font-bold px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">Preise</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Unsere Pakete</h2>
+        <p class="text-gray-500 text-lg max-w-lg mx-auto">Mobile Fahrzeugaufbereitung direkt vor Ihrer Haustür – transparent &amp; ohne versteckte Kosten.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-20">
+        {[
+          {
+            icon: "seat" as const,
+            title: "Innenraum",
+            subtitle: "Komfort",
+            price: "130",
+            features: [
+              "Gründliches Aussaugen des gesamten Innenraums inkl. Kofferraum",
+              "Reinigung und Pflege von Armaturenbrett und Innenverkleidungen",
+              "Fleckenentfernung aus Polstern und Teppichen",
+              "Lederreinigung und -pflege",
+              "Sorgfältige Reinigung bis in jeden Schlitz und jedes Detail",
+            ],
+            featured: false,
+          },
+          {
+            icon: "car" as const,
+            title: "Außen",
+            subtitle: "Glanz",
+            price: "90",
+            features: [
+              "Lackschonende Handaußenwäsche",
+              "Gründliche Felgen- und Radkastenreinigung",
+              "Entfernung von Teer-, Harz- und Insektenresten",
+              "Trocknung mit hochwertigen Mikrofasertüchern",
+              "Alle äußeren Details wieder sauber, gepflegt und glänzend",
+            ],
+            featured: false,
+          },
+          {
+            icon: "sparkles" as const,
+            title: "Komplettpaket",
+            subtitle: "Premium",
+            price: "220",
+            combo: "Innen & Außen kombiniert",
+            features: [
+              "Alle Leistungen aus Innenraum Komfort",
+              "Alle Leistungen aus Außen Glanz",
+              "Inklusive Anfahrt & Aufbau",
+              "Inklusive Entsorgung von Schmutzwasser & Müll",
+            ],
+            bonus: { title: "Kostenlose einstufige Lackpolitur inkl. Keramikversiegelung", was: "350 €" },
+            featured: true,
+          },
+        ].map((pkg, i) => (
+          <div class={`reveal spotlight ${pkg.featured ? "glow-behind" : ""} relative bg-white rounded-3xl border ${pkg.featured ? "border-[#3A7BD5] shadow-xl md:-translate-y-3" : "border-gray-100 shadow-sm"} hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col h-full`} style={`transition-delay:${i * 0.1}s`}>
+            {pkg.featured && (
+              <span class="badge-shimmer absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 bg-amber-400 text-gray-900 text-xs font-bold px-4 py-1.5 rounded-full shadow-md whitespace-nowrap">
+                <Icons name="star" class="w-3.5 h-3.5" /> SEHR BELIEBT
+              </span>
+            )}
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-white flex-shrink-0" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+              <Icons name={pkg.icon} class="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 leading-tight">{pkg.title}</h3>
+            <p class="text-sm font-bold tracking-widest uppercase mb-4" style="color:#3A7BD5;">{pkg.subtitle}</p>
+            <div class="mb-1">
+              <span class="price-counter text-4xl font-extrabold text-gray-900" data-target={pkg.price}>0</span><span class="text-4xl font-extrabold text-gray-900"> €</span>
+            </div>
+            <p class="text-xs text-gray-400 mb-4">inkl. MwSt.</p>
+            {pkg.combo && <p class="text-sm font-semibold mb-4" style="color:#3A7BD5;">{pkg.combo}</p>}
+            <ul class="reveal stagger space-y-2.5 mb-6 flex-1">
+              {pkg.features.map((f) => (
+                <li class="flex items-start gap-2.5 text-sm text-gray-600">
+                  <Icons name="check-circle" class="w-4 h-4 text-[#3A7BD5] mt-0.5 flex-shrink-0" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+            {pkg.bonus && (
+              <div class="rounded-2xl border-2 border-amber-300 bg-amber-50 p-4 mb-6">
+                <p class="text-xs font-bold text-amber-700 tracking-widest uppercase mb-1">Inklusive</p>
+                <p class="text-sm font-extrabold text-gray-900 leading-snug">{pkg.bonus.title}</p>
+                <p class="text-xs text-gray-500 mt-1">statt <span class="line-through">{pkg.bonus.was}</span></p>
+              </div>
+            )}
+            <a href="#kontakt" data-tab="aufbereitung" class={`group mt-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold transition-all duration-200 ${pkg.featured ? "btn-primary" : "text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5"}`}>
+              Paket anfragen <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- Zubuchbare Extras -->
+      <div class="reveal">
+        <h3 class="text-center text-xs font-bold text-gray-400 tracking-widest uppercase mb-8">Zubuchbare Extras</h3>
+        <div class="max-w-xl mx-auto">
+          <div class="spotlight bg-white rounded-2xl border-2 border-amber-200 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 p-6 flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-amber-600 bg-amber-50 flex-shrink-0">
+              <Icons name="shield-check" class="w-6 h-6" />
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between gap-3 flex-wrap mb-1.5">
+                <h4 class="font-bold text-gray-900">Extra-Service hinzufügen</h4>
+                <span class="text-sm font-extrabold text-white bg-[#1B2B6B] px-3 py-1 rounded-full flex-shrink-0">350 €</span>
+              </div>
+              <p class="text-sm text-gray-500 leading-relaxed">Einstufige Lackpolitur inkl. Keramikversiegelung.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USPs -->
+  <section class="py-20 px-6" style="background: linear-gradient(135deg,#1B2B6B 0%,#3A7BD5 100%);">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
+      {[
+        { icon: "map-pin" as const,      title: "Mobil & flexibel",  desc: "Wir kommen zu Ihnen – kein Umweg." },
+        { icon: "shield-check" as const, title: "30 km Umkreis",     desc: "Mannheim & gesamte Rhein-Neckar-Region." },
+        { icon: "star" as const,         title: "Profi-Qualität",    desc: "Showroom-Ergebnis, jedes Mal." },
+        { icon: "handshake" as const,    title: "Faire Preise",      desc: "Transparent, ohne versteckte Kosten." },
+      ].map(({ icon, title, desc }, i) => (
+        <div class="reveal text-center" style={`transition-delay:${i * 0.1}s`}>
+          <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-4 text-white">
+            <Icons name={icon} class="w-6 h-6" />
+          </div>
+          <h3 class="text-white font-bold mb-1.5">{title}</h3>
+          <p class="text-blue-200 text-sm leading-relaxed">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="ablauf" class="py-24 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <span class="inline-block bg-[#EEF3FB] text-[#1B2B6B] text-xs font-bold px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">Ablauf</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">In 4 Schritten zu Ihrem Ergebnis</h2>
+        <p class="text-gray-500 text-lg max-w-lg mx-auto">Unkompliziert und transparent – von der ersten Anfrage bis zur fertigen Leistung.</p>
+      </div>
+
+      <div class="relative">
+        <div class="hidden md:block absolute top-9 left-[12.5%] right-[12.5%] h-px" style="background: linear-gradient(90deg,#1B2B6B,#3A7BD5);"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+          {[
+            { icon: "chat" as const,        step: "01", title: "Anfrage",      desc: "Fahrzeugdaten & Wunsch übermitteln – per Formular oder Telefon." },
+            { icon: "search" as const,       step: "02", title: "Einschätzung", desc: "Wir prüfen Ihr Fahrzeug und erstellen eine transparente Bewertung." },
+            { icon: "document" as const,     step: "03", title: "Angebot",      desc: "Verbindliches Angebot ohne versteckte Kosten." },
+            { icon: "check-circle" as const, step: "04", title: "Leistung",     desc: "Wir führen die Aufbereitung oder Transaktion schnell durch." },
+          ].map(({ icon, step, title, desc }, i) => (
+            <div class="reveal flex flex-col items-center text-center" style={`transition-delay:${i * 0.15}s`}>
+              <div class="relative z-10 w-[72px] h-[72px] rounded-full flex items-center justify-center mb-5 text-white shadow-lg" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+                <Icons name={icon} class="w-7 h-7" />
+              </div>
+              <span class="text-xs font-bold text-[#3A7BD5] tracking-widest mb-1.5 uppercase">Schritt {step}</span>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">{title}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="py-24 px-6 bg-gray-50 overflow-hidden">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-block bg-[#EEF3FB] text-[#1B2B6B] text-xs font-bold px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">Impressionen</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Handwerk, das man sieht</h2>
+        <p class="text-gray-500 text-lg max-w-lg mx-auto">Ein kleiner Einblick in unsere Arbeit – von der Wäsche bis zum letzten Glanz.</p>
+      </div>
+    </div>
+
+    <div class="relative">
+      <button type="button" data-gallery-prev aria-label="Vorheriges Video" class="hidden md:flex absolute left-4 lg:left-10 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm items-center justify-center text-gray-500 hover:text-[#1B2B6B] hover:border-[#1B2B6B] transition-colors">
+        <Icons name="chevron-right" class="w-4 h-4 rotate-180" />
+      </button>
+      <button type="button" data-gallery-next aria-label="Nächstes Video" class="hidden md:flex absolute right-4 lg:right-10 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border border-gray-200 bg-white shadow-sm items-center justify-center text-gray-500 hover:text-[#1B2B6B] hover:border-[#1B2B6B] transition-colors">
+        <Icons name="chevron-right" class="w-4 h-4" />
+      </button>
+
+      <div data-gallery-track class="reveal flex gap-4 md:gap-5 overflow-x-auto snap-x snap-mandatory scroll-px-6 md:scroll-px-[calc((100vw-64rem)/2)] pb-2 px-6 md:px-[calc((100vw-64rem)/2)] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+      {[
+        { src: "/videos/carcare-1.mp4", alt: "Mobile Autoaufbereitung von PUX Automobile – Impression 1" },
+        { src: "/videos/carcare-2.mp4", alt: "Mobile Autoaufbereitung von PUX Automobile – Impression 2" },
+        { src: "/videos/carcare-3.mp4", alt: "Mobile Autoaufbereitung von PUX Automobile – Impression 3" },
+        { src: "/videos/carcare-4.mp4", alt: "Mobile Autoaufbereitung von PUX Automobile – Impression 4" },
+        { src: "/videos/carcare-5.mp4", alt: "Mobile Autoaufbereitung von PUX Automobile – Impression 5" },
+        { src: "/videos/carcare-6.mp4", alt: "Mobile Autoaufbereitung von PUX Automobile – Impression 6" },
+        { src: "/videos/carcare-7.mp4", alt: "Mobile Autoaufbereitung von PUX Automobile – Impression 7" },
+      ].map((clip) => (
+        <div data-gallery-card data-playing="false" class="group relative flex-shrink-0 w-[58vw] sm:w-[210px] md:w-[220px] aspect-[9/16] snap-start [scroll-snap-stop:always] rounded-2xl overflow-hidden bg-gray-900 shadow-sm cursor-pointer select-none">
+          <video
+            data-gallery-video
+            src={clip.src}
+            aria-label={clip.alt}
+            class="w-full h-full object-cover"
+            muted
+            playsinline
+            preload="metadata"
+          />
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-[.is-active]:opacity-100 transition-opacity duration-300"></div>
+
+          <span class="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <span class="w-12 h-12 rounded-full bg-black/45 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 [[data-playing='false']_&]:opacity-100 transition-opacity duration-200">
+              <Icons name="play" class="w-5 h-5 ml-0.5 [[data-playing='true']_&]:hidden" />
+              <Icons name="pause" class="w-5 h-5 hidden [[data-playing='true']_&]:block" />
+            </span>
+          </span>
+
+          <button
+            type="button"
+            data-gallery-mute
+            data-muted="true"
+            aria-label="Ton ein-/ausschalten"
+            aria-pressed="false"
+            class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/45 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-[.is-active]:opacity-100 transition-opacity duration-300"
+          >
+            <Icons name="speaker-x-mark" class="w-4 h-4 [[data-muted='false']_&]:hidden" />
+            <Icons name="speaker-wave" class="w-4 h-4 hidden [[data-muted='false']_&]:block" />
+          </button>
+        </div>
+      ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const track = document.querySelector<HTMLElement>("[data-gallery-track]");
+      if (!track) return;
+      const cards = Array.from(track.querySelectorAll<HTMLElement>("[data-gallery-card]"));
+      const isDesktop = () => window.matchMedia("(min-width: 768px)").matches;
+
+      // Only one video ever plays at a time.
+      const playVideo = (index: number) => {
+        cards.forEach((c, i) => {
+          const video = c.querySelector("video");
+          if (!video) return;
+          if (i === index) {
+            c.classList.add("is-active");
+            c.dataset.playing = "true";
+            video.play().catch(() => {});
+          } else {
+            c.classList.remove("is-active");
+            c.dataset.playing = "false";
+            video.pause();
+          }
+        });
+      };
+
+      const pauseVideo = (index: number) => {
+        const card = cards[index];
+        const video = card?.querySelector("video");
+        if (!card || !video) return;
+        video.pause();
+        card.dataset.playing = "false";
+      };
+
+      // Clicking/tapping a card toggles play/pause; clicking a different
+      // card switches to it (and pauses whatever was playing before).
+      cards.forEach((card, index) => {
+        card.addEventListener("click", () => {
+          const isPlaying = card.dataset.playing === "true";
+          if (isPlaying) {
+            pauseVideo(index);
+          } else {
+            playVideo(index);
+          }
+        });
+
+        const video = card.querySelector("video");
+        video?.addEventListener("ended", () => {
+          if (isDesktop()) {
+            // Desktop: auto-advance through the set, one video after another.
+            const next = (index + 1) % cards.length;
+            playVideo(next);
+            cards[next]?.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+          } else {
+            // Mobile: stay on the swiped-to video, just loop it.
+            video.currentTime = 0;
+            video.play().catch(() => {});
+          }
+        });
+      });
+
+      // Scrolling/swiping to a card (mobile swipe, or desktop arrow buttons)
+      // makes that one the active, playing video.
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const mostVisible = entries
+            .filter((e) => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (mostVisible) {
+            const idx = cards.indexOf(mostVisible.target as HTMLElement);
+            if (idx !== -1) playVideo(idx);
+          }
+        },
+        { root: track, threshold: [0.5, 0.6, 0.7, 0.8, 0.9] }
+      );
+      cards.forEach((c) => observer.observe(c));
+
+      track.querySelectorAll<HTMLButtonElement>("[data-gallery-mute]").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const card = btn.closest<HTMLElement>("[data-gallery-card]");
+          const video = card?.querySelector("video");
+          if (!video) return;
+          video.muted = !video.muted;
+          btn.dataset.muted = String(video.muted);
+          btn.setAttribute("aria-pressed", String(!video.muted));
+        });
+      });
+
+      const scrollByCard = (dir: 1 | -1) => {
+        const card = cards[0];
+        if (!card) return;
+        const amount = card.getBoundingClientRect().width + 20;
+        track.scrollBy({ left: dir * amount, behavior: "smooth" });
+      };
+      document.querySelector("[data-gallery-prev]")?.addEventListener("click", () => scrollByCard(-1));
+      document.querySelector("[data-gallery-next]")?.addEventListener("click", () => scrollByCard(1));
+    })();
+  </script>
+
+  <!-- CONTACT -->
+  <section id="kontakt" class="py-24 px-6 bg-gray-50">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="inline-block bg-[#EEF3FB] text-[#1B2B6B] text-xs font-bold px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">Kontakt</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Unverbindlich anfragen</h2>
+        <p class="text-gray-500 text-lg max-w-lg mx-auto">
+          Wählen Sie Ihr Anliegen – wir melden uns <strong class="text-gray-700 font-semibold">innerhalb von 24 Stunden</strong> bei Ihnen.
+        </p>
+      </div>
+      <div class="reveal" style="transition-delay:0.1s">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24 px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-block bg-[#EEF3FB] text-[#1B2B6B] text-xs font-bold px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">FAQ</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Häufig gestellte Fragen</h2>
+        <p class="text-gray-500 text-lg max-w-lg mx-auto">Antworten auf die wichtigsten Fragen rund um unseren Service.</p>
+      </div>
+
+      <div class="reveal stagger space-y-3">
+        {[
+          {
+            q: "Gibt es eine Zufriedenheitsgarantie?",
+            a: "Ja. Sollten Sie einmal nicht zufrieden sein, sprechen Sie uns an. Wir finden gemeinsam eine Lösung und bessern bei Bedarf nach.",
+          },
+          {
+            q: "Wo findet die Aufbereitung statt?",
+            a: "Die Aufbereitung erfolgt direkt bei Ihnen vor Ort. Benötigt werden lediglich ein Strom- und Wasseranschluss.",
+          },
+          {
+            q: "Welches Gebiet fahren Sie an?",
+            a: "Wir sind im Umkreis von 30 km rund um Mannheim unterwegs. Darüber hinaus berechnen wir 0,80 € pro zusätzlichem Kilometer.",
+          },
+          {
+            q: "Wie lange dauert eine Fahrzeugaufbereitung?",
+            a: "Je nach Paket und Zustand des Fahrzeugs dauert eine Aufbereitung zwischen 1,5 und 4 Stunden. Bei der Terminbestätigung nennen wir Ihnen eine genaue Zeiteinschätzung.",
+          },
+          {
+            q: "Muss ich bei der Aufbereitung anwesend sein?",
+            a: "Nein, das ist nicht notwendig. Wichtig ist nur, dass wir Zugang zum Fahrzeug sowie zu Strom- und Wasseranschluss haben.",
+          },
+          {
+            q: "Wie kann ich bezahlen?",
+            a: "Die Bezahlung erfolgt unkompliziert vor Ort in bar oder per Überweisung. Details dazu klären wir bei der Terminbestätigung.",
+          },
+        ].map((faq) => (
+          <div class="faq-item border border-gray-100 rounded-2xl overflow-hidden bg-white shadow-sm">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-6 py-5 hover:bg-gray-50 transition-colors" aria-expanded="false">
+              <span class="font-semibold text-gray-900">{faq.q}</span>
+              <span class="faq-icon flex-shrink-0 w-7 h-7 rounded-full bg-[#EEF3FB] flex items-center justify-center text-[#1B2B6B] transition-transform duration-300">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-panel grid" style="grid-template-rows: 0fr;">
+              <div class="overflow-hidden">
+                <p class="px-6 pb-5 text-sm text-gray-600 leading-relaxed">{faq.a}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>("a[data-tab]").forEach((link) => {
+    link.addEventListener("click", () => {
+      const btn = document.querySelector<HTMLButtonElement>(`.tab-btn[data-tab="${link.dataset.tab}"]`);
+      if (btn) setTimeout(() => btn.click(), 400);
+    });
+  });
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // FAQ accordion
+  document.querySelectorAll<HTMLElement>(".faq-item").forEach((item) => {
+    const trigger = item.querySelector<HTMLButtonElement>(".faq-trigger")!;
+    const panel = item.querySelector<HTMLElement>(".faq-panel")!;
+    trigger.addEventListener("click", () => {
+      const open = trigger.getAttribute("aria-expanded") === "true";
+      trigger.setAttribute("aria-expanded", String(!open));
+      panel.style.gridTemplateRows = open ? "0fr" : "1fr";
+    });
+  });
+
+  // Cursor spotlight glow for ".spotlight" cards
+  document.querySelectorAll<HTMLElement>(".spotlight").forEach((card) => {
+    card.addEventListener("pointermove", (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+      card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+    });
+  });
+
+  // Animated price count-up when a package card scrolls into view
+  const priceEls = document.querySelectorAll<HTMLElement>(".price-counter");
+  const priceObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target as HTMLElement;
+        const target = Number(el.dataset.target ?? "0");
+        priceObserver.unobserve(el);
+
+        if (reduceMotion) { el.textContent = String(target); return; }
+
+        const duration = 900;
+        const start = performance.now();
+        function tick(now: number) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = String(Math.round(target * eased));
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    },
+    { threshold: 0.4 }
+  );
+  priceEls.forEach((el) => priceObserver.observe(el));
+</script>

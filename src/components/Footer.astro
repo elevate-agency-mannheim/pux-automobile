@@ -1,0 +1,165 @@
+---
+import Icons from "./Icons.astro";
+
+const RATGEBER_KATEGORIEN = [
+  { name: "Autoaufbereitung", url: "/ratgeber/autoaufbereitung" },
+  { name: "Auto verkaufen", url: "/ratgeber/fahrzeugverkauf" },
+  { name: "Gebrauchtwagen kaufen", url: "/ratgeber/fahrzeugankauf" },
+  { name: "Ratgeber & Wissen", url: "/ratgeber/wissen" },
+];
+
+const TOP_THEMEN = [
+  { name: "Kratzer entfernen", url: "/ratgeber/autoaufbereitung/kratzer-entfernen" },
+  { name: "Autopolitur & Lackpflege", url: "/ratgeber/autoaufbereitung/autopolitur" },
+  { name: "Keramikversiegelung", url: "/ratgeber/autoaufbereitung/lackversiegelung" },
+  { name: "Innenraumreinigung", url: "/ratgeber/autoaufbereitung/innenreinigung" },
+  { name: "Was kostet eine Autoaufbereitung?", url: "/ratgeber/autoaufbereitung/kosten-autoaufbereitung" },
+];
+
+const STANDORTE = ["Mannheim", "Heidelberg", "Ludwigshafen", "Karlsruhe", "Heilbronn", "Weinheim", "Schwetzingen"];
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-50 text-gray-500 pt-16 pb-8 px-6 border-t border-gray-100">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 pb-10">
+
+      <!-- Brand -->
+      <div class="col-span-2 md:col-span-1 flex flex-col gap-4">
+        <img src="/logo.png" alt="PUX Automobile" class="h-[77px] w-auto self-start"
+          onerror="this.outerHTML='<span style=\'font-weight:800;font-size:1.1rem;color:#1B2B6B;\'>PUX AUTOMOBILE</span>'" />
+        <p class="text-sm text-gray-500 leading-relaxed max-w-[240px]">
+          Mobile Autoaufbereitung & Fahrzeughandel im Raum Mannheim. Direkt zu Ihnen nach Hause.
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <p class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Navigation</p>
+        <ul class="space-y-3 text-sm">
+          <li><a href="/" class="text-gray-600 hover:text-[#1B2B6B] transition-colors">Startseite</a></li>
+          <li><a href="/#leistungen" class="text-gray-600 hover:text-[#1B2B6B] transition-colors">Leistungen</a></li>
+          <li><a href="/#pakete" class="text-gray-600 hover:text-[#1B2B6B] transition-colors">Pakete</a></li>
+          <li><a href="/#ablauf" class="text-gray-600 hover:text-[#1B2B6B] transition-colors">Ablauf</a></li>
+          <li><a href="/ratgeber" class="text-gray-600 hover:text-[#1B2B6B] transition-colors">Ratgeber</a></li>
+        </ul>
+      </div>
+
+      <!-- Leistungen -->
+      <div>
+        <p class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Leistungen</p>
+        <ul class="space-y-3 text-sm">
+          <li><a href="/#leistungen" class="text-gray-600 hover:text-[#1B2B6B] transition-colors">Autoaufbereitung</a></li>
+          <li><a href="/#leistungen" class="text-gray-600 hover:text-[#1B2B6B] transition-colors">Fahrzeugankauf</a></li>
+          <li><a href="/#leistungen" class="text-gray-600 hover:text-[#1B2B6B] transition-colors">Fahrzeugverkauf</a></li>
+        </ul>
+      </div>
+
+      <!-- Kontakt -->
+      <div>
+        <p class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Kontakt</p>
+
+        <div class="flex items-center gap-3 mb-4">
+          <img src="/luca.jpg" alt="Luca Härle" class="w-10 h-10 rounded-full object-cover flex-shrink-0" />
+          <div>
+            <p class="text-sm font-bold text-gray-900 leading-tight flex items-center gap-1.5">
+              Luca Härle
+              <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[#3A7BD5] flex-shrink-0">
+                <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+              </span>
+            </p>
+            <p class="text-xs text-gray-400">Inhaber</p>
+          </div>
+        </div>
+
+        <ul class="space-y-3">
+          <li>
+            <a href="tel:+491783108402" class="group flex items-center gap-2.5 text-sm text-gray-600 hover:text-[#1B2B6B] transition-colors">
+              <span class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:border-[#3A7BD5]/40 transition-colors">
+                <Icons name="phone" class="w-3.5 h-3.5" />
+              </span>
+              0178 3108402
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/491783108402" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2.5 text-sm text-gray-600 hover:text-[#1B2B6B] transition-colors">
+              <span class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:border-[#3A7BD5]/40 transition-colors">
+                <Icons name="chat" class="w-3.5 h-3.5" />
+              </span>
+              WhatsApp
+            </a>
+          </li>
+          <li>
+            <a href="mailto:luca@pux-automobile.de" class="group flex items-center gap-2.5 text-sm text-gray-600 hover:text-[#1B2B6B] transition-colors">
+              <span class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:border-[#3A7BD5]/40 transition-colors">
+                <Icons name="mail" class="w-3.5 h-3.5" />
+              </span>
+              <span class="break-all">luca@pux-automobile.de</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Ratgeber SEO-Anker-Sektion -->
+    <div class="border-t border-gray-200 pt-10 pb-10 grid grid-cols-2 md:grid-cols-3 gap-8">
+      <div>
+        <p class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Ratgeber-Kategorien</p>
+        <ul class="space-y-3 text-sm">
+          {RATGEBER_KATEGORIEN.map((k) => (
+            <li><a href={k.url} class="text-gray-600 hover:text-[#1B2B6B] transition-colors">{k.name}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <p class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Meistgesucht</p>
+        <ul class="space-y-3 text-sm">
+          {TOP_THEMEN.map((t) => (
+            <li><a href={t.url} class="text-gray-600 hover:text-[#1B2B6B] transition-colors">{t.name}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="col-span-2 md:col-span-1">
+        <p class="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">Einsatzgebiet</p>
+        <div class="flex flex-wrap gap-2">
+          {STANDORTE.map((stadt) => (
+            <a href={`/ratgeber/standorte/${stadt.toLowerCase()}`}
+              class="text-xs font-medium text-gray-600 bg-white border border-gray-200 rounded-full px-3 py-1.5 hover:border-[#3A7BD5] hover:text-[#1B2B6B] transition-colors">
+              {stadt}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust line -->
+    <div class="border-t border-dashed border-gray-200 pt-8 pb-8">
+      <p class="text-sm font-bold text-gray-900 mb-3">Über 20 glückliche Kunden rund um Mannheim</p>
+      <div class="flex -space-x-2.5">
+        {[
+          "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&h=100&fit=crop&crop=faces&q=80",
+          "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces&q=80",
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces&q=80",
+          "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=faces&q=80",
+          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=faces&q=80",
+        ].map((src) => (
+          <img src={src} alt="" loading="lazy" class="w-9 h-9 rounded-full object-cover border-2 border-gray-50 flex-shrink-0" />
+        ))}
+      </div>
+    </div>
+
+    <div class="border-t border-gray-200 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+      <p>© {currentYear} PUX Automobile. Alle Rechte vorbehalten.</p>
+      <div class="flex items-center gap-5">
+        <a href="/impressum" class="hover:text-[#1B2B6B] transition-colors">Impressum</a>
+        <a href="/datenschutz" class="hover:text-[#1B2B6B] transition-colors">Datenschutz</a>
+      </div>
+      <div class="inline-flex items-center gap-1.5 bg-white border border-gray-200 rounded-full px-3.5 py-1.5">
+        <Icons name="map-pin" class="w-3.5 h-3.5" />
+        <span class="font-medium text-gray-600">Vor Ort in Mannheim</span>
+      </div>
+    </div>
+  </div>
+</footer>

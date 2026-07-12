@@ -1,0 +1,962 @@
+{
+  "generiert_am": "2026-07-10",
+  "gesamt_seiten": 215,
+  "methodik": "Basis: Cluster-Analyse von 1.341 Google-Ads-Keywords (47 Seiten direkt keyword-validiert). Da die Keyword-Daten nur ~75 echte, unterscheidbare Themen hergeben (Rest war Near-Duplicate-Phrasing oder Nullvolumen), wurden 164 weitere Seiten redaktionell ergänzt: thematisch fundiert, klar unterscheidbar, ohne erfundene Statistiken oder Doorway-Page-Duplizierung. Ziel: mehrere hundert echte Seiten statt 1.000+ Fülltext-Seiten.",
+  "kategorien": [
+    {
+      "id": "autoaufbereitung",
+      "name": "Autoaufbereitung",
+      "url": "/ratgeber/autoaufbereitung",
+      "seiten_gesamt": 44,
+      "hub_seiten": [
+        {
+          "titel": "autoaufbereitung allgemein",
+          "url": "/ratgeber/autoaufbereitung/autoaufbereitung",
+          "keyword_varianten": 314
+        },
+        {
+          "titel": "autopolitur & lackpflege",
+          "url": "/ratgeber/autoaufbereitung/autopolitur",
+          "keyword_varianten": 487
+        },
+        {
+          "titel": "innenraumreinigung",
+          "url": "/ratgeber/autoaufbereitung/innenreinigung",
+          "keyword_varianten": 146
+        },
+        {
+          "titel": "kratzer- & dellenentfernung",
+          "url": "/ratgeber/autoaufbereitung/kratzer-entfernen",
+          "keyword_varianten": 202
+        },
+        {
+          "titel": "außenreinigung & handwäsche",
+          "url": "/ratgeber/autoaufbereitung/aussenreinigung",
+          "keyword_varianten": 20
+        },
+        {
+          "titel": "kosten & preise aufbereitung",
+          "url": "/ratgeber/autoaufbereitung/kosten-autoaufbereitung",
+          "keyword_varianten": 69
+        },
+        {
+          "titel": "glas- & scheinwerferaufbereitung",
+          "url": "/ratgeber/autoaufbereitung/scheinwerferaufbereitung",
+          "keyword_varianten": 5
+        },
+        {
+          "titel": "mobile & professionelle aufbereitung",
+          "url": "/ratgeber/autoaufbereitung/mobile-autoaufbereitung",
+          "keyword_varianten": 8
+        },
+        {
+          "titel": "lackversiegelung & keramikversiegelung",
+          "url": "/ratgeber/autoaufbereitung/lackversiegelung",
+          "keyword_varianten": 5
+        },
+        {
+          "titel": "lederpflege",
+          "url": "/ratgeber/autoaufbereitung/lederpflege",
+          "keyword_varianten": 1
+        },
+        {
+          "titel": "fahrzeugfolierung",
+          "url": "/ratgeber/autoaufbereitung/fahrzeugfolierung",
+          "keyword_varianten": 1
+        }
+      ],
+      "sub_artikel": [
+        {
+          "titel": "autoaufbereitung allgemein: bei schwarzem lack",
+          "url": "/ratgeber/autoaufbereitung/autoaufbereitung/schwarz",
+          "keyword_varianten": 2
+        },
+        {
+          "titel": "autoaufbereitung allgemein: an der windschutzscheibe/fenster",
+          "url": "/ratgeber/autoaufbereitung/autoaufbereitung/scheibe",
+          "keyword_varianten": 19
+        },
+        {
+          "titel": "autoaufbereitung allgemein: bei stoff-/textilsitzen",
+          "url": "/ratgeber/autoaufbereitung/autoaufbereitung/stoff",
+          "keyword_varianten": 3
+        },
+        {
+          "titel": "autoaufbereitung allgemein: bei wohnmobil, lkw & transporter",
+          "url": "/ratgeber/autoaufbereitung/autoaufbereitung/nutzfahrzeug",
+          "keyword_varianten": 2
+        },
+        {
+          "titel": "autoaufbereitung allgemein: je nach fahrzeugmarke",
+          "url": "/ratgeber/autoaufbereitung/autoaufbereitung/marke",
+          "keyword_varianten": 4
+        },
+        {
+          "titel": "autoaufbereitung allgemein: produkte & mittel im vergleich",
+          "url": "/ratgeber/autoaufbereitung/autoaufbereitung/produkt",
+          "keyword_varianten": 8
+        },
+        {
+          "titel": "autopolitur & lackpflege: kosten im überblick",
+          "url": "/ratgeber/autoaufbereitung/autopolitur/kosten",
+          "keyword_varianten": 41
+        },
+        {
+          "titel": "autopolitur & lackpflege: selbst machen (anleitung)",
+          "url": "/ratgeber/autoaufbereitung/autopolitur/diy",
+          "keyword_varianten": 8
+        },
+        {
+          "titel": "autopolitur & lackpflege: profi vs. selbst machen",
+          "url": "/ratgeber/autoaufbereitung/autopolitur/profi",
+          "keyword_varianten": 4
+        },
+        {
+          "titel": "autopolitur & lackpflege: bei schwarzem lack",
+          "url": "/ratgeber/autoaufbereitung/autopolitur/schwarz",
+          "keyword_varianten": 18
+        },
+        {
+          "titel": "autopolitur & lackpflege: bei metallic-/silberlack",
+          "url": "/ratgeber/autoaufbereitung/autopolitur/metallic",
+          "keyword_varianten": 6
+        },
+        {
+          "titel": "autopolitur & lackpflege: bei weißem lack",
+          "url": "/ratgeber/autoaufbereitung/autopolitur/weiss",
+          "keyword_varianten": 7
+        },
+        {
+          "titel": "autopolitur & lackpflege: an der stoßstange",
+          "url": "/ratgeber/autoaufbereitung/autopolitur/stossstange",
+          "keyword_varianten": 3
+        },
+        {
+          "titel": "autopolitur & lackpflege: bei kälte / im winter",
+          "url": "/ratgeber/autoaufbereitung/autopolitur/kaelte",
+          "keyword_varianten": 4
+        },
+        {
+          "titel": "autopolitur & lackpflege: mit der poliermaschine",
+          "url": "/ratgeber/autoaufbereitung/autopolitur/maschine",
+          "keyword_varianten": 37
+        },
+        {
+          "titel": "autopolitur & lackpflege: beim motorrad",
+          "url": "/ratgeber/autoaufbereitung/autopolitur/motorrad",
+          "keyword_varianten": 4
+        },
+        {
+          "titel": "autopolitur & lackpflege: je nach fahrzeugmarke",
+          "url": "/ratgeber/autoaufbereitung/autopolitur/marke",
+          "keyword_varianten": 4
+        },
+        {
+          "titel": "autopolitur & lackpflege: produkte & mittel im vergleich",
+          "url": "/ratgeber/autoaufbereitung/autopolitur/produkt",
+          "keyword_varianten": 11
+        },
+        {
+          "titel": "innenraumreinigung: kosten im überblick",
+          "url": "/ratgeber/autoaufbereitung/innenreinigung/kosten",
+          "keyword_varianten": 45
+        },
+        {
+          "titel": "innenraumreinigung: profi vs. selbst machen",
+          "url": "/ratgeber/autoaufbereitung/innenreinigung/profi",
+          "keyword_varianten": 6
+        },
+        {
+          "titel": "innenraumreinigung: produkte & mittel im vergleich",
+          "url": "/ratgeber/autoaufbereitung/innenreinigung/produkt",
+          "keyword_varianten": 4
+        },
+        {
+          "titel": "kratzer- & dellenentfernung: kosten im überblick",
+          "url": "/ratgeber/autoaufbereitung/kratzer-entfernen/kosten",
+          "keyword_varianten": 18
+        },
+        {
+          "titel": "kratzer- & dellenentfernung: bei schwarzem lack",
+          "url": "/ratgeber/autoaufbereitung/kratzer-entfernen/schwarz",
+          "keyword_varianten": 12
+        },
+        {
+          "titel": "kratzer- & dellenentfernung: bei metallic-/silberlack",
+          "url": "/ratgeber/autoaufbereitung/kratzer-entfernen/metallic",
+          "keyword_varianten": 4
+        },
+        {
+          "titel": "kratzer- & dellenentfernung: an der autotür",
+          "url": "/ratgeber/autoaufbereitung/kratzer-entfernen/tuer",
+          "keyword_varianten": 10
+        },
+        {
+          "titel": "kratzer- & dellenentfernung: an der stoßstange",
+          "url": "/ratgeber/autoaufbereitung/kratzer-entfernen/stossstange",
+          "keyword_varianten": 6
+        },
+        {
+          "titel": "kratzer- & dellenentfernung: tiefe vs. oberflächliche schäden",
+          "url": "/ratgeber/autoaufbereitung/kratzer-entfernen/tief",
+          "keyword_varianten": 11
+        },
+        {
+          "titel": "kratzer- & dellenentfernung: am armaturenbrett/cockpit",
+          "url": "/ratgeber/autoaufbereitung/kratzer-entfernen/cockpit",
+          "keyword_varianten": 10
+        },
+        {
+          "titel": "kratzer- & dellenentfernung: bei stoff-/textilsitzen",
+          "url": "/ratgeber/autoaufbereitung/kratzer-entfernen/stoff",
+          "keyword_varianten": 4
+        },
+        {
+          "titel": "außenreinigung & handwäsche: kosten im überblick",
+          "url": "/ratgeber/autoaufbereitung/aussenreinigung/kosten",
+          "keyword_varianten": 7
+        },
+        {
+          "titel": "kosten & preise aufbereitung: kosten im überblick",
+          "url": "/ratgeber/autoaufbereitung/kosten-autoaufbereitung/kosten",
+          "keyword_varianten": 69
+        },
+        {
+          "titel": "glas- & scheinwerferaufbereitung: an der windschutzscheibe/fenster",
+          "url": "/ratgeber/autoaufbereitung/scheinwerferaufbereitung/scheibe",
+          "keyword_varianten": 5
+        },
+        {
+          "titel": "mobile & professionelle aufbereitung: profi vs. selbst machen",
+          "url": "/ratgeber/autoaufbereitung/mobile-autoaufbereitung/profi",
+          "keyword_varianten": 8
+        }
+      ]
+    },
+    {
+      "id": "ratgeber",
+      "name": "Ratgeber / Wissen",
+      "url": "/ratgeber/wissen",
+      "seiten_gesamt": 92,
+      "quelle": "redaktionell, themenfundiert",
+      "artikel": [
+        {
+          "titel": "autopflege im frühling: der frühjahrsputz-guide",
+          "url": "/ratgeber/wissen/autopflege-im-fruehling-der-fruehjahrsputz-guide"
+        },
+        {
+          "titel": "autopflege im sommer: schutz vor uv und hitze",
+          "url": "/ratgeber/wissen/autopflege-im-sommer-schutz-vor-uv-und-hitze"
+        },
+        {
+          "titel": "autopflege im herbst: vorbereitung auf die kalte jahreszeit",
+          "url": "/ratgeber/wissen/autopflege-im-herbst-vorbereitung-auf-die-kalte-jahreszeit"
+        },
+        {
+          "titel": "autopflege im winter: was lack und innenraum jetzt brauchen",
+          "url": "/ratgeber/wissen/autopflege-im-winter-was-lack-und-innenraum-jetzt-brauchen"
+        },
+        {
+          "titel": "streusalz entfernen: so schützen sie den unterboden",
+          "url": "/ratgeber/wissen/streusalz-entfernen-so-schuetzen-sie-den-unterboden"
+        },
+        {
+          "titel": "auto nach dem winter: der große frühjahrscheck",
+          "url": "/ratgeber/wissen/auto-nach-dem-winter-der-grosse-fruehjahrscheck"
+        },
+        {
+          "titel": "pollenflug und autolack: was hilft wirklich?",
+          "url": "/ratgeber/wissen/pollenflug-und-autolack-was-hilft-wirklich"
+        },
+        {
+          "titel": "laub und baumharz vom auto entfernen",
+          "url": "/ratgeber/wissen/laub-und-baumharz-vom-auto-entfernen"
+        },
+        {
+          "titel": "auto einwintern: checkliste für die standzeit",
+          "url": "/ratgeber/wissen/auto-einwintern-checkliste-fuer-die-standzeit"
+        },
+        {
+          "titel": "cabrio-verdeck richtig pflegen im jahresverlauf",
+          "url": "/ratgeber/wissen/cabrio-verdeck-richtig-pflegen-im-jahresverlauf"
+        },
+        {
+          "titel": "klimaanlage im auto reinigen: warum das zur pflege gehört",
+          "url": "/ratgeber/wissen/klimaanlage-im-auto-reinigen-warum-das-zur-pflege-gehoert"
+        },
+        {
+          "titel": "autopflege-kalender: was wann ansteht",
+          "url": "/ratgeber/wissen/autopflege-kalender-was-wann-ansteht"
+        },
+        {
+          "titel": "handwäsche vs. waschanlage: was schont den lack mehr?",
+          "url": "/ratgeber/wissen/handwaesche-vs-waschanlage-was-schont-den-lack-mehr"
+        },
+        {
+          "titel": "keramikversiegelung vs. wachs: unterschiede im überblick",
+          "url": "/ratgeber/wissen/keramikversiegelung-vs-wachs-unterschiede-im-ueberblick"
+        },
+        {
+          "titel": "foliierung vs. lackierung: vor- und nachteile",
+          "url": "/ratgeber/wissen/foliierung-vs-lackierung-vor--und-nachteile"
+        },
+        {
+          "titel": "poliermaschine vs. handpolitur: was lohnt sich?",
+          "url": "/ratgeber/wissen/poliermaschine-vs-handpolitur-was-lohnt-sich"
+        },
+        {
+          "titel": "mikrofasertuch vs. schwamm: was ist besser für den lack?",
+          "url": "/ratgeber/wissen/mikrofasertuch-vs-schwamm-was-ist-besser-fuer-den-lack"
+        },
+        {
+          "titel": "ph-neutrales shampoo vs. herkömmliches autoshampoo",
+          "url": "/ratgeber/wissen/ph-neutrales-shampoo-vs-herkoemmliches-autoshampoo"
+        },
+        {
+          "titel": "dampfreiniger vs. klassische innenreinigung",
+          "url": "/ratgeber/wissen/dampfreiniger-vs-klassische-innenreinigung"
+        },
+        {
+          "titel": "trockeneisreinigung fürs auto: sinnvoll oder trend?",
+          "url": "/ratgeber/wissen/trockeneisreinigung-fuers-auto-sinnvoll-oder-trend"
+        },
+        {
+          "titel": "nanoversiegelung: was steckt wirklich dahinter?",
+          "url": "/ratgeber/wissen/nanoversiegelung-was-steckt-wirklich-dahinter"
+        },
+        {
+          "titel": "hartwachs vs. sprühwachs: unterschiede erklärt",
+          "url": "/ratgeber/wissen/hartwachs-vs-spruehwachs-unterschiede-erklaert"
+        },
+        {
+          "titel": "lederreiniger im vergleich: worauf beim kauf achten?",
+          "url": "/ratgeber/wissen/lederreiniger-im-vergleich-worauf-beim-kauf-achten"
+        },
+        {
+          "titel": "felgenreiniger: säurehaltig oder ph-neutral?",
+          "url": "/ratgeber/wissen/felgenreiniger-saeurehaltig-oder-ph-neutral"
+        },
+        {
+          "titel": "ozonbehandlung gegen gerüche: wie sie funktioniert",
+          "url": "/ratgeber/wissen/ozonbehandlung-gegen-gerueche-wie-sie-funktioniert"
+        },
+        {
+          "titel": "chemische reinigung vs. mechanische reinigung im innenraum",
+          "url": "/ratgeber/wissen/chemische-reinigung-vs-mechanische-reinigung-im-innenraum"
+        },
+        {
+          "titel": "autoshampoo selbst herstellen: sinnvoll oder riskant?",
+          "url": "/ratgeber/wissen/autoshampoo-selbst-herstellen-sinnvoll-oder-riskant"
+        },
+        {
+          "titel": "wie oft sollte man das auto waschen?",
+          "url": "/ratgeber/wissen/wie-oft-sollte-man-das-auto-waschen"
+        },
+        {
+          "titel": "wie oft eine lackversiegelung erneuern?",
+          "url": "/ratgeber/wissen/wie-oft-eine-lackversiegelung-erneuern"
+        },
+        {
+          "titel": "wie oft die innenreinigung durchführen lassen?",
+          "url": "/ratgeber/wissen/wie-oft-die-innenreinigung-durchfuehren-lassen"
+        },
+        {
+          "titel": "pflegeintervalle nach fahrzeugalter",
+          "url": "/ratgeber/wissen/pflegeintervalle-nach-fahrzeugalter"
+        },
+        {
+          "titel": "wartungsplan für den autolack: ein jahr im überblick",
+          "url": "/ratgeber/wissen/wartungsplan-fuer-den-autolack-ein-jahr-im-ueberblick"
+        },
+        {
+          "titel": "wie oft felgen reinigen, um bremsstaub zu vermeiden?",
+          "url": "/ratgeber/wissen/wie-oft-felgen-reinigen-um-bremsstaub-zu-vermeiden"
+        },
+        {
+          "titel": "wie oft lederpolster nachbehandeln?",
+          "url": "/ratgeber/wissen/wie-oft-lederpolster-nachbehandeln"
+        },
+        {
+          "titel": "regelmäßige pflege vs. große grundreinigung: was bringt mehr?",
+          "url": "/ratgeber/wissen/regelmaessige-pflege-vs-grosse-grundreinigung-was-bringt-mehr"
+        },
+        {
+          "titel": "auto nach jeder fahrt sauber halten: realistisch oder übertrieben?",
+          "url": "/ratgeber/wissen/auto-nach-jeder-fahrt-sauber-halten-realistisch-oder-uebertrieben"
+        },
+        {
+          "titel": "pflegeaufwand nach fahrprofil: vielfahrer vs. wenigfahrer",
+          "url": "/ratgeber/wissen/pflegeaufwand-nach-fahrprofil-vielfahrer-vs-wenigfahrer"
+        },
+        {
+          "titel": "vogelkot vom autolack entfernen, ohne ihn zu beschädigen",
+          "url": "/ratgeber/wissen/vogelkot-vom-autolack-entfernen-ohne-ihn-zu-beschaedigen"
+        },
+        {
+          "titel": "baumharz vom auto entfernen: so geht's schonend",
+          "url": "/ratgeber/wissen/baumharz-vom-auto-entfernen-so-gehts-schonend"
+        },
+        {
+          "titel": "wasserflecken auf dem lack vermeiden und entfernen",
+          "url": "/ratgeber/wissen/wasserflecken-auf-dem-lack-vermeiden-und-entfernen"
+        },
+        {
+          "titel": "rostflecken am auto erkennen und behandeln",
+          "url": "/ratgeber/wissen/rostflecken-am-auto-erkennen-und-behandeln"
+        },
+        {
+          "titel": "zigarettengeruch aus dem auto entfernen",
+          "url": "/ratgeber/wissen/zigarettengeruch-aus-dem-auto-entfernen"
+        },
+        {
+          "titel": "schimmel im auto: ursachen und beseitigung",
+          "url": "/ratgeber/wissen/schimmel-im-auto-ursachen-und-beseitigung"
+        },
+        {
+          "titel": "tierhaare aus dem auto entfernen: die besten methoden",
+          "url": "/ratgeber/wissen/tierhaare-aus-dem-auto-entfernen-die-besten-methoden"
+        },
+        {
+          "titel": "kaugummi vom autositz entfernen",
+          "url": "/ratgeber/wissen/kaugummi-vom-autositz-entfernen"
+        },
+        {
+          "titel": "ölflecken im innenraum behandeln",
+          "url": "/ratgeber/wissen/oelflecken-im-innenraum-behandeln"
+        },
+        {
+          "titel": "kratzer im kunststoff-interieur ausbessern",
+          "url": "/ratgeber/wissen/kratzer-im-kunststoff-interieur-ausbessern"
+        },
+        {
+          "titel": "brandlöcher im autositz reparieren lassen",
+          "url": "/ratgeber/wissen/brandloecher-im-autositz-reparieren-lassen"
+        },
+        {
+          "titel": "verblasster lack: ursachen und gegenmaßnahmen",
+          "url": "/ratgeber/wissen/verblasster-lack-ursachen-und-gegenmassnahmen"
+        },
+        {
+          "titel": "spinnennetz-lackschäden (swirls) entfernen",
+          "url": "/ratgeber/wissen/spinnennetz-lackschaeden-swirls-entfernen"
+        },
+        {
+          "titel": "wischspuren nach der wäsche vermeiden",
+          "url": "/ratgeber/wissen/wischspuren-nach-der-waesche-vermeiden"
+        },
+        {
+          "titel": "kalkflecken auf der scheibe entfernen",
+          "url": "/ratgeber/wissen/kalkflecken-auf-der-scheibe-entfernen"
+        },
+        {
+          "titel": "fettflecken im fußraum behandeln",
+          "url": "/ratgeber/wissen/fettflecken-im-fussraum-behandeln"
+        },
+        {
+          "titel": "duftbaum-rückstände vom armaturenbrett entfernen",
+          "url": "/ratgeber/wissen/duftbaum-rueckstaende-vom-armaturenbrett-entfernen"
+        },
+        {
+          "titel": "sonnenschäden am kunststoff-interieur reparieren",
+          "url": "/ratgeber/wissen/sonnenschaeden-am-kunststoff-interieur-reparieren"
+        },
+        {
+          "titel": "milchig gewordene scheinwerfer aufpolieren",
+          "url": "/ratgeber/wissen/milchig-gewordene-scheinwerfer-aufpolieren"
+        },
+        {
+          "titel": "nikotinflecken am dachhimmel entfernen",
+          "url": "/ratgeber/wissen/nikotinflecken-am-dachhimmel-entfernen"
+        },
+        {
+          "titel": "autoaufbereitung selbst machen oder profi beauftragen?",
+          "url": "/ratgeber/wissen/autoaufbereitung-selbst-machen-oder-profi-beauftragen"
+        },
+        {
+          "titel": "lohnt sich eine keramikversiegelung für gebrauchtwagen?",
+          "url": "/ratgeber/wissen/lohnt-sich-eine-keramikversiegelung-fuer-gebrauchtwagen"
+        },
+        {
+          "titel": "mobile autoaufbereitung vs. stationäre waschanlage",
+          "url": "/ratgeber/wissen/mobile-autoaufbereitung-vs-stationaere-waschanlage"
+        },
+        {
+          "titel": "wann lohnt sich eine professionelle innenreinigung?",
+          "url": "/ratgeber/wissen/wann-lohnt-sich-eine-professionelle-innenreinigung"
+        },
+        {
+          "titel": "aufbereitung vor dem verkauf: was bringt wirklich mehr geld?",
+          "url": "/ratgeber/wissen/aufbereitung-vor-dem-verkauf-was-bringt-wirklich-mehr-geld"
+        },
+        {
+          "titel": "welches aufbereitungspaket passt zu meinem auto?",
+          "url": "/ratgeber/wissen/welches-aufbereitungspaket-passt-zu-meinem-auto"
+        },
+        {
+          "titel": "aufbereitung für vielfahrer: was ist sinnvoll?",
+          "url": "/ratgeber/wissen/aufbereitung-fuer-vielfahrer-was-ist-sinnvoll"
+        },
+        {
+          "titel": "aufbereitung für familienautos: besondere herausforderungen",
+          "url": "/ratgeber/wissen/aufbereitung-fuer-familienautos-besondere-herausforderungen"
+        },
+        {
+          "titel": "cabrio-pflege: worauf besonders achten?",
+          "url": "/ratgeber/wissen/cabrio-pflege-worauf-besonders-achten"
+        },
+        {
+          "titel": "suv-pflege: größere flächen, mehr aufwand?",
+          "url": "/ratgeber/wissen/suv-pflege-groessere-flaechen-mehr-aufwand"
+        },
+        {
+          "titel": "aufbereitung für elektroautos: gibt es unterschiede?",
+          "url": "/ratgeber/wissen/aufbereitung-fuer-elektroautos-gibt-es-unterschiede"
+        },
+        {
+          "titel": "aufbereitung nach einem unfall: was ist möglich?",
+          "url": "/ratgeber/wissen/aufbereitung-nach-einem-unfall-was-ist-moeglich"
+        },
+        {
+          "titel": "leasingrückgabe: warum sich eine aufbereitung lohnt",
+          "url": "/ratgeber/wissen/leasingrueckgabe-warum-sich-eine-aufbereitung-lohnt"
+        },
+        {
+          "titel": "aufbereitung vor dem tüv: sinnvoll oder unnötig?",
+          "url": "/ratgeber/wissen/aufbereitung-vor-dem-tuev-sinnvoll-oder-unnoetig"
+        },
+        {
+          "titel": "erstwäsche nach dem neuwagenkauf: was beachten?",
+          "url": "/ratgeber/wissen/erstwaesche-nach-dem-neuwagenkauf-was-beachten"
+        },
+        {
+          "titel": "wie funktioniert eine keramikversiegelung chemisch?",
+          "url": "/ratgeber/wissen/wie-funktioniert-eine-keramikversiegelung-chemisch"
+        },
+        {
+          "titel": "klarlack verstehen: aufbau moderner autolacke",
+          "url": "/ratgeber/wissen/klarlack-verstehen-aufbau-moderner-autolacke"
+        },
+        {
+          "titel": "metallic- vs. unilack: unterschiede in der pflege",
+          "url": "/ratgeber/wissen/metallic--vs-unilack-unterschiede-in-der-pflege"
+        },
+        {
+          "titel": "mattlack pflegen: was ist anders?",
+          "url": "/ratgeber/wissen/mattlack-pflegen-was-ist-anders"
+        },
+        {
+          "titel": "folierung: welche folientypen gibt es?",
+          "url": "/ratgeber/wissen/folierung-welche-folientypen-gibt-es"
+        },
+        {
+          "titel": "ppf (lackschutzfolie): was sie kann und kostet",
+          "url": "/ratgeber/wissen/ppf-lackschutzfolie-was-sie-kann-und-kostet"
+        },
+        {
+          "titel": "nubukleder vs. glattleder: pflegeunterschiede",
+          "url": "/ratgeber/wissen/nubukleder-vs-glattleder-pflegeunterschiede"
+        },
+        {
+          "titel": "alcantara reinigen: was ist erlaubt?",
+          "url": "/ratgeber/wissen/alcantara-reinigen-was-ist-erlaubt"
+        },
+        {
+          "titel": "kunstleder vs. echtleder: pflegeaufwand im vergleich",
+          "url": "/ratgeber/wissen/kunstleder-vs-echtleder-pflegeaufwand-im-vergleich"
+        },
+        {
+          "titel": "aluminiumfelgen vs. stahlfelgen: pflegeunterschiede",
+          "url": "/ratgeber/wissen/aluminiumfelgen-vs-stahlfelgen-pflegeunterschiede"
+        },
+        {
+          "titel": "was kostet eine professionelle autoaufbereitung wirklich?",
+          "url": "/ratgeber/wissen/was-kostet-eine-professionelle-autoaufbereitung-wirklich"
+        },
+        {
+          "titel": "kostenvergleich: waschanlage, sb-box, mobiler service",
+          "url": "/ratgeber/wissen/kostenvergleich-waschanlage-sb-box-mobiler-service"
+        },
+        {
+          "titel": "versteckte kosten bei der autopflege vermeiden",
+          "url": "/ratgeber/wissen/versteckte-kosten-bei-der-autopflege-vermeiden"
+        },
+        {
+          "titel": "was kostet kratzerentfernung je nach schadenstiefe?",
+          "url": "/ratgeber/wissen/was-kostet-kratzerentfernung-je-nach-schadenstiefe"
+        },
+        {
+          "titel": "was kostet eine keramikversiegelung langfristig?",
+          "url": "/ratgeber/wissen/was-kostet-eine-keramikversiegelung-langfristig"
+        },
+        {
+          "titel": "sparen bei der autopflege, ohne an qualität zu verlieren",
+          "url": "/ratgeber/wissen/sparen-bei-der-autopflege-ohne-an-qualitaet-zu-verlieren"
+        },
+        {
+          "titel": "autopflege-abo: lohnt sich ein abonnement?",
+          "url": "/ratgeber/wissen/autopflege-abo-lohnt-sich-ein-abonnement"
+        },
+        {
+          "titel": "was kostet eine aufbereitung nach fahrzeuggröße?",
+          "url": "/ratgeber/wissen/was-kostet-eine-aufbereitung-nach-fahrzeuggroesse"
+        },
+        {
+          "titel": "kosten der innenreinigung bei starker verschmutzung",
+          "url": "/ratgeber/wissen/kosten-der-innenreinigung-bei-starker-verschmutzung"
+        },
+        {
+          "titel": "budget-autopflege: was ist mit wenig geld möglich?",
+          "url": "/ratgeber/wissen/budget-autopflege-was-ist-mit-wenig-geld-moeglich"
+        }
+      ]
+    },
+    {
+      "id": "fahrzeugankauf",
+      "name": "Fahrzeugankauf",
+      "url": "/ratgeber/fahrzeugankauf",
+      "seiten_gesamt": 25,
+      "quelle": "größtenteils redaktionell (nur 13 Roh-Keywords im Export)",
+      "artikel": [
+        {
+          "titel": "auto verkaufen: der komplette ablauf beim fahrzeugankauf",
+          "url": "/ratgeber/fahrzeugankauf/auto-verkaufen-der-komplette-ablauf-beim-fahrzeugankauf"
+        },
+        {
+          "titel": "welche unterlagen brauche ich, um mein auto zu verkaufen?",
+          "url": "/ratgeber/fahrzeugankauf/welche-unterlagen-brauche-ich-um-mein-auto-zu-verkaufen"
+        },
+        {
+          "titel": "wie wird der ankaufspreis meines fahrzeugs ermittelt?",
+          "url": "/ratgeber/fahrzeugankauf/wie-wird-der-ankaufspreis-meines-fahrzeugs-ermittelt"
+        },
+        {
+          "titel": "auto mit motorschaden verkaufen: geht das?",
+          "url": "/ratgeber/fahrzeugankauf/auto-mit-motorschaden-verkaufen-geht-das"
+        },
+        {
+          "titel": "unfallwagen verkaufen: was ist zu beachten?",
+          "url": "/ratgeber/fahrzeugankauf/unfallwagen-verkaufen-was-ist-zu-beachten"
+        },
+        {
+          "titel": "leasingfahrzeug vorzeitig verkaufen: ist das möglich?",
+          "url": "/ratgeber/fahrzeugankauf/leasingfahrzeug-vorzeitig-verkaufen-ist-das-moeglich"
+        },
+        {
+          "titel": "auto mit offenem kredit verkaufen: so funktioniert's",
+          "url": "/ratgeber/fahrzeugankauf/auto-mit-offenem-kredit-verkaufen-so-funktionierts"
+        },
+        {
+          "titel": "zulassung und abmeldung beim fahrzeugverkauf",
+          "url": "/ratgeber/fahrzeugankauf/zulassung-und-abmeldung-beim-fahrzeugverkauf"
+        },
+        {
+          "titel": "auto verkaufen ohne tüv: was ist erlaubt?",
+          "url": "/ratgeber/fahrzeugankauf/auto-verkaufen-ohne-tuev-was-ist-erlaubt"
+        },
+        {
+          "titel": "fahrzeugbewertung: diese faktoren beeinflussen den preis",
+          "url": "/ratgeber/fahrzeugankauf/fahrzeugbewertung-diese-faktoren-beeinflussen-den-preis"
+        },
+        {
+          "titel": "barzahlung oder überweisung: was ist beim autoverkauf sicherer?",
+          "url": "/ratgeber/fahrzeugankauf/barzahlung-oder-ueberweisung-was-ist-beim-autoverkauf-sicherer"
+        },
+        {
+          "titel": "auto privat oder an einen ankäufer verkaufen: vor- und nachteile",
+          "url": "/ratgeber/fahrzeugankauf/auto-privat-oder-an-einen-ankaeufer-verkaufen-vor--und-nachteile"
+        },
+        {
+          "titel": "kilometerstand und wartungshistorie: warum sie den preis beeinflussen",
+          "url": "/ratgeber/fahrzeugankauf/kilometerstand-und-wartungshistorie-warum-sie-den-preis-beeinflussen"
+        },
+        {
+          "titel": "auto mit steinschlag oder dellen verkaufen: preisabschläge realistisch einschätzen",
+          "url": "/ratgeber/fahrzeugankauf/auto-mit-steinschlag-oder-dellen-verkaufen-preisabschlaege-realistisch-einschaetzen"
+        },
+        {
+          "titel": "fahrzeugschein und fahrzeugbrief: was beim verkauf wichtig ist",
+          "url": "/ratgeber/fahrzeugankauf/fahrzeugschein-und-fahrzeugbrief-was-beim-verkauf-wichtig-ist"
+        },
+        {
+          "titel": "zweitschlüssel fehlt: auto trotzdem verkaufen?",
+          "url": "/ratgeber/fahrzeugankauf/zweitschluessel-fehlt-auto-trotzdem-verkaufen"
+        },
+        {
+          "titel": "auto verkaufen als erbe: was ist rechtlich zu beachten?",
+          "url": "/ratgeber/fahrzeugankauf/auto-verkaufen-als-erbe-was-ist-rechtlich-zu-beachten"
+        },
+        {
+          "titel": "firmenwagen verkaufen: besonderheiten für gewerbetreibende",
+          "url": "/ratgeber/fahrzeugankauf/firmenwagen-verkaufen-besonderheiten-fuer-gewerbetreibende"
+        },
+        {
+          "titel": "oldtimer verkaufen: worauf es bei der bewertung ankommt",
+          "url": "/ratgeber/fahrzeugankauf/oldtimer-verkaufen-worauf-es-bei-der-bewertung-ankommt"
+        },
+        {
+          "titel": "wohnmobil oder transporter verkaufen: der ablauf",
+          "url": "/ratgeber/fahrzeugankauf/wohnmobil-oder-transporter-verkaufen-der-ablauf"
+        },
+        {
+          "titel": "auto verkaufen in mannheim: ablauf und ansprechpartner vor ort",
+          "url": "/ratgeber/fahrzeugankauf/auto-verkaufen-in-mannheim-ablauf-und-ansprechpartner-vor-ort"
+        },
+        {
+          "titel": "auto verkaufen in heidelberg: so läuft der ankauf ab",
+          "url": "/ratgeber/fahrzeugankauf/auto-verkaufen-in-heidelberg-so-laeuft-der-ankauf-ab"
+        },
+        {
+          "titel": "auto verkaufen in ludwigshafen: ablauf und kontakt",
+          "url": "/ratgeber/fahrzeugankauf/auto-verkaufen-in-ludwigshafen-ablauf-und-kontakt"
+        },
+        {
+          "titel": "schnellverkauf: wie schnell kann ein fahrzeugankauf abgewickelt werden?",
+          "url": "/ratgeber/fahrzeugankauf/schnellverkauf-wie-schnell-kann-ein-fahrzeugankauf-abgewickelt-werden"
+        },
+        {
+          "titel": "auto verkaufen trotz laufender finanzierung: was tun?",
+          "url": "/ratgeber/fahrzeugankauf/auto-verkaufen-trotz-laufender-finanzierung-was-tun"
+        }
+      ]
+    },
+    {
+      "id": "fahrzeugverkauf",
+      "name": "Fahrzeugverkauf",
+      "url": "/ratgeber/fahrzeugverkauf",
+      "seiten_gesamt": 26,
+      "quelle": "komplett redaktionell (0 Keywords im Export)",
+      "artikel": [
+        {
+          "titel": "gebrauchtwagen kaufen: worauf beim kauf achten?",
+          "url": "/ratgeber/fahrzeugverkauf/gebrauchtwagen-kaufen-worauf-beim-kauf-achten"
+        },
+        {
+          "titel": "probefahrt beim gebrauchtwagenkauf: checkliste",
+          "url": "/ratgeber/fahrzeugverkauf/probefahrt-beim-gebrauchtwagenkauf-checkliste"
+        },
+        {
+          "titel": "gebrauchtwagen-historie prüfen: so geht's",
+          "url": "/ratgeber/fahrzeugverkauf/gebrauchtwagen-historie-pruefen-so-gehts"
+        },
+        {
+          "titel": "kaufvertrag für den gebrauchtwagenkauf: was muss rein?",
+          "url": "/ratgeber/fahrzeugverkauf/kaufvertrag-fuer-den-gebrauchtwagenkauf-was-muss-rein"
+        },
+        {
+          "titel": "gewährleistung beim gebrauchtwagenkauf: was steht mir zu?",
+          "url": "/ratgeber/fahrzeugverkauf/gewaehrleistung-beim-gebrauchtwagenkauf-was-steht-mir-zu"
+        },
+        {
+          "titel": "finanzierung vs. barzahlung beim autokauf",
+          "url": "/ratgeber/fahrzeugverkauf/finanzierung-vs-barzahlung-beim-autokauf"
+        },
+        {
+          "titel": "gebrauchtwagen mit garantie kaufen: sinnvoll oder unnötig?",
+          "url": "/ratgeber/fahrzeugverkauf/gebrauchtwagen-mit-garantie-kaufen-sinnvoll-oder-unnoetig"
+        },
+        {
+          "titel": "kilometerstand-manipulation erkennen",
+          "url": "/ratgeber/fahrzeugverkauf/kilometerstand-manipulation-erkennen"
+        },
+        {
+          "titel": "unfallfreiheit prüfen: so erkennen sie vorschäden",
+          "url": "/ratgeber/fahrzeugverkauf/unfallfreiheit-pruefen-so-erkennen-sie-vorschaeden"
+        },
+        {
+          "titel": "rostschäden beim gebrauchtwagenkauf erkennen",
+          "url": "/ratgeber/fahrzeugverkauf/rostschaeden-beim-gebrauchtwagenkauf-erkennen"
+        },
+        {
+          "titel": "erstzulassung und vorbesitzer: worauf achten?",
+          "url": "/ratgeber/fahrzeugverkauf/erstzulassung-und-vorbesitzer-worauf-achten"
+        },
+        {
+          "titel": "zubehör und sonderausstattung bewerten",
+          "url": "/ratgeber/fahrzeugverkauf/zubehoer-und-sonderausstattung-bewerten"
+        },
+        {
+          "titel": "gebrauchtwagen für fahranfänger: worauf besonders achten?",
+          "url": "/ratgeber/fahrzeugverkauf/gebrauchtwagen-fuer-fahranfaenger-worauf-besonders-achten"
+        },
+        {
+          "titel": "familienauto kaufen: diese kriterien zählen",
+          "url": "/ratgeber/fahrzeugverkauf/familienauto-kaufen-diese-kriterien-zaehlen"
+        },
+        {
+          "titel": "elektro- oder hybridfahrzeug gebraucht kaufen: was beachten?",
+          "url": "/ratgeber/fahrzeugverkauf/elektro--oder-hybridfahrzeug-gebraucht-kaufen-was-beachten"
+        },
+        {
+          "titel": "diesel oder benziner: was passt zu meinem fahrprofil?",
+          "url": "/ratgeber/fahrzeugverkauf/diesel-oder-benziner-was-passt-zu-meinem-fahrprofil"
+        },
+        {
+          "titel": "gebrauchtwagen-inspektion vor dem kauf: was wird geprüft?",
+          "url": "/ratgeber/fahrzeugverkauf/gebrauchtwagen-inspektion-vor-dem-kauf-was-wird-geprueft"
+        },
+        {
+          "titel": "fahrzeugpapiere beim autokauf: vollständigkeit prüfen",
+          "url": "/ratgeber/fahrzeugverkauf/fahrzeugpapiere-beim-autokauf-vollstaendigkeit-pruefen"
+        },
+        {
+          "titel": "anmeldung nach dem fahrzeugkauf: ablauf und fristen",
+          "url": "/ratgeber/fahrzeugverkauf/anmeldung-nach-dem-fahrzeugkauf-ablauf-und-fristen"
+        },
+        {
+          "titel": "versicherung für den neuen gebrauchtwagen abschließen",
+          "url": "/ratgeber/fahrzeugverkauf/versicherung-fuer-den-neuen-gebrauchtwagen-abschliessen"
+        },
+        {
+          "titel": "gebrauchtwagen kaufen in mannheim: angebot und ablauf",
+          "url": "/ratgeber/fahrzeugverkauf/gebrauchtwagen-kaufen-in-mannheim-angebot-und-ablauf"
+        },
+        {
+          "titel": "gebrauchtwagen kaufen in heidelberg: angebot und ablauf",
+          "url": "/ratgeber/fahrzeugverkauf/gebrauchtwagen-kaufen-in-heidelberg-angebot-und-ablauf"
+        },
+        {
+          "titel": "gebrauchtwagen kaufen in ludwigshafen: angebot und ablauf",
+          "url": "/ratgeber/fahrzeugverkauf/gebrauchtwagen-kaufen-in-ludwigshafen-angebot-und-ablauf"
+        },
+        {
+          "titel": "jahreswagen kaufen: was unterscheidet ihn vom normalen gebrauchtwagen?",
+          "url": "/ratgeber/fahrzeugverkauf/jahreswagen-kaufen-was-unterscheidet-ihn-vom-normalen-gebrauchtwagen"
+        },
+        {
+          "titel": "gebrauchtwagen unter marktwert: chance oder warnsignal?",
+          "url": "/ratgeber/fahrzeugverkauf/gebrauchtwagen-unter-marktwert-chance-oder-warnsignal"
+        },
+        {
+          "titel": "auto kaufen ohne probefahrt: worauf besonders achten?",
+          "url": "/ratgeber/fahrzeugverkauf/auto-kaufen-ohne-probefahrt-worauf-besonders-achten"
+        }
+      ]
+    },
+    {
+      "id": "standorte",
+      "name": "Standorte",
+      "url": "/ratgeber/standorte",
+      "seiten_gesamt": 28,
+      "hinweis": "Standort-Hubs (7) + Stadt x Paket-Seiten (21). Paket-Seiten benötigen echte lokale Differenzierung, sonst Doorway-Page-Risiko.",
+      "standort_hubs": [
+        {
+          "stadt": "Mannheim",
+          "url": "/ratgeber/standorte/mannheim"
+        },
+        {
+          "stadt": "Heidelberg",
+          "url": "/ratgeber/standorte/heidelberg"
+        },
+        {
+          "stadt": "Ludwigshafen",
+          "url": "/ratgeber/standorte/ludwigshafen"
+        },
+        {
+          "stadt": "Karlsruhe",
+          "url": "/ratgeber/standorte/karlsruhe"
+        },
+        {
+          "stadt": "Heilbronn",
+          "url": "/ratgeber/standorte/heilbronn"
+        },
+        {
+          "stadt": "Weinheim",
+          "url": "/ratgeber/standorte/weinheim"
+        },
+        {
+          "stadt": "Schwetzingen",
+          "url": "/ratgeber/standorte/schwetzingen"
+        }
+      ],
+      "paket_seiten": [
+        {
+          "titel": "innenreinigung mannheim",
+          "url": "/ratgeber/standorte/mannheim/innenreinigung"
+        },
+        {
+          "titel": "außenreinigung mannheim",
+          "url": "/ratgeber/standorte/mannheim/aussenreinigung"
+        },
+        {
+          "titel": "komplettpaket mannheim",
+          "url": "/ratgeber/standorte/mannheim/komplettpaket"
+        },
+        {
+          "titel": "innenreinigung heidelberg",
+          "url": "/ratgeber/standorte/heidelberg/innenreinigung"
+        },
+        {
+          "titel": "außenreinigung heidelberg",
+          "url": "/ratgeber/standorte/heidelberg/aussenreinigung"
+        },
+        {
+          "titel": "komplettpaket heidelberg",
+          "url": "/ratgeber/standorte/heidelberg/komplettpaket"
+        },
+        {
+          "titel": "innenreinigung ludwigshafen",
+          "url": "/ratgeber/standorte/ludwigshafen/innenreinigung"
+        },
+        {
+          "titel": "außenreinigung ludwigshafen",
+          "url": "/ratgeber/standorte/ludwigshafen/aussenreinigung"
+        },
+        {
+          "titel": "komplettpaket ludwigshafen",
+          "url": "/ratgeber/standorte/ludwigshafen/komplettpaket"
+        },
+        {
+          "titel": "innenreinigung karlsruhe",
+          "url": "/ratgeber/standorte/karlsruhe/innenreinigung"
+        },
+        {
+          "titel": "außenreinigung karlsruhe",
+          "url": "/ratgeber/standorte/karlsruhe/aussenreinigung"
+        },
+        {
+          "titel": "komplettpaket karlsruhe",
+          "url": "/ratgeber/standorte/karlsruhe/komplettpaket"
+        },
+        {
+          "titel": "innenreinigung heilbronn",
+          "url": "/ratgeber/standorte/heilbronn/innenreinigung"
+        },
+        {
+          "titel": "außenreinigung heilbronn",
+          "url": "/ratgeber/standorte/heilbronn/aussenreinigung"
+        },
+        {
+          "titel": "komplettpaket heilbronn",
+          "url": "/ratgeber/standorte/heilbronn/komplettpaket"
+        },
+        {
+          "titel": "innenreinigung weinheim",
+          "url": "/ratgeber/standorte/weinheim/innenreinigung"
+        },
+        {
+          "titel": "außenreinigung weinheim",
+          "url": "/ratgeber/standorte/weinheim/aussenreinigung"
+        },
+        {
+          "titel": "komplettpaket weinheim",
+          "url": "/ratgeber/standorte/weinheim/komplettpaket"
+        },
+        {
+          "titel": "innenreinigung schwetzingen",
+          "url": "/ratgeber/standorte/schwetzingen/innenreinigung"
+        },
+        {
+          "titel": "außenreinigung schwetzingen",
+          "url": "/ratgeber/standorte/schwetzingen/aussenreinigung"
+        },
+        {
+          "titel": "komplettpaket schwetzingen",
+          "url": "/ratgeber/standorte/schwetzingen/komplettpaket"
+        }
+      ]
+    }
+  ],
+  "verlinkungsstruktur": {
+    "prinzip": "Kategorie <-> Artikel bidirektional. Autoaufbereitung-Sub-Artikel verlinken zu ihrer Hub-Seite. Ankauf/Verkauf-Artikel mit Stadtbezug verlinken zur passenden Standortseite. Footer-Links als SEO-Anker zu den 5 Hub-Kategorien + Top-3-Standorten (Mannheim, Heidelberg, Ludwigshafen). Verwandte Artikel querverlinkt innerhalb derselben Kategorie (3-6 pro Artikel)."
+  }
+}

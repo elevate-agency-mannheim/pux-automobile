@@ -1,0 +1,90 @@
+---
+import { getCollection, render } from "astro:content";
+import RatgeberLayout from "../../../layouts/RatgeberLayout.astro";
+import ArticleSchema from "../../../components/ratgeber/ArticleSchema.astro";
+import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import FAQ from "../../../components/ratgeber/FAQ.astro";
+import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
+import Icons from "../../../components/Icons.astro";
+import InfoBox from "../../../components/ratgeber/InfoBox.astro";
+import StepByStep from "../../../components/ratgeber/StepByStep.astro";
+import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
+import ProConTable from "../../../components/ratgeber/ProConTable.astro";
+import Checklist from "../../../components/ratgeber/Checklist.astro";
+import Calculator from "../../../components/ratgeber/Calculator.tsx";
+
+const mdxComponents = { InfoBox, StepByStep, ComparisonTable, ProConTable, Checklist, Calculator, ContactCTA, LocalCitiesWidget };
+
+export async function getStaticPaths() {
+  const entries = await getCollection("ratgeber", (e) => e.data.category === "standorte");
+  return entries.map((entry) => ({ params: { stadt: entry.data.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const canonicalUrl = `https://pux-automobile.de/ratgeber/standorte/${entry.data.slug}`;
+const cityName = entry.data.targetCities[0] ?? entry.data.title;
+
+const PACKAGES = [
+  { name: "Innenraum Komfort", price: 130 },
+  { name: "Außen Glanz", price: 90 },
+  { name: "Komplettpaket Premium", price: 220 },
+];
+---
+
+<ArticleSchema title={entry.data.seoTitle} description={entry.data.metaDescription} url={`/ratgeber/standorte/${entry.data.slug}`} datePublished={entry.data.publishDate} dateModified={entry.data.updatedDate} schemaTypes={entry.data.schemaType} />
+
+<RatgeberLayout
+  title={entry.data.seoTitle}
+  description={entry.data.metaDescription}
+  canonical={canonicalUrl}
+  containerClass="max-w-4xl"
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Ratgeber", href: "/ratgeber" },
+    { label: "Standorte", href: "/ratgeber/standorte" },
+    { label: cityName },
+  ]}
+>
+  <div class="max-w-3xl mx-auto">
+    <span class="inline-flex items-center gap-1.5 bg-[#EEF3FB] text-[#1B2B6B] text-xs font-bold px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">
+      <Icons name="map-pin" class="w-3.5 h-3.5" />
+      Standort
+    </span>
+    <h1 class="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-gray-900 leading-tight tracking-tight mb-5">
+      {entry.data.title}
+    </h1>
+
+    <div class="flex items-center gap-2.5 mb-8">
+      <img src="/luca.jpg" alt="Luca Härle" class="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+      <p class="text-sm text-gray-700">
+        <span class="font-semibold text-gray-900">Luca Härle</span>
+        <span class="text-gray-400"> · </span>
+        <span class="text-gray-500">Inhaber, PUX Automobile</span>
+      </p>
+    </div>
+
+    <div class="prose-article text-gray-700 leading-relaxed">
+      <Content components={mdxComponents} />
+    </div>
+
+    <div class="reveal not-prose my-10 rounded-2xl border border-gray-100 bg-white shadow-sm p-6 md:p-8">
+      <h2 class="font-bold text-gray-900 text-lg mb-5">Unsere Pakete in {cityName}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {PACKAGES.map((p) => (
+          <div class="rounded-xl border border-gray-100 bg-gray-50 p-4 text-center">
+            <p class="text-sm font-semibold text-gray-700 mb-1">{p.name}</p>
+            <p class="text-2xl font-extrabold text-[#1B2B6B]">ab {p.price} €</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-gray-400 mt-4">Alle Preise inkl. MwSt. Details siehe <a href="/#pakete" class="text-[#1B2B6B] underline">Pakete-Übersicht</a>.</p>
+    </div>
+
+    {entry.data.faq.length > 0 && <FAQ items={entry.data.faq} title={`Häufige Fragen zu ${cityName}`} />}
+
+    <ContactCTA title={`Termin in ${cityName} anfragen`} description={`Wir kommen zu Ihnen nach ${cityName} – unverbindlich und ohne versteckte Kosten.`} />
+
+    <LocalCitiesWidget currentCity={cityName} />
+  </div>
+</RatgeberLayout>

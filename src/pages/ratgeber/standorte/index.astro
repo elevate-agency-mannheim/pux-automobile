@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import KategorieLayout from "../../../layouts/KategorieLayout.astro";
+
+const entries = (await getCollection("ratgeber", (e) => e.data.category === "standorte")).sort((a, b) =>
+  (a.data.targetCities[0] ?? a.data.title).localeCompare(b.data.targetCities[0] ?? b.data.title)
+);
+
+const articles = entries.map((e) => ({
+  title: e.data.targetCities[0] ?? e.data.title,
+  url: `/ratgeber/standorte/${e.data.slug}`,
+  excerpt: e.data.metaDescription,
+  badge: "Standort",
+}));
+---
+
+<KategorieLayout
+  seoTitle="Standorte | PUX Automobile"
+  metaDescription="Mobile Autoaufbereitung sowie Fahrzeugankauf und -verkauf in Mannheim, Heidelberg, Ludwigshafen und der gesamten Rhein-Neckar-Region."
+  canonical="https://pux-automobile.de/ratgeber/standorte"
+  breadcrumbs={[
+    { label: "Startseite", href: "/" },
+    { label: "Ratgeber", href: "/ratgeber" },
+    { label: "Standorte" },
+  ]}
+  eyebrow="Standorte"
+  title="Unsere Einsatzgebiete"
+  intro="Mobile Autoaufbereitung sowie Fahrzeugankauf und -verkauf direkt vor Ihrer Haustür – wählen Sie Ihren Standort für Details zu Anfahrt, Terminen und Leistungen."
+  articles={articles}
+  articlesHeading="Alle Standorte"
+  showLocalSection={false}
+/>

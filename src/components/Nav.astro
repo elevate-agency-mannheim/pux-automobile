@@ -1,0 +1,193 @@
+---
+import Icons from "./Icons.astro";
+import type { IconName } from "./Icons.astro";
+
+const RATGEBER_KATEGORIEN: { name: string; url: string; description: string; icon: IconName }[] = [
+  { name: "Autoaufbereitung", url: "/ratgeber/autoaufbereitung", description: "Politur, Lackpflege, Reinigung", icon: "sparkles" },
+  { name: "Auto verkaufen", url: "/ratgeber/fahrzeugverkauf", description: "Ablauf, Bewertung & faire Auszahlung", icon: "banknote" },
+  { name: "Gebrauchtwagen kaufen", url: "/ratgeber/fahrzeugankauf", description: "Geprüfte Fahrzeuge aus unserem Bestand", icon: "car" },
+  { name: "Ratgeber & Wissen", url: "/ratgeber/wissen", description: "Tipps, Vergleiche, FAQs", icon: "academic-cap" },
+];
+const STANDORTE = ["Mannheim", "Heidelberg", "Ludwigshafen", "Karlsruhe", "Heilbronn", "Weinheim", "Schwetzingen"];
+---
+
+<div id="scroll-progress"></div>
+
+<header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <nav class="max-w-6xl mx-auto px-4 md:px-6 flex items-center justify-between py-4">
+
+    <!-- Logo -->
+    <a href="/" aria-label="PUX Automobile Startseite" class="flex items-center gap-2 min-w-0 transition-transform duration-300 hover:scale-[1.03]">
+      <img
+        src="/logo.png"
+        alt="PUX Automobile"
+        class="h-[31px] md:h-[43px] w-auto flex-shrink-0"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <!-- Text fallback if image fails -->
+      <span style="display:none;" class="items-center font-extrabold text-xl tracking-tight" style="background: linear-gradient(135deg,#1B2B6B,#3A7BD5); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+        PUX <span class="font-light ml-1 text-gray-600" style="-webkit-text-fill-color:#6b7280; font-size:0.75rem; letter-spacing:0.2em;">AUTOMOBILE</span>
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+      <li><a href="/#leistungen" class="nav-link hover:text-[#1B2B6B] transition-colors">Aufbereitung</a></li>
+      <li><a href="/#pakete" class="nav-link hover:text-[#1B2B6B] transition-colors">Pakete</a></li>
+      <li><a href="/#leistungen" class="nav-link hover:text-[#1B2B6B] transition-colors">An- & Verkauf</a></li>
+      <li><a href="/#ablauf" class="nav-link hover:text-[#1B2B6B] transition-colors">Ablauf</a></li>
+
+      <!-- Ratgeber mega-dropdown -->
+      <li class="mega-dropdown relative">
+        <a href="/ratgeber" class="nav-link flex items-center gap-1 hover:text-[#1B2B6B] transition-colors" aria-haspopup="true" aria-expanded="false">
+          Ratgeber
+          <Icons name="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300 mega-chevron" />
+        </a>
+        <div class="mega-panel absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible translate-y-1 transition-all duration-200" role="menu" aria-label="Ratgeber-Kategorien">
+          <div class="w-[560px] bg-white rounded-2xl border border-gray-100 shadow-xl p-6 grid grid-cols-2 gap-2">
+            {RATGEBER_KATEGORIEN.map((cat) => (
+              <a href={cat.url} class="flex items-start gap-3 p-3 rounded-xl hover:bg-[#EEF3FB] transition-colors">
+                <span class="w-9 h-9 rounded-lg flex items-center justify-center text-white flex-shrink-0" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+                  <Icons name={cat.icon} class="w-4.5 h-4.5" />
+                </span>
+                <span>
+                  <span class="block text-sm font-semibold text-gray-900">{cat.name}</span>
+                  <span class="block text-xs text-gray-500 mt-0.5">{cat.description}</span>
+                </span>
+              </a>
+            ))}
+            <div class="col-span-2 border-t border-gray-100 mt-2 pt-4">
+              <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-2.5 px-3">Standorte</p>
+              <div class="flex flex-wrap gap-2 px-3">
+                {STANDORTE.map((stadt) => (
+                  <a href={`/ratgeber/standorte/${stadt.toLowerCase()}`} class="text-xs font-medium text-gray-600 bg-gray-50 rounded-full px-3 py-1.5 hover:bg-[#EEF3FB] hover:text-[#1B2B6B] transition-colors">
+                    {stadt}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li><a href="/#kontakt" class="nav-link hover:text-[#1B2B6B] transition-colors">Kontakt</a></li>
+    </ul>
+
+    <div class="nav-cta-desktop">
+      <a href="/#kontakt" class="btn-primary text-sm">
+        Unverbindlich anfragen
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-600 flex flex-col items-center justify-center gap-[5px]" aria-label="Menü öffnen" aria-expanded="false">
+      <span class="hamburger-bar bar-1"></span>
+      <span class="hamburger-bar bar-2"></span>
+      <span class="hamburger-bar bar-3"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100">
+    <div class="px-6 py-2 space-y-0.5">
+      <a href="/#leistungen" class="block text-gray-700 font-medium py-1.5 hover:text-[#1B2B6B] transition-colors">Aufbereitung</a>
+      <a href="/#pakete" class="block text-gray-700 font-medium py-1.5 hover:text-[#1B2B6B] transition-colors">Pakete</a>
+      <a href="/#leistungen" class="block text-gray-700 font-medium py-1.5 hover:text-[#1B2B6B] transition-colors">An- & Verkauf</a>
+      <a href="/#ablauf" class="block text-gray-700 font-medium py-1.5 hover:text-[#1B2B6B] transition-colors">Ablauf</a>
+
+      <p class="text-xs font-bold text-gray-400 uppercase tracking-wide pt-3 pb-1">Ratgeber</p>
+      <a href="/ratgeber" class="block text-gray-700 font-medium py-1.5 hover:text-[#1B2B6B] transition-colors">Alle Artikel</a>
+      {RATGEBER_KATEGORIEN.map((cat) => (
+        <a href={cat.url} class="block text-gray-600 text-sm py-1.5 pl-3 hover:text-[#1B2B6B] transition-colors">{cat.name}</a>
+      ))}
+
+      <a href="/#kontakt" class="block text-gray-700 font-medium py-1.5 mt-2 hover:text-[#1B2B6B] transition-colors">Kontakt</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const nav = document.getElementById("nav")!;
+  const btn = document.getElementById("mobile-menu-btn")!;
+  const menu = document.getElementById("mobile-menu")!;
+  const progress = document.getElementById("scroll-progress")!;
+
+  function onScroll() {
+    if (window.scrollY > 40) {
+      nav.classList.add("bg-white/95", "backdrop-blur-md", "shadow-sm", "border-b", "border-gray-100/80");
+    } else {
+      nav.classList.remove("bg-white/95", "backdrop-blur-md", "shadow-sm", "border-b", "border-gray-100/80");
+    }
+    const doc = document.documentElement;
+    const scrollable = doc.scrollHeight - doc.clientHeight;
+    const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    progress.style.width = `${pct}%`;
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  btn.addEventListener("click", () => {
+    const open = !menu.classList.contains("open");
+    menu.classList.toggle("open", open);
+    btn.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", String(open));
+    btn.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
+  });
+
+  // Close on nav link click
+  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+    menu.classList.remove("open");
+    btn.classList.remove("open");
+    btn.setAttribute("aria-expanded", "false");
+  }));
+
+  // Highlight the nav link matching the section currently in view
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link, #mobile-menu a");
+  const sections = document.querySelectorAll<HTMLElement>("section[id]");
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        navLinks.forEach((link) => {
+          link.classList.toggle("nav-active", link.getAttribute("href") === `/#${id}` || link.getAttribute("href") === `#${id}`);
+        });
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+  );
+  sections.forEach((s) => sectionObserver.observe(s));
+
+  // Mega-dropdown: hover on desktop with a small close-delay
+  document.querySelectorAll<HTMLElement>(".mega-dropdown").forEach((item) => {
+    const trigger = item.querySelector<HTMLAnchorElement>(".nav-link")!;
+    const panel = item.querySelector<HTMLElement>(".mega-panel")!;
+    const chevron = item.querySelector<HTMLElement>(".mega-chevron")!;
+    let closeTimer: ReturnType<typeof setTimeout>;
+
+    function open() {
+      clearTimeout(closeTimer);
+      panel.classList.remove("opacity-0", "invisible", "translate-y-1");
+      chevron.style.transform = "rotate(180deg)";
+      trigger.setAttribute("aria-expanded", "true");
+    }
+    function close() {
+      closeTimer = setTimeout(() => {
+        panel.classList.add("opacity-0", "invisible", "translate-y-1");
+        chevron.style.transform = "";
+        trigger.setAttribute("aria-expanded", "false");
+      }, 150);
+    }
+    item.addEventListener("mouseenter", open);
+    item.addEventListener("mouseleave", close);
+    item.addEventListener("focusin", open);
+    item.addEventListener("focusout", close);
+    item.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        close();
+        trigger.focus();
+      }
+    });
+  });
+</script>

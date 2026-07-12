@@ -1,0 +1,37 @@
+---
+import Icons from "../Icons.astro";
+import type { IconName } from "../Icons.astro";
+
+interface Props {
+  type?: "info" | "warning" | "tip" | "success";
+  title?: string;
+}
+const { type = "info", title } = Astro.props;
+
+const STYLES: Record<string, { icon: IconName; border: string; bg: string; iconColor: string; titleColor: string }> = {
+  info: { icon: "info-circle", border: "border-blue-100", bg: "bg-blue-50", iconColor: "text-[#3A7BD5]", titleColor: "text-[#1B2B6B]" },
+  warning: { icon: "exclamation-triangle", border: "border-amber-200", bg: "bg-amber-50", iconColor: "text-amber-600", titleColor: "text-amber-800" },
+  tip: { icon: "light-bulb", border: "border-violet-200", bg: "bg-violet-50", iconColor: "text-violet-600", titleColor: "text-violet-800" },
+  success: { icon: "check-circle", border: "border-green-200", bg: "bg-green-50", iconColor: "text-green-600", titleColor: "text-green-800" },
+};
+
+const DEFAULT_TITLES: Record<string, string> = {
+  info: "Gut zu wissen",
+  warning: "Achtung",
+  tip: "Tipp",
+  success: "Empfehlung",
+};
+
+const style = STYLES[type];
+const heading = title || DEFAULT_TITLES[type];
+---
+
+<div class={`reveal not-prose rounded-2xl border ${style.border} ${style.bg} p-5 my-6 flex items-start gap-3.5`}>
+  <Icons name={style.icon} class={`w-5 h-5 flex-shrink-0 mt-0.5 ${style.iconColor}`} />
+  <div class="min-w-0">
+    <p class={`text-sm font-bold mb-1 ${style.titleColor}`}>{heading}</p>
+    <div class="text-sm text-gray-700 leading-relaxed [&_a]:text-[#1B2B6B] [&_a]:underline [&_p]:mb-2 [&_p:last-child]:mb-0">
+      <slot />
+    </div>
+  </div>
+</div>

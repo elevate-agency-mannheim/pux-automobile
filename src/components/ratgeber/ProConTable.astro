@@ -1,0 +1,42 @@
+---
+import Icons from "../Icons.astro";
+
+interface Props {
+  pros: string[];
+  cons: string[];
+  prosTitle?: string;
+  consTitle?: string;
+}
+const { pros, cons, prosTitle = "Vorteile", consTitle = "Nachteile" } = Astro.props;
+---
+
+<div class="reveal not-prose my-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <div class="rounded-2xl border border-green-200 bg-green-50 p-5">
+    <h3 class="flex items-center gap-2 font-bold text-green-800 mb-3.5 text-sm uppercase tracking-wide">
+      <Icons name="check-circle" class="w-4.5 h-4.5" />
+      {prosTitle}
+    </h3>
+    <ul class="space-y-2.5">
+      {pros.map((p) => (
+        <li class="flex items-start gap-2 text-sm text-gray-700 leading-relaxed">
+          <span class="text-green-600 font-bold flex-shrink-0">+</span>
+          <span>{p}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <div class="rounded-2xl border border-red-200 bg-red-50 p-5">
+    <h3 class="flex items-center gap-2 font-bold text-red-800 mb-3.5 text-sm uppercase tracking-wide">
+      <Icons name="x-mark" class="w-4.5 h-4.5" />
+      {consTitle}
+    </h3>
+    <ul class="space-y-2.5">
+      {cons.map((c) => (
+        <li class="flex items-start gap-2 text-sm text-gray-700 leading-relaxed">
+          <span class="text-red-500 font-bold flex-shrink-0">−</span>
+          <span>{c}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>

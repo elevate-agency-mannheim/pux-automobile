@@ -13,9 +13,9 @@ interface Paket {
   price: number;
   bestseller?: boolean;
   combo?: string;
-  isBundle?: boolean;
   leistung: string;
   features: string[];
+  includesZusatz?: string[];
 }
 
 const INNENRAUM_PAKETE: Paket[] = [
@@ -63,6 +63,7 @@ const INNENRAUM_PAKETE: Paket[] = [
       "Klimaanlagen-Desinfektion",
       "Ozonbehandlung",
     ],
+    includesZusatz: ["lederversiegelung"],
   },
 ];
 
@@ -92,13 +93,13 @@ const BUNDLE_PAKETE: Paket[] = [
     value: "PUX-Bundle – 240 €",
     name: "PUX-Bundle",
     price: 240,
-    isBundle: true,
     leistung: "Komplettpaket",
     features: [
       "Innenraum Komfort Paket",
       "Außen Premium Paket",
       "Kostenlose Sprühversiegelung im Wert von 50 € (UV-Schutz, weniger Schmutzanhaftung, intensiver Glanz, starker Wasser-Abperleffekt)",
     ],
+    includesZusatz: ["spruehversiegelung"],
   },
 ];
 
@@ -113,6 +114,7 @@ const ZUSATZLEISTUNGEN = [
   { id: "verschmutzung-extrem", value: "Extreme Verschmutzung (70 €)", label: "Extreme Verschmutzung", price: 70 },
   { id: "tierhaare-stark", value: "Starke Tierhaarentfernung (40 €)", label: "Starke Tierhaarentfernung", price: 40 },
   { id: "spruehversiegelung", value: "Sprühversiegelung außen (50 €)", label: "Sprühversiegelung außen", price: 50 },
+  { id: "lederversiegelung", value: "Lederversiegelung (50 €)", label: "Lederversiegelung", price: 50 },
   { id: "motorwaesche", value: "Motorwäsche (49 €)", label: "Motorwäsche", price: 49 },
 ];
 ---
@@ -159,6 +161,10 @@ const ZUSATZLEISTUNGEN = [
         ))}
       </div>
       <p id="error-dienstleistung" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+      <button type="button" class="wizard-next-btn group mt-6 w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-sm font-semibold btn-primary">
+        <span class="wizard-next-btn-text">Weiter</span>
+        <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+      </button>
     </div>
 
     <!-- STEP (aufbereitung): Paket -->
@@ -184,7 +190,7 @@ const ZUSATZLEISTUNGEN = [
       <div class="paket-group space-y-4" data-for="Innenreinigung">
         {INNENRAUM_PAKETE.map((p) => (
           <label class={`has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] relative block border-2 ${p.bestseller ? "border-amber-300" : "border-gray-200"} rounded-2xl px-5 py-4 cursor-pointer transition-all`}>
-            <input type="radio" name="paket" value={p.value} data-leistung={p.leistung} data-is-bundle="false" data-price={p.price} class="peer sr-only" />
+            <input type="radio" name="paket" value={p.value} data-leistung={p.leistung} data-includes={(p.includesZusatz ?? []).join(",")} data-price={p.price} class="peer sr-only" />
             {p.bestseller && (
               <span class="inline-flex items-center gap-1 bg-amber-400 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded-full mb-2">
                 <Icons name="star" class="w-3 h-3" /> BESTSELLER
@@ -210,7 +216,7 @@ const ZUSATZLEISTUNGEN = [
       <div class="paket-group hidden space-y-4" data-for="Außenreinigung">
         {AUSSEN_PAKETE.map((p) => (
           <label class="has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] relative block border-2 border-gray-200 rounded-2xl px-5 py-4 cursor-pointer transition-all">
-            <input type="radio" name="paket" value={p.value} data-leistung={p.leistung} data-is-bundle="false" data-price={p.price} class="peer sr-only" />
+            <input type="radio" name="paket" value={p.value} data-leistung={p.leistung} data-includes={(p.includesZusatz ?? []).join(",")} data-price={p.price} class="peer sr-only" />
             <div class="flex items-center justify-between gap-3 mb-1">
               <span class="font-bold text-gray-900">{p.name}</span>
               <span class="font-extrabold text-[#1B2B6B]">ab {p.price} €</span>
@@ -230,7 +236,7 @@ const ZUSATZLEISTUNGEN = [
       <div class="paket-group hidden space-y-4" data-for="Komplettpaket">
         {BUNDLE_PAKETE.map((p) => (
           <label class="has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] relative block border-2 border-amber-300 rounded-2xl px-5 py-4 cursor-pointer transition-all">
-            <input type="radio" name="paket" value={p.value} data-leistung={p.leistung} data-is-bundle="true" data-price={p.price} class="peer sr-only" />
+            <input type="radio" name="paket" value={p.value} data-leistung={p.leistung} data-includes={(p.includesZusatz ?? []).join(",")} data-price={p.price} class="peer sr-only" />
             <span class="inline-flex items-center gap-1 bg-amber-400 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded-full mb-2">
               <Icons name="star" class="w-3 h-3" /> BESTER WERT
             </span>
@@ -251,9 +257,15 @@ const ZUSATZLEISTUNGEN = [
       </div>
 
       <p id="error-paket" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
-      <button type="button" data-wizard-back="paket" class="mt-6 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
-        Zurück
-      </button>
+      <div class="flex gap-3 mt-6">
+        <button type="button" data-wizard-back="paket" class="inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
+          Zurück
+        </button>
+        <button type="button" class="wizard-next-btn group flex-1 inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-sm font-semibold btn-primary">
+          <span class="wizard-next-btn-text">Weiter</span>
+          <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </button>
+      </div>
     </div>
 
     <!-- STEP (aufbereitung): Fahrzeuggröße -->
@@ -268,9 +280,15 @@ const ZUSATZLEISTUNGEN = [
           </label>
         ))}
       </div>
-      <button type="button" data-wizard-back="fahrzeuggroesse" class="mt-6 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
-        Zurück
-      </button>
+      <div class="flex gap-3 mt-6">
+        <button type="button" data-wizard-back="fahrzeuggroesse" class="inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
+          Zurück
+        </button>
+        <button type="button" class="wizard-next-btn group flex-1 inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-sm font-semibold btn-primary">
+          <span class="wizard-next-btn-text">Weiter</span>
+          <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </button>
+      </div>
     </div>
 
     <!-- STEP (aufbereitung): Zusatzleistungen -->
@@ -287,9 +305,15 @@ const ZUSATZLEISTUNGEN = [
           </label>
         ))}
       </div>
-      <button type="button" data-wizard-back="zusatzleistungen" class="mt-6 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
-        Zurück
-      </button>
+      <div class="flex gap-3 mt-6">
+        <button type="button" data-wizard-back="zusatzleistungen" class="inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
+          Zurück
+        </button>
+        <button type="button" class="wizard-next-btn group flex-1 inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-sm font-semibold btn-primary">
+          <span class="wizard-next-btn-text">Weiter</span>
+          <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </button>
+      </div>
     </div>
 
     <!-- STEP (ankauf): Fahrzeugdaten -->
@@ -325,9 +349,15 @@ const ZUSATZLEISTUNGEN = [
           </select>
         </div>
       </div>
-      <button type="button" data-wizard-back="ankauf-felder" class="mt-6 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
-        Zurück
-      </button>
+      <div class="flex gap-3 mt-6">
+        <button type="button" data-wizard-back="ankauf-felder" class="inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
+          Zurück
+        </button>
+        <button type="button" class="wizard-next-btn group flex-1 inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-sm font-semibold btn-primary">
+          <span class="wizard-next-btn-text">Weiter</span>
+          <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </button>
+      </div>
     </div>
 
     <!-- STEP (verkauf): Wunschfahrzeug -->
@@ -344,9 +374,15 @@ const ZUSATZLEISTUNGEN = [
             class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
         </div>
       </div>
-      <button type="button" data-wizard-back="verkauf-felder" class="mt-6 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
-        Zurück
-      </button>
+      <div class="flex gap-3 mt-6">
+        <button type="button" data-wizard-back="verkauf-felder" class="inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
+          Zurück
+        </button>
+        <button type="button" class="wizard-next-btn group flex-1 inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-sm font-semibold btn-primary">
+          <span class="wizard-next-btn-text">Weiter</span>
+          <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </button>
+      </div>
     </div>
 
     <!-- FINAL STEP (all paths): Kontaktdaten -->
@@ -358,6 +394,22 @@ const ZUSATZLEISTUNGEN = [
         <input type="text" id="plz" name="plz" inputmode="numeric" maxlength="5" placeholder="z. B. 68159"
           class="w-full sm:w-48 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
         <p id="error-plz" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+      </div>
+
+      <div id="voraussetzung-strom" class="hidden mb-5">
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input type="checkbox" id="check-steckdose" name="steckdose_verfuegbar" value="Ja" class="mt-0.5 w-4 h-4 rounded border-gray-300 accent-[#3A7BD5] flex-shrink-0" />
+          <span class="text-sm text-gray-600">Eine Steckdose ist vor Ort verfügbar. *</span>
+        </label>
+        <p id="error-steckdose_verfuegbar" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+      </div>
+
+      <div id="voraussetzung-wasser" class="hidden mb-5">
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input type="checkbox" id="check-wasseranschluss" name="wasseranschluss_verfuegbar" value="Ja" class="mt-0.5 w-4 h-4 rounded border-gray-300 accent-[#3A7BD5] flex-shrink-0" />
+          <span class="text-sm text-gray-600">Ein Wasseranschluss (z. B. Gartenschlauch) ist vor Ort verfügbar. *</span>
+        </label>
+        <p id="error-wasseranschluss_verfuegbar" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
@@ -395,9 +447,14 @@ const ZUSATZLEISTUNGEN = [
         </p>
       </div>
 
-      <button type="button" data-wizard-back="kontaktdaten" class="mt-6 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
-        Zurück
-      </button>
+      <div class="flex gap-3 mt-6">
+        <button type="button" data-wizard-back="kontaktdaten" class="inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
+          Zurück
+        </button>
+        <button type="button" class="wizard-next-btn group flex-1 inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-sm font-semibold btn-primary">
+          <span class="wizard-next-btn-text">Anfrage absenden →</span>
+        </button>
+      </div>
 
       <p class="text-xs text-gray-400 text-center mt-4">
         Keine Weitergabe Ihrer Daten an Dritte.
@@ -438,8 +495,8 @@ const ZUSATZLEISTUNGEN = [
       <span id="sticky-price-value" class="block text-xl sm:text-2xl font-extrabold text-gray-900">–</span>
     </div>
     <div class="flex-1"></div>
-    <button type="button" id="sticky-next-btn" class="btn-primary px-6 sm:px-8 py-3.5 text-sm font-semibold disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none">
-      <span id="sticky-next-text">Weiter</span>
+    <button type="button" id="sticky-next-btn" class="wizard-next-btn btn-primary px-6 sm:px-8 py-3.5 text-sm font-semibold disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none">
+      <span id="sticky-next-text" class="wizard-next-btn-text">Weiter</span>
     </button>
   </div>
 </div>
@@ -479,6 +536,13 @@ const ZUSATZLEISTUNGEN = [
   const stickyPriceValue = document.getElementById("sticky-price-value") as HTMLElement;
   const stickyNextBtn = document.getElementById("sticky-next-btn") as HTMLButtonElement;
   const stickyNextText = document.getElementById("sticky-next-text") as HTMLElement;
+  // Every step has its own inline "Weiter"/"Anfrage absenden" button next to "Zurück",
+  // plus the persistent sticky one — all share this class and stay in sync.
+  const nextBtns = document.querySelectorAll<HTMLButtonElement>(".wizard-next-btn");
+  const voraussetzungStrom = document.getElementById("voraussetzung-strom") as HTMLElement;
+  const voraussetzungWasser = document.getElementById("voraussetzung-wasser") as HTMLElement;
+  const checkSteckdose = document.getElementById("check-steckdose") as HTMLInputElement;
+  const checkWasseranschluss = document.getElementById("check-wasseranschluss") as HTMLInputElement;
 
   let currentPath = "aufbereitung";
   let currentIndex = 0;
@@ -501,6 +565,26 @@ const ZUSATZLEISTUNGEN = [
     updateStickyBar();
   }
 
+  // Innenreinigung needs a power socket, Außenreinigung needs a water hookup,
+  // Komplettpaket (Bundle) needs both — shown/required only on the final step.
+  function getVoraussetzungState() {
+    const leistung = leistungField.value;
+    return {
+      showStrom: leistung === "Innenreinigung" || leistung === "Komplettpaket",
+      showWasser: leistung === "Außenreinigung" || leistung === "Komplettpaket",
+    };
+  }
+
+  function updateVoraussetzungen() {
+    const { showStrom, showWasser } = getVoraussetzungState();
+    voraussetzungStrom.classList.toggle("hidden", !showStrom);
+    voraussetzungWasser.classList.toggle("hidden", !showWasser);
+    checkSteckdose.required = showStrom;
+    checkWasseranschluss.required = showWasser;
+    if (!showStrom) checkSteckdose.checked = false;
+    if (!showWasser) checkWasseranschluss.checked = false;
+  }
+
   function canAdvance(): boolean {
     const stepId = STEP_SEQUENCES[currentPath][currentIndex];
     if (stepId === "dienstleistung") return !!document.querySelector('input[name="dienstleistung"]:checked');
@@ -513,6 +597,9 @@ const ZUSATZLEISTUNGEN = [
       if (currentPath === "aufbereitung") {
         const plz = (document.getElementById("plz") as HTMLInputElement).value.trim();
         if (!/^\d{5}$/.test(plz)) return false;
+        const { showStrom, showWasser } = getVoraussetzungState();
+        if (showStrom && !checkSteckdose.checked) return false;
+        if (showWasser && !checkWasseranschluss.checked) return false;
       }
       return true;
     }
@@ -523,8 +610,13 @@ const ZUSATZLEISTUNGEN = [
     const sequence = STEP_SEQUENCES[currentPath];
     const stepId = sequence[currentIndex];
 
-    stickyNextText.textContent = stepId === "kontaktdaten" ? "Anfrage absenden →" : "Weiter";
-    stickyNextBtn.disabled = !canAdvance();
+    const label = stepId === "kontaktdaten" ? "Anfrage absenden →" : "Weiter";
+    const disabled = !canAdvance();
+    nextBtns.forEach((btn) => {
+      btn.disabled = disabled;
+      const textEl = btn.querySelector<HTMLElement>(".wizard-next-btn-text");
+      if (textEl) textEl.textContent = label;
+    });
 
     if (currentPath === "aufbereitung") {
       stickyPriceWrap.classList.remove("hidden");
@@ -579,24 +671,28 @@ const ZUSATZLEISTUNGEN = [
 
   function updateZusatzleistungenAvailability() {
     const checkedPaket = document.querySelector<HTMLInputElement>('input[name="paket"]:checked');
-    const isBundle = checkedPaket?.dataset.isBundle === "true";
-    const spruehItem = document.querySelector<HTMLElement>('[data-zusatz-id="spruehversiegelung"]');
-    if (spruehItem) {
-      const checkbox = spruehItem.querySelector<HTMLInputElement>('input[type="checkbox"]');
-      spruehItem.classList.toggle("hidden", !!isBundle);
-      if (isBundle && checkbox) checkbox.checked = false;
-    }
+    const included = (checkedPaket?.dataset.includes ?? "").split(",").filter(Boolean);
+    document.querySelectorAll<HTMLElement>("[data-zusatz-id]").forEach((item) => {
+      const alreadyIncluded = included.includes(item.dataset.zusatzId ?? "");
+      item.classList.toggle("hidden", alreadyIncluded);
+      if (alreadyIncluded) {
+        const checkbox = item.querySelector<HTMLInputElement>('input[type="checkbox"]');
+        if (checkbox) checkbox.checked = false;
+      }
+    });
   }
   document.querySelectorAll<HTMLInputElement>('input[name="paket"]').forEach((r) =>
     r.addEventListener("change", () => {
       leistungField.value = r.dataset.leistung ?? "";
       updateZusatzleistungenAvailability();
+      updateVoraussetzungen();
       updateStickyBar();
     })
   );
   document.querySelectorAll<HTMLInputElement>('input[name="zusatzleistung"]').forEach((cb) =>
     cb.addEventListener("change", updateStickyBar)
   );
+  [checkSteckdose, checkWasseranschluss].forEach((cb) => cb.addEventListener("change", updateStickyBar));
   ["fahrzeug-ank", "name", "phone", "plz"].forEach((id) => {
     document.getElementById(id)?.addEventListener("input", updateStickyBar);
   });
@@ -629,7 +725,7 @@ const ZUSATZLEISTUNGEN = [
 
     goToIndex(currentIndex + 1);
   }
-  stickyNextBtn.addEventListener("click", attemptAdvance);
+  nextBtns.forEach((btn) => btn.addEventListener("click", attemptAdvance));
 
   document.querySelectorAll<HTMLButtonElement>("[data-wizard-back]").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -660,6 +756,7 @@ const ZUSATZLEISTUNGEN = [
           leistungField.value = paketRadio.dataset.leistung ?? "";
           if (paketRadio.dataset.leistung) showPaketGroupFor(paketRadio.dataset.leistung);
           updateZusatzleistungenAvailability();
+          updateVoraussetzungen();
           updateStickyBar();
         }
       }
@@ -675,8 +772,6 @@ const ZUSATZLEISTUNGEN = [
   const form = document.getElementById("contact-form") as HTMLFormElement;
   const generalError = document.getElementById("form-general-error")!;
   const generalErrorText = document.getElementById("form-general-error-text")!;
-  const submitBtn = stickyNextBtn;
-  const submitBtnText = stickyNextText;
 
   const ERROR_INPUT_CLASSES = ["border-red-400", "focus:ring-red-200"];
 
@@ -727,6 +822,14 @@ const ZUSATZLEISTUNGEN = [
 
       const paket = (data.get("paket") as string || "").trim();
       if (!paket) errors.paket = "Bitte wähle ein Paket aus.";
+
+      const { showStrom, showWasser } = getVoraussetzungState();
+      if (showStrom && data.get("steckdose_verfuegbar") !== "Ja") {
+        errors.steckdose_verfuegbar = "Bitte bestätige, dass eine Steckdose vor Ort verfügbar ist.";
+      }
+      if (showWasser && data.get("wasseranschluss_verfuegbar") !== "Ja") {
+        errors.wasseranschluss_verfuegbar = "Bitte bestätige, dass ein Wasseranschluss vor Ort verfügbar ist.";
+      }
     } else if (path === "ankauf") {
       const fahrzeug = (data.get("fahrzeug_ankauf") as string || "").trim();
       if (!fahrzeug) errors.fahrzeug_ankauf = "Bitte gib Marke und Modell deines Fahrzeugs an.";
@@ -752,10 +855,13 @@ const ZUSATZLEISTUNGEN = [
     const payload: Record<string, unknown> = Object.fromEntries(formData.entries());
     payload.zusatzleistung = formData.getAll("zusatzleistung").filter(Boolean).join(", ");
 
-    submitBtn.disabled = true;
-    submitBtn.classList.add("opacity-70", "cursor-not-allowed");
-    const originalText = submitBtnText.textContent;
-    submitBtnText.textContent = "Wird gesendet...";
+    const originalText = stickyNextText.textContent;
+    nextBtns.forEach((btn) => {
+      btn.disabled = true;
+      btn.classList.add("opacity-70", "cursor-not-allowed");
+      const textEl = btn.querySelector<HTMLElement>(".wizard-next-btn-text");
+      if (textEl) textEl.textContent = "Wird gesendet...";
+    });
 
     try {
       const res = await fetch("/api/contact", {
@@ -795,9 +901,12 @@ const ZUSATZLEISTUNGEN = [
     } catch {
       showGeneralError("Die Anfrage konnte nicht gesendet werden. Bitte prüfe deine Internetverbindung und versuche es erneut.");
     } finally {
-      submitBtn.disabled = false;
-      submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
-      submitBtnText.textContent = originalText;
+      nextBtns.forEach((btn) => {
+        btn.disabled = !canAdvance();
+        btn.classList.remove("opacity-70", "cursor-not-allowed");
+        const textEl = btn.querySelector<HTMLElement>(".wizard-next-btn-text");
+        if (textEl) textEl.textContent = originalText;
+      });
     }
   });
 </script>

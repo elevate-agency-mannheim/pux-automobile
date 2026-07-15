@@ -36,6 +36,16 @@ function validate(data: Record<string, unknown>): FieldErrors {
 
     if (!str(data.leistung)) errors.leistung = "Bitte wähle eine gewünschte Dienstleistung aus.";
     if (!str(data.paket)) errors.paket = "Bitte wähle ein Paket aus.";
+
+    const leistung = str(data.leistung);
+    const needsStrom = leistung === "Innenreinigung" || leistung === "Komplettpaket";
+    const needsWasser = leistung === "Außenreinigung" || leistung === "Komplettpaket";
+    if (needsStrom && data.steckdose_verfuegbar !== "Ja") {
+      errors.steckdose_verfuegbar = "Bitte bestätige, dass eine Steckdose vor Ort verfügbar ist.";
+    }
+    if (needsWasser && data.wasseranschluss_verfuegbar !== "Ja") {
+      errors.wasseranschluss_verfuegbar = "Bitte bestätige, dass ein Wasseranschluss vor Ort verfügbar ist.";
+    }
   } else if (anliegen === "Fahrzeug verkaufen") {
     if (!str(data.fahrzeug_ankauf)) errors.fahrzeug_ankauf = "Bitte gib Marke und Modell deines Fahrzeugs an.";
   } else if (anliegen === "Ratgeber-Anfrage") {
@@ -69,6 +79,8 @@ function buildEmailHtml(data: Record<string, unknown>): string {
       ["Paket", data.paket],
       ["Fahrzeuggröße", data.fahrzeuggroesse],
       ["Zusatzleistungen", data.zusatzleistung],
+      ["Steckdose vorhanden", data.steckdose_verfuegbar],
+      ["Wasseranschluss vorhanden", data.wasseranschluss_verfuegbar],
     );
   } else if (anliegen === "Fahrzeug verkaufen") {
     rows.push(

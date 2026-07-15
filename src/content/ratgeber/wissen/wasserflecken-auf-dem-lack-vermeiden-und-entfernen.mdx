@@ -49,7 +49,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Kaum ist die Wäsche fertig, zeigen sich bei Sonnenlicht schon wieder helle, kalkige Flecken auf dem Lack: Wasserflecken gehören zu den ärgerlichsten, aber gut vermeidbaren Problemen der Fahrzeugpflege. Dieser Ratgeber erklärt, wie sie entstehen, wie Sie bestehende Flecken entfernen und wie Sie neuen dauerhaft vorbeugen.
@@ -91,10 +91,7 @@ Bei frischen, leichten Wasserflecken reicht oft ein spezieller Fleckenentferner 
   ]}
 />
 
-<ContactCTA
-  title="Hartnäckige Wasserflecken professionell entfernen lassen"
-  description="Wir beurteilen den Lackzustand vor Ort und entfernen auch eingebrannte Wasserflecken fachgerecht."
-/>
+<CTAButton text="Hartnäckige Wasserflecken professionell entfernen lassen" tab="aufbereitung" />
 
 ## Wasserflecken dauerhaft vorbeugen
 
@@ -133,8 +130,4 @@ Wasserflecken sind ein häufiges, aber meist gut vermeidbares Problem: Gründlic
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Lack-Check anfragen"
-  description="Wir prüfen den Zustand Ihres Lacks und beraten Sie zu Reinigung und Versiegelung."
-/>
+<CTAButton text="Jetzt Lack-Check anfragen" tab="aufbereitung" />

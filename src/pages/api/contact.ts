@@ -34,7 +34,8 @@ function validate(data: Record<string, unknown>): FieldErrors {
     if (!plz) errors.plz = "Bitte gib deine Postleitzahl an.";
     else if (!/^\d{5}$/.test(plz)) errors.plz = "Bitte gib eine gültige 5-stellige Postleitzahl an.";
 
-    if (!str(data.leistung)) errors.leistung = "Bitte wähle eine gewünschte Leistung aus.";
+    if (!str(data.leistung)) errors.leistung = "Bitte wähle eine gewünschte Dienstleistung aus.";
+    if (!str(data.paket)) errors.paket = "Bitte wähle ein Paket aus.";
   } else if (anliegen === "Fahrzeug verkaufen") {
     if (!str(data.fahrzeug_ankauf)) errors.fahrzeug_ankauf = "Bitte gib Marke und Modell deines Fahrzeugs an.";
   } else if (anliegen === "Ratgeber-Anfrage") {
@@ -58,14 +59,16 @@ function buildEmailHtml(data: Record<string, unknown>): string {
     ["Name", data.name],
     ["Telefon", data.telefon],
     ["E-Mail", data.email],
+    ["Quelle", data.quelle],
   ];
 
   if (anliegen === "Aufbereitung") {
     rows.push(
       ["PLZ", data.plz],
+      ["Dienstleistung", data.leistung],
+      ["Paket", data.paket],
       ["Fahrzeuggröße", data.fahrzeuggroesse],
-      ["Gewünschte Leistung", data.leistung],
-      ["Extra-Service", data.extra_service],
+      ["Zusatzleistungen", data.zusatzleistung],
     );
   } else if (anliegen === "Fahrzeug verkaufen") {
     rows.push(
@@ -80,10 +83,7 @@ function buildEmailHtml(data: Record<string, unknown>): string {
       ["Budget", data.budget],
     );
   } else if (anliegen === "Ratgeber-Anfrage") {
-    rows.push(
-      ["Fahrzeug", data.fahrzeug],
-      ["Quelle", data.quelle],
-    );
+    rows.push(["Fahrzeug", data.fahrzeug]);
   }
 
   rows.push(["Nachricht", data.nachricht]);

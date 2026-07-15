@@ -47,7 +47,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Ein Leasingfahrzeug lässt sich nicht wie ein eigenes Auto einfach verkaufen, da es rechtlich der Leasinggesellschaft gehört. Wer sich dennoch vorzeitig von seinem Leasingvertrag trennen möchte, hat dennoch mehrere Optionen. Dieser Ratgeber erklärt, welche Wege es gibt und worauf Leasingnehmer im Raum Mannheim achten sollten.
@@ -73,10 +73,7 @@ Solange der Leasingvertrag läuft, sind Sie als Leasingnehmer nicht Eigentümer,
   ]}
 />
 
-<ContactCTA
-  title="Beratung zu Ihrem Fahrzeug anfragen"
-  description="Sie überlegen, sich von Ihrem Leasingfahrzeug zu trennen? Wir beraten Sie zu den nächsten Schritten und zum Fahrzeugzustand."
-/>
+<CTAButton text="Beratung zu Ihrem Fahrzeug anfragen" tab="ankauf" />
 
 ## Ablöse: Der direkteste, aber oft teuerste Weg
 
@@ -126,11 +123,7 @@ Auch wenn ein direkter Verkauf beim Leasing nicht möglich ist, beeinflusst der 
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Fahrzeugbewertung vor Vertragsende anfragen"
-  description="Wir prüfen den Zustand Ihres Fahrzeugs und beraten Sie zu den nächsten Schritten rund um Ihren Leasingvertrag."
-/>
+<CTAButton text="Fahrzeugbewertung vor Vertragsende anfragen" tab="ankauf" />
 
 ## Der richtige Zeitpunkt für die Entscheidung
 

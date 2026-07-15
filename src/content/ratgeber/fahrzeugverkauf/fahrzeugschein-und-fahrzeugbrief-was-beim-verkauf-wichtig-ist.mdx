@@ -48,7 +48,7 @@ faq:
 import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Ohne die richtigen Papiere lässt sich ein Fahrzeug nicht rechtssicher verkaufen. Fahrzeugschein und Fahrzeugbrief erfüllen dabei unterschiedliche Funktionen, die viele Verkäufer verwechseln. Dieser Ratgeber erklärt, welche Dokumente Sie für einen reibungslosen Verkauf benötigen und was bei Verlust zu tun ist.
@@ -74,10 +74,7 @@ Ein Verkauf ohne Zulassungsbescheinigung Teil II ist rechtlich problematisch, da
 
 Geht der Fahrzeugbrief verloren, sollte der Verlust umgehend der zuständigen Zulassungsstelle gemeldet werden. Diese stellt nach Prüfung und gegen eine Gebühr eine Ersatz-Zulassungsbescheinigung Teil II aus. Da die Bearbeitung mehrere Wochen dauern kann, lohnt sich frühzeitiges Handeln, insbesondere wenn ein zeitnaher Verkauf geplant ist.
 
-<ContactCTA
-  title="Fahrzeug trotz Papierproblemen verkaufen"
-  description="Auch bei unvollständigen oder fehlenden Fahrzeugpapieren finden wir oft eine Lösung – sprechen Sie uns an."
-/>
+<CTAButton text="Fahrzeug trotz Papierproblemen verkaufen" tab="ankauf" />
 
 ## Sonderfall: Fahrzeugbrief bei laufender Finanzierung
 
@@ -116,8 +113,4 @@ Fahrzeugschein und Fahrzeugbrief erfüllen unterschiedliche, aber gleichermaßen
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Fahrzeug verkaufen"
-  description="Wir beraten Sie gerne zu den benötigten Unterlagen für Ihren Fahrzeugverkauf."
-/>
+<CTAButton text="Jetzt Fahrzeug verkaufen" tab="ankauf" />

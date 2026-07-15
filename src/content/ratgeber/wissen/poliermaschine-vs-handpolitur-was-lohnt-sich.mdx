@@ -36,7 +36,7 @@ faq:
   - frage: "Reicht Handpolitur bei tiefen Kratzern aus?"
     antwort: "Bei tieferen Kratzern ist Handpolitur meist nicht ausreichend, da der notwendige gleichmäßige Materialabtrag von Hand kaum zu erzielen ist. Hier liefert eine professionelle Maschinenpolitur bessere Ergebnisse."
   - frage: "Was kostet eine professionelle Maschinenpolitur?"
-    antwort: "Die Kosten hängen vom Lackzustand und der Fahrzeuggröße ab. Als Zusatzleistung zu unseren Paketen kalkulieren wir Politur und Keramikversiegelung mit ca. 350 € als Richtwert."
+    antwort: "Die Kosten hängen vom Lackzustand und der Fahrzeuggröße ab. Als Zusatzleistung zu unseren Paketen kalkulieren wir Politur und Keramikversiegelung individuell."
   - frage: "Für welche Bereiche eignet sich Handpolitur besser als eine Maschine?"
     antwort: "An Kanten, Sicken, um Embleme und Türgriffe herum ist Handarbeit mit feinen Pads oft die sicherere Wahl, da eine Poliermaschine dort umliegende Kunststoffteile oder Lackkanten beschädigen könnte."
   - frage: "Ist eine Poliermaschine für Einsteiger schwer zu bedienen?"
@@ -49,7 +49,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Wer verwitterten oder leicht verkratzten Lack selbst behandeln möchte, steht früher oder später vor der Frage: Poliermaschine oder Handpolitur? Beide Methoden haben ihre Berechtigung, unterscheiden sich aber deutlich in Ergebnis, Zeitaufwand und Risiko. Dieser Ratgeber vergleicht beide Ansätze und zeigt, wann sich welche Methode lohnt.
@@ -93,10 +93,7 @@ Handpolitur bleibt trotz aller Maschinenvorteile für bestimmte Anwendungsfälle
   ]}
 />
 
-<ContactCTA
-  title="Professionelle Politur statt Selbstversuch"
-  description="Sie sind sich unsicher, welche Methode für Ihr Fahrzeug passt? Wir beraten Sie unverbindlich."
-/>
+<CTAButton text="Professionelle Politur statt Selbstversuch" tab="aufbereitung" />
 
 ## Welche Poliermaschine eignet sich für Einsteiger?
 
@@ -139,8 +136,4 @@ Für kleine, punktuelle Korrekturen ist Handpolitur eine praktikable und risikoa
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Politur-Beratung anfragen"
-  description="Wir schauen uns Ihren Lack an und empfehlen die passende Methode für ein optimales Ergebnis."
-/>
+<CTAButton text="Jetzt Politur-Beratung anfragen" tab="aufbereitung" />

@@ -49,7 +49,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Beim Gebrauchtwagenkauf stellt sich fast immer dieselbe Frage: Sofort in bar bezahlen oder auf eine Finanzierung setzen? Beide Wege haben ihre Berechtigung, abhängig von der individuellen finanziellen Situation. Dieser Ratgeber vergleicht Finanzierung und Barzahlung im Detail.
@@ -90,10 +90,7 @@ Zinssätze und Nebenkosten unterscheiden sich zwischen Banken und Händlerfinanz
   ]}
 />
 
-<ContactCTA
-  title="Beratung zum Fahrzeugkauf anfragen"
-  description="Wir unterstützen Sie bei der Suche nach einem passenden Gebrauchtwagen im Raum Mannheim."
-/>
+<CTAButton text="Beratung zum Fahrzeugkauf anfragen" tab="verkauf" />
 
 ## Der Fahrzeugbrief bei Finanzierung
 
@@ -136,8 +133,4 @@ Sowohl Finanzierung als auch Barzahlung haben ihre Berechtigung: Barzahlung spar
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Fahrzeugkauf anfragen"
-  description="Wir beraten Sie gerne zu passenden Fahrzeugen und Zahlungsoptionen."
-/>
+<CTAButton text="Jetzt Fahrzeugkauf anfragen" tab="verkauf" />

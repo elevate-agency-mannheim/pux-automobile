@@ -48,7 +48,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import StepByStep from "../../../components/ratgeber/StepByStep.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Ein **Motorschaden** bedeutet nicht das Ende der Verkaufsmöglichkeiten für Ihr Fahrzeug. Auch defekte Fahrzeuge lassen sich in der Regel gut verkaufen – der Ankaufspreis wird dabei entsprechend dem technischen Zustand angepasst. Dieser Ratgeber erklärt, wie der Verkaufsprozess bei einem Motorschaden abläuft und worauf Sie achten sollten.
@@ -84,10 +84,7 @@ In den meisten Fällen übersteigen die Reparaturkosten eines Motorschadens den 
   ]}
 />
 
-<ContactCTA
-  title="Fahrzeug mit Motorschaden verkaufen"
-  description="Schildern Sie uns den Schaden – wir erstellen Ihnen ein faires, transparentes Angebot."
-/>
+<CTAButton text="Fahrzeug mit Motorschaden verkaufen" tab="ankauf" />
 
 ## Offene Kommunikation schützt beide Seiten
 
@@ -114,11 +111,7 @@ Neben Motorschäden lassen sich auch Fahrzeuge mit anderen technischen Mängeln,
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt unverbindlich Fahrzeug mit Schaden verkaufen"
-  description="Nennen Sie uns Marke, Modell und den Schaden – wir melden uns mit einer ersten Einschätzung."
-/>
+<CTAButton text="Jetzt unverbindlich Fahrzeug mit Schaden verkaufen" tab="ankauf" />
 
 ## Fazit
 

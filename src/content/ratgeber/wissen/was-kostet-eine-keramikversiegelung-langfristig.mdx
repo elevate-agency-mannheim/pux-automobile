@@ -19,14 +19,14 @@ category: "wissen"
 summary:
   - "Die Anschaffungskosten einer Keramikversiegelung liegen über denen von klassischem Wachs."
   - "Über mehrere Jahre gerechnet relativiert sich der Preisunterschied durch die längere Haltbarkeit."
-  - "Als Zusatzleistung bieten wir Politur inklusive Keramikversiegelung für ca. 350 € an."
+  - "Als Zusatzleistung bieten wir Politur inklusive Keramikversiegelung individuell kalkuliert an."
   - "Reduzierter Reinigungsaufwand und geringerer Verschleiß wirken sich langfristig positiv aus."
   - "Die tatsächliche Wirtschaftlichkeit hängt stark von Nutzung und Parksituation ab."
 publishDate: 2026-03-27
 updatedDate: 2026-06-30
 faq:
   - frage: "Was kostet eine professionelle Keramikversiegelung bei PUX Automobile?"
-    antwort: "Als Zusatzleistung zu unseren Aufbereitungspaketen bieten wir Politur inklusive Keramikversiegelung für ca. 350 € an. Der genaue Aufwand hängt vom Lackzustand und der Fahrzeuggröße ab."
+    antwort: "Als Zusatzleistung zu unseren Aufbereitungspaketen bieten wir Politur inklusive Keramikversiegelung individuell kalkuliert an. Der genaue Aufwand hängt vom Lackzustand und der Fahrzeuggröße ab."
   - frage: "Ist eine Keramikversiegelung langfristig günstiger als Wachs?"
     antwort: "Über mehrere Jahre betrachtet kann sich eine Keramikversiegelung finanziell lohnen, da sie deutlich seltener erneuert werden muss als klassisches Wachs, das alle paar Wochen nachgetragen werden sollte."
   - frage: "Wie oft muss eine Keramikversiegelung erneuert werden?"
@@ -50,14 +50,14 @@ import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro"
 import Calculator from "../../../components/ratgeber/Calculator.tsx";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Eine Keramikversiegelung kostet zunächst spürbar mehr als klassisches Wachs – doch wie sieht die Rechnung aus, wenn man mehrere Jahre Nutzung betrachtet statt nur den Anschaffungspreis? Dieser Ratgeber ordnet die langfristigen Kosten realistisch ein und zeigt, wann sich die Investition tatsächlich lohnt.
 
 ## Die Anschaffungskosten im Vergleich
 
-Als Zusatzleistung zu unseren Aufbereitungspaketen bieten wir Politur inklusive Keramikversiegelung für ca. 350 € an. Klassisches Wachs ist in der einmaligen Anschaffung deutlich günstiger, muss dafür aber alle paar Wochen bis Monate erneuert werden, um seine Schutzwirkung zu erhalten. Bereits nach wenigen Nachbehandlungen relativiert sich der anfängliche Preisunterschied spürbar, insbesondere wenn der Zeitaufwand für das wiederholte Wachsen mit eingerechnet wird.
+Als Zusatzleistung zu unseren Aufbereitungspaketen bieten wir Politur inklusive Keramikversiegelung individuell kalkuliert an. Klassisches Wachs ist in der einmaligen Anschaffung deutlich günstiger, muss dafür aber alle paar Wochen bis Monate erneuert werden, um seine Schutzwirkung zu erhalten. Bereits nach wenigen Nachbehandlungen relativiert sich der anfängliche Preisunterschied spürbar, insbesondere wenn der Zeitaufwand für das wiederholte Wachsen mit eingerechnet wird.
 
 <InfoBox type="tip" title="Zeitfaktor nicht unterschätzen">
 Neben den reinen Materialkosten sollte auch der eigene Zeitaufwand für das regelmäßige Nachwachsen in die Rechnung einfließen. Eine Keramikversiegelung reduziert diesen wiederkehrenden Aufwand deutlich.
@@ -79,10 +79,7 @@ Neben den reinen Materialkosten sollte auch der eigene Zeitaufwand für das rege
 
 <Calculator client:load />
 
-<ContactCTA
-  title="Individuelle Kosteneinschätzung erhalten"
-  description="Wir beraten Sie zu den langfristigen Kosten einer Keramikversiegelung für Ihr konkretes Fahrzeug."
-/>
+<CTAButton text="Individuelle Kosteneinschätzung erhalten" tab="aufbereitung" />
 
 ## Versteckte Einsparungen durch reduzierten Pflegeaufwand
 
@@ -128,11 +125,7 @@ Bei Fahrzeugen, die nur kurzfristig gehalten oder überwiegend in der Garage gep
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Keramikversiegelung anfragen"
-  description="Wir beraten Sie, ob sich die Investition für Ihr Fahrzeug langfristig lohnt."
-/>
+<CTAButton text="Jetzt Keramikversiegelung anfragen" tab="aufbereitung" />
 
 ## Indirekte Kostenersparnis durch weniger Folgeschäden
 

@@ -48,7 +48,7 @@ faq:
 import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Unvollständige oder unstimmige Fahrzeugpapiere gehören zu den größten Risiken beim Gebrauchtwagenkauf. Wer die wichtigsten Dokumente kennt und systematisch prüft, vermeidet böse Überraschungen nach dem Kauf. Dieser Ratgeber zeigt, worauf es bei der Prüfung der Fahrzeugpapiere ankommt.
@@ -74,10 +74,7 @@ Kann der Verkäufer den Fahrzeugbrief nicht vorlegen, ist besondere Vorsicht geb
 
 Ein zentraler Prüfschritt ist der Abgleich der Fahrgestellnummer: Sie ist sowohl im Fahrzeugschein als auch im Fahrzeugbrief eingetragen und findet sich zusätzlich direkt am Fahrzeug, meist im Motorraum oder unter der Windschutzscheibe sichtbar. Stimmen diese drei Angaben nicht exakt überein, ist das ein deutliches Warnsignal, das vor dem Kauf unbedingt geklärt werden sollte.
 
-<ContactCTA
-  title="Sicher zum passenden Gebrauchtwagen"
-  description="Wir unterstützen Sie bei der Suche nach einem geprüften Fahrzeug im Raum Mannheim."
-/>
+<CTAButton text="Sicher zum passenden Gebrauchtwagen" tab="verkauf" />
 
 ## Wenn der Halter im Fahrzeugbrief abweicht
 
@@ -120,8 +117,4 @@ Vollständige, plausible Fahrzeugpapiere sind die Grundlage für einen sicheren 
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Beratung zum Fahrzeugkauf anfragen"
-  description="Wir helfen Ihnen, ein passendes Fahrzeug mit vollständigen Papieren zu finden."
-/>
+<CTAButton text="Jetzt Beratung zum Fahrzeugkauf anfragen" tab="verkauf" />

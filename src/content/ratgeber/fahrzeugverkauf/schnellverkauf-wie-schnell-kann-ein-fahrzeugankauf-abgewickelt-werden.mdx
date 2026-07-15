@@ -49,7 +49,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import StepByStep from "../../../components/ratgeber/StepByStep.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Ob berufliche Veränderung, ein neues Fahrzeug oder einfach der Wunsch nach einer schnellen, unkomplizierten Lösung: Viele Fahrzeughalter möchten ihr Auto möglichst zügig verkaufen. Dieser Ratgeber zeigt, wie schnell ein Fahrzeugankauf realistisch abgewickelt werden kann und welche Faktoren den Prozess beschleunigen oder verzögern.
@@ -83,10 +83,7 @@ Der Besichtigungstermin ist meist der zeitkritischste Schritt im gesamten Ablauf
   ]}
 />
 
-<ContactCTA
-  title="Jetzt schnellen Verkauf anfragen"
-  description="Schildern Sie uns Ihr Fahrzeug – wir vereinbaren zeitnah einen Besichtigungstermin."
-/>
+<CTAButton text="Jetzt schnellen Verkauf anfragen" tab="ankauf" />
 
 ## Was den Prozess am meisten beschleunigt
 
@@ -129,8 +126,4 @@ Mit vollständigen Unterlagen, einer realistischen Preisvorstellung und Flexibil
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Termin für den Schnellverkauf sichern"
-  description="Wir vereinbaren zeitnah einen Besichtigungstermin und wickeln den Verkauf zügig ab."
-/>
+<CTAButton text="Jetzt Termin für den Schnellverkauf sichern" tab="ankauf" />

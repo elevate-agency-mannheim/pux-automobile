@@ -17,7 +17,7 @@ relatedArticles:
 title: "Autoaufbereitung Heidelberg: Mobiler Service direkt vor Ihrer Haustür"
 category: "standorte"
 summary:
-  - "PUX Automobile bietet mobile Autoaufbereitung in ganz Heidelberg und dem Umkreis von ca. 30 km."
+  - "PUX Automobile bietet mobile Autoaufbereitung in ganz Heidelberg und dem Umkreis von ca. 45 km."
   - "Sie benötigen lediglich einen Strom- und Wasseranschluss – den Rest übernehmen wir."
   - "Neben der Aufbereitung kaufen und verkaufen wir auch Fahrzeuge im Raum Heidelberg."
   - "Termine sind meist innerhalb weniger Tage verfügbar."
@@ -26,7 +26,7 @@ publishDate: 2026-01-22
 updatedDate: 2026-06-25
 faq:
   - frage: "In welchen Heidelberger Stadtteilen sind Sie tätig?"
-    antwort: "Wir sind in ganz Heidelberg tätig, von der Altstadt über Bergheim, Weststadt und Rohrbach bis nach Handschuhsheim und Kirchheim. Auch außerhalb der Stadtgrenzen sind wir im Umkreis von rund 30 km unterwegs."
+    antwort: "Wir sind in ganz Heidelberg tätig, von der Altstadt über Bergheim, Weststadt und Rohrbach bis nach Handschuhsheim und Kirchheim. Auch außerhalb der Stadtgrenzen sind wir im Umkreis von rund 45 km unterwegs."
   - frage: "Was benötige ich für einen mobilen Termin in Heidelberg?"
     antwort: "Sie benötigen lediglich einen Strom- und Wasseranschluss in der Nähe des Fahrzeugs, etwa an Ihrem Wohnhaus oder Büro. Den Rest – Ausrüstung, Reinigungsmittel und Zubehör – bringen wir mit."
   - frage: "Wie schnell bekomme ich einen Termin in Heidelberg?"
@@ -36,7 +36,7 @@ faq:
   - frage: "Muss ich für den Termin zu Hause sein?"
     antwort: "Nein, das ist nicht zwingend notwendig, solange wir Zugang zum Fahrzeug sowie zu Strom und Wasser haben. Details dazu klären wir bei der Terminvereinbarung."
   - frage: "Berechnen Sie eine Anfahrtspauschale innerhalb Heidelbergs?"
-    antwort: "Innerhalb Heidelbergs und im nahen Umkreis fällt keine gesonderte Anfahrtspauschale an. Außerhalb unseres Einsatzgebiets von ca. 30 km berechnen wir 0,80 € pro zusätzlichem Kilometer."
+    antwort: "Innerhalb Heidelbergs und im nahen Umkreis fällt keine gesonderte Anfahrtspauschale an. Außerhalb unseres Einsatzgebiets von ca. 45 km berechnen wir 0,80 € pro zusätzlichem Kilometer."
   - frage: "Welche Pakete sind in Heidelberg am gefragtesten?"
     antwort: "Das Komplettpaket, das Innen- und Außenreinigung kombiniert, wird von den meisten Kunden in Heidelberg gebucht – oft ergänzt um eine Keramikversiegelung für langanhaltenden Schutz."
   - frage: "Finden Sie auch in der Heidelberger Altstadt einen Arbeitsplatz?"
@@ -53,7 +53,7 @@ import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro"
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
 import Calculator from "../../../components/ratgeber/Calculator.tsx";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Als mobiler Aufbereitungsservice mit Erfahrung in der gesamten Rhein-Neckar-Region sind wir regelmäßig in ganz **Heidelberg** unterwegs – von der Altstadt über Bergheim und die Weststadt bis in die umliegenden Stadtteile. Statt Ihr Fahrzeug zu einer Waschanlage oder Werkstatt zu bringen, kommen wir mit vollständiger Ausrüstung zu Ihnen nach Hause oder ins Büro. Sie benötigen lediglich einen Strom- und Wasseranschluss in der Nähe.
@@ -106,20 +106,13 @@ Ergänzend zu den Grundpaketen bieten wir auch Politur und Keramikversiegelung a
 
 <Calculator client:load />
 
-<ContactCTA
-  title="Termin in Heidelberg anfragen"
-  description="Nennen Sie uns Ihren Wunschtermin und die gewünschte Leistung – wir melden uns zeitnah mit einer Bestätigung."
-/>
+<CTAButton text="Termin in Heidelberg anfragen" tab="aufbereitung" />
 
 ## Rhein-Neckar-Region: Auch außerhalb Heidelbergs für Sie da
 
-Als Teil der Metropolregion Rhein-Neckar sind wir nicht auf Heidelberg beschränkt: Auch in Mannheim, Ludwigshafen und weiteren Städten im Umkreis von rund 30 km sind wir regelmäßig unterwegs. Details zu unserem gesamten Einsatzgebiet finden Sie am Ende dieser Seite.
+Als Teil der Metropolregion Rhein-Neckar sind wir nicht auf Heidelberg beschränkt: Auch in Mannheim, Ludwigshafen und weiteren Städten im Umkreis von rund 45 km sind wir regelmäßig unterwegs. Details zu unserem gesamten Einsatzgebiet finden Sie am Ende dieser Seite.
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt unverbindlich anfragen"
-  description="Ob Innenreinigung, Politur oder Komplettpaket – wir melden uns mit einem passenden Terminvorschlag."
-/>
+<CTAButton text="Jetzt unverbindlich anfragen" tab="aufbereitung" />
 
 ## Anfahrt und Erreichbarkeit
 

@@ -49,7 +49,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Zwei Faktoren beeinflussen den erzielbaren Verkaufspreis eines Fahrzeugs stärker als viele andere: der Kilometerstand und die dokumentierte Wartungshistorie. Beide liefern potenziellen Käufern und Ankäufern wichtige Hinweise auf den tatsächlichen technischen Zustand, selbst wenn das Fahrzeug äußerlich einwandfrei wirkt. Dieser Ratgeber erklärt, warum diese beiden Faktoren so entscheidend sind und wie Sie sich vor dem Verkauf optimal vorbereiten.
@@ -77,10 +77,7 @@ Eine lückenlos dokumentierte Wartungshistorie zeigt, dass ein Fahrzeug regelmä
   ]}
 />
 
-<ContactCTA
-  title="Fahrzeugbewertung mit vollständiger Historie anfragen"
-  description="Bereiten Sie Ihre Unterlagen vor – wir erstellen Ihnen eine transparente, nachvollziehbare Bewertung."
-/>
+<CTAButton text="Fahrzeugbewertung mit vollständiger Historie anfragen" tab="ankauf" />
 
 ## Kurzstrecken- vs. Langstreckennutzung: Warum die Nutzungsart zählt
 
@@ -124,11 +121,7 @@ Mehr zum gesamten Bewertungsprozess erfahren Sie in unserem Ratgeber [Auto verka
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Fahrzeug mit vollständiger Historie bewerten lassen"
-  description="Wir berücksichtigen Kilometerstand und Wartungshistorie fair und transparent in unserer Bewertung."
-/>
+<CTAButton text="Jetzt Fahrzeug mit vollständiger Historie bewerten lassen" tab="ankauf" />
 
 ## Was bei sehr niedriger Laufleistung zu beachten ist
 

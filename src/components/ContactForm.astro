@@ -1,23 +1,137 @@
 ---
 import Icons from "./Icons.astro";
+
+const DIENSTLEISTUNGEN = [
+  { value: "aufbereitung", label: "Autoaufbereitung", desc: "Mobile Fahrzeugaufbereitung direkt bei Ihnen vor Ort.", anliegen: "Aufbereitung" },
+  { value: "ankauf", label: "Fahrzeug verkaufen", desc: "Sie möchten Ihr Auto an uns verkaufen – schnelle, faire Bewertung.", anliegen: "Fahrzeug verkaufen" },
+  { value: "verkauf", label: "Fahrzeug kaufen", desc: "Sie suchen ein Fahrzeug aus unserem Bestand.", anliegen: "Fahrzeug kaufen" },
+];
+
+interface Paket {
+  value: string;
+  name: string;
+  price: number;
+  bestseller?: boolean;
+  combo?: string;
+  isBundle?: boolean;
+  leistung: string;
+  features: string[];
+}
+
+const INNENRAUM_PAKETE: Paket[] = [
+  {
+    value: "Innenraum Basic – 100 €",
+    name: "Basic",
+    price: 100,
+    leistung: "Innenreinigung",
+    features: [
+      "Müll entfernen",
+      "Innenraum & Kofferraum saugen",
+      "Fußräume wischen",
+      "Türverkleidungen & Kunststoffflächen wischen",
+      "Scheiben innen reinigen",
+    ],
+  },
+  {
+    value: "Innenraum Komfort – 150 €",
+    name: "Komfort",
+    price: 150,
+    bestseller: true,
+    leistung: "Innenreinigung",
+    combo: "Enthält Basic +",
+    features: [
+      "Druckluftreinigung schwer erreichbarer Stellen",
+      "Intensive Reinigung von Schaltern, Lüftungen etc.",
+      "Pflege aller Kunststoff-, Leder- & Gummiflächen",
+      "Mittelkonsole & Bedienelemente reinigen",
+      "Lenkrad & Cockpit reinigen",
+      "Fußmatten reinigen & pflegen",
+      "Polster-/Leder-Tiefenreinigung inkl. Pflege",
+      "Detailreinigung aller Sitzkanten",
+      "Reinigung & Pflege aller Ablagen und Einlageteile",
+    ],
+  },
+  {
+    value: "Innenraum Premium – 230 €",
+    name: "Premium",
+    price: 230,
+    leistung: "Innenreinigung",
+    combo: "Enthält Komfort +",
+    features: [
+      "Kunststoffversiegelung im Innenraum",
+      "Lederversiegelung",
+      "Klimaanlagen-Desinfektion",
+      "Ozonbehandlung",
+    ],
+  },
+];
+
+const AUSSEN_PAKETE: Paket[] = [
+  {
+    value: "Außen Premium – 100 €",
+    name: "Außen Premium",
+    price: 100,
+    leistung: "Außenreinigung",
+    features: [
+      "Felgenreinigung inkl. Radkästen",
+      "Reifenreinigung & Reifenglanz",
+      "Vorwäsche mit Snow Foam",
+      "Insektenentfernung",
+      "Handwäsche",
+      "Türholme & Einstiege reinigen",
+      "Detailreinigung von Emblemen & Zierleisten",
+      "Scheiben innen & außen reinigen",
+      "Handtrocknung mit Mikrofasertüchern",
+      "Pflege der Außenkunststoffe (bei Bedarf)",
+    ],
+  },
+];
+
+const BUNDLE_PAKETE: Paket[] = [
+  {
+    value: "PUX-Bundle – 240 €",
+    name: "PUX-Bundle",
+    price: 240,
+    isBundle: true,
+    leistung: "Komplettpaket",
+    features: [
+      "Innenraum Komfort Paket",
+      "Außen Premium Paket",
+      "Kostenlose Sprühversiegelung im Wert von 50 € (UV-Schutz, weniger Schmutzanhaftung, intensiver Glanz, starker Wasser-Abperleffekt)",
+    ],
+  },
+];
+
+const FAHRZEUGGROESSEN = [
+  { value: "Kleinwagen", examples: "Polo, Corsa, etc." },
+  { value: "Standard", examples: "Golf, 3er BMW, etc." },
+  { value: "SUV", examples: "Tiguan, X3, etc.", full: true },
+];
+
+const ZUSATZLEISTUNGEN = [
+  { id: "verschmutzung-stark", value: "Starke Verschmutzung (30 €)", label: "Starke Verschmutzung", price: 30 },
+  { id: "verschmutzung-extrem", value: "Extreme Verschmutzung (70 €)", label: "Extreme Verschmutzung", price: 70 },
+  { id: "tierhaare-stark", value: "Starke Tierhaarentfernung (40 €)", label: "Starke Tierhaarentfernung", price: 40 },
+  { id: "spruehversiegelung", value: "Sprühversiegelung außen (50 €)", label: "Sprühversiegelung außen", price: 50 },
+  { id: "motorwaesche", value: "Motorwäsche (49 €)", label: "Motorwäsche", price: 49 },
+];
 ---
 
-<div class="bg-white rounded-3xl border border-gray-100 shadow-xl p-8 md:p-12">
-  <!-- Tab Selector -->
-  <div class="flex flex-col sm:flex-row gap-3 mb-10 p-1.5 bg-gray-50 rounded-2xl">
-    <button type="button" class="tab-btn active flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-200 text-gray-600" data-tab="aufbereitung" aria-selected="true">
-      Aufbereitung
-    </button>
-    <button type="button" class="tab-btn flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-200 text-gray-600" data-tab="ankauf" aria-selected="false">
-      Fahrzeug verkaufen
-    </button>
-    <button type="button" class="tab-btn flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-200 text-gray-600" data-tab="verkauf" aria-selected="false">
-      Fahrzeug kaufen
-    </button>
+<div id="wizard-progress" class="mb-6">
+  <div class="flex items-center justify-between mb-2">
+    <span id="wizard-step-label" class="text-sm font-semibold text-[#1B2B6B]">Schritt 1 von 5</span>
+    <span id="wizard-step-name" class="text-sm text-gray-400">Dienstleistung</span>
   </div>
+  <div class="h-2 rounded-full bg-gray-100 overflow-hidden">
+    <div id="wizard-progress-bar" class="h-full rounded-full transition-all duration-500" style="width:20%; background: var(--pux-gradient);"></div>
+  </div>
+</div>
 
+<div class="bg-white rounded-3xl border border-gray-100 shadow-xl p-8 md:p-12">
   <form id="contact-form" novalidate>
     <input type="hidden" id="selected-tab" name="anliegen" value="Aufbereitung" />
+    <input type="hidden" id="leistung-field" name="leistung" value="" />
+    <input type="hidden" id="quelle-field" name="quelle" value="" />
 
     <!-- General error banner -->
     <div id="form-general-error" class="hidden mb-6 flex items-start gap-3 rounded-2xl bg-red-50 border border-red-200 p-4">
@@ -27,82 +141,159 @@ import Icons from "./Icons.astro";
       <p id="form-general-error-text" class="text-sm text-red-700 leading-relaxed">Es ist ein Fehler aufgetreten.</p>
     </div>
 
-    <!-- Common fields -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-      <div>
-        <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">Name *</label>
-        <input type="text" id="name" name="name" placeholder="Max Mustermann"
-          class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
-        <p id="error-name" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+    <!-- STEP: Dienstleistung -->
+    <div class="wizard-step" data-step-id="dienstleistung">
+      <label class="block text-sm font-medium text-gray-700 mb-2.5">Was möchten Sie anfragen? *</label>
+      <div class="space-y-3">
+        {DIENSTLEISTUNGEN.map((d) => (
+          <label class="has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] relative flex items-start gap-3 border-2 border-gray-200 rounded-xl px-4 py-3.5 cursor-pointer transition-all">
+            <input type="radio" name="dienstleistung" value={d.value} data-anliegen={d.anliegen} class="peer sr-only" />
+            <span class="w-5 h-5 rounded-full border-2 border-gray-300 peer-checked:border-[#3A7BD5] flex items-center justify-center flex-shrink-0 transition-colors mt-0.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#3A7BD5] scale-0 peer-checked:scale-100 transition-transform"></span>
+            </span>
+            <span>
+              <span class="block text-sm font-semibold text-gray-800">{d.label}</span>
+              <span class="block text-xs text-gray-500 mt-0.5">{d.desc}</span>
+            </span>
+          </label>
+        ))}
       </div>
-      <div>
-        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">Telefon *</label>
-        <input type="tel" id="phone" name="telefon" placeholder="+49 621 XXXXXXX"
-          class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
-        <p id="error-telefon" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
-      </div>
+      <p id="error-dienstleistung" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
     </div>
 
-    <div class="mb-5">
-      <label for="email" class="block text-sm font-medium text-gray-700 mb-1.5">E-Mail <span class="font-normal text-gray-400">(optional)</span></label>
-      <input type="email" id="email" name="email" placeholder="max@beispiel.de"
-        class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
-      <p id="error-email" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
-    </div>
+    <!-- STEP (aufbereitung): Paket -->
+    <div class="wizard-step hidden" data-step-id="paket" data-path="aufbereitung">
+      <label class="block text-sm font-medium text-gray-700 mb-2.5">Paket auswählen *</label>
 
-    <!-- Aufbereitung specific -->
-    <div id="tab-aufbereitung" class="tab-content space-y-6">
-      <div>
-        <label for="plz" class="block text-sm font-medium text-gray-700 mb-1.5">PLZ *</label>
-        <input type="text" id="plz" name="plz" inputmode="numeric" maxlength="5" placeholder="z. B. 68159"
-          class="w-full sm:w-48 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
-        <p id="error-plz" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+      <!-- Sub-tabs: Innenreinigung / Außenreinigung / Komplettpaket -->
+      <div class="flex flex-col sm:flex-row gap-3 mb-6 p-1.5 bg-gray-50 rounded-2xl">
+        <button type="button" class="paket-tab-btn tab-btn active flex-1 py-3 px-4 rounded-xl font-semibold text-sm text-gray-600" data-paket-tab="Innenreinigung" aria-selected="true">
+          Innenreinigung
+        </button>
+        <button type="button" class="paket-tab-btn tab-btn flex-1 py-3 px-4 rounded-xl font-semibold text-sm text-gray-600" data-paket-tab="Außenreinigung" aria-selected="false">
+          Außenreinigung
+        </button>
+        <button type="button" class="paket-tab-btn tab-btn flex-1 py-3 px-4 rounded-xl font-semibold text-sm text-gray-600 border-2 border-amber-300" data-paket-tab="Komplettpaket" aria-selected="false">
+          <span class="inline-flex items-center gap-1.5">
+            <Icons name="star" class="w-3.5 h-3.5 text-amber-500" />
+            Komplettpaket
+          </span>
+        </button>
       </div>
 
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-2.5">Fahrzeuggröße <span class="font-normal text-gray-400">(optional)</span></label>
-        <div class="flex flex-wrap gap-3">
-          {["Klein", "Mittel", "Groß"].map((size) => (
-            <label class="has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] has-[:checked]:text-[#1B2B6B] border-2 border-gray-200 rounded-xl px-5 py-2.5 text-sm font-medium text-gray-600 cursor-pointer transition-all">
-              <input type="radio" name="fahrzeuggroesse" value={size} class="sr-only" />
-              {size}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-2.5">Gewünschte Leistung *</label>
-        <div class="space-y-3">
-          {[
-            { value: "Innenreinigung", hasExtra: true },
-            { value: "Außenreinigung", hasExtra: true },
-            { value: "Komplettpaket", hasExtra: false },
-          ].map(({ value, hasExtra }) => (
-            <div class="leistung-item">
-              <label class="has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] relative flex items-center gap-3 border-2 border-gray-200 rounded-xl px-4 py-3.5 cursor-pointer transition-all">
-                <input type="radio" name="leistung" value={value} class="peer sr-only" />
-                <span class="w-5 h-5 rounded-full border-2 border-gray-300 peer-checked:border-[#3A7BD5] flex items-center justify-center flex-shrink-0 transition-colors">
-                  <span class="w-2.5 h-2.5 rounded-full bg-[#3A7BD5] scale-0 peer-checked:scale-100 transition-transform"></span>
-                </span>
-                <span class="text-sm font-medium text-gray-700">{value}</span>
-              </label>
-
-              {hasExtra && (
-                <label class="extra-service-toggle items-center gap-3 mt-2 ml-4 pl-4 py-2 border-l-2 border-gray-200 cursor-pointer" style="display:none;">
-                  <input type="checkbox" name="extra_service" value="Polieren + Keramikversiegelung" class="w-4 h-4 rounded border-gray-300 accent-[#3A7BD5] flex-shrink-0" />
-                  <span class="text-sm text-gray-600">+ Extra-Service: Polieren + Keramikversiegelung <span class="text-gray-400">(350 €)</span></span>
-                </label>
-              )}
+      <div class="paket-group space-y-4" data-for="Innenreinigung">
+        {INNENRAUM_PAKETE.map((p) => (
+          <label class={`has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] relative block border-2 ${p.bestseller ? "border-amber-300" : "border-gray-200"} rounded-2xl px-5 py-4 cursor-pointer transition-all`}>
+            <input type="radio" name="paket" value={p.value} data-leistung={p.leistung} data-is-bundle="false" data-price={p.price} class="peer sr-only" />
+            {p.bestseller && (
+              <span class="inline-flex items-center gap-1 bg-amber-400 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded-full mb-2">
+                <Icons name="star" class="w-3 h-3" /> BESTSELLER
+              </span>
+            )}
+            <div class="flex items-center justify-between gap-3 mb-1">
+              <span class="font-bold text-gray-900">{p.name}</span>
+              <span class="font-extrabold text-[#1B2B6B]">ab {p.price} €</span>
             </div>
-          ))}
-        </div>
-        <p id="error-leistung" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+            {p.combo && <p class="text-xs font-semibold mb-2" style="color:#3A7BD5;">{p.combo}</p>}
+            <ul class="space-y-1 mt-2">
+              {p.features.map((f) => (
+                <li class="flex items-start gap-2 text-xs text-gray-600">
+                  <Icons name="check-circle" class="w-3.5 h-3.5 text-[#3A7BD5] mt-0.5 flex-shrink-0" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </label>
+        ))}
       </div>
+
+      <div class="paket-group hidden space-y-4" data-for="Außenreinigung">
+        {AUSSEN_PAKETE.map((p) => (
+          <label class="has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] relative block border-2 border-gray-200 rounded-2xl px-5 py-4 cursor-pointer transition-all">
+            <input type="radio" name="paket" value={p.value} data-leistung={p.leistung} data-is-bundle="false" data-price={p.price} class="peer sr-only" />
+            <div class="flex items-center justify-between gap-3 mb-1">
+              <span class="font-bold text-gray-900">{p.name}</span>
+              <span class="font-extrabold text-[#1B2B6B]">ab {p.price} €</span>
+            </div>
+            <ul class="space-y-1 mt-2">
+              {p.features.map((f) => (
+                <li class="flex items-start gap-2 text-xs text-gray-600">
+                  <Icons name="check-circle" class="w-3.5 h-3.5 text-[#3A7BD5] mt-0.5 flex-shrink-0" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </label>
+        ))}
+      </div>
+
+      <div class="paket-group hidden space-y-4" data-for="Komplettpaket">
+        {BUNDLE_PAKETE.map((p) => (
+          <label class="has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] relative block border-2 border-amber-300 rounded-2xl px-5 py-4 cursor-pointer transition-all">
+            <input type="radio" name="paket" value={p.value} data-leistung={p.leistung} data-is-bundle="true" data-price={p.price} class="peer sr-only" />
+            <span class="inline-flex items-center gap-1 bg-amber-400 text-gray-900 text-[11px] font-bold px-2.5 py-1 rounded-full mb-2">
+              <Icons name="star" class="w-3 h-3" /> BESTER WERT
+            </span>
+            <div class="flex items-center justify-between gap-3 mb-1">
+              <span class="font-bold text-gray-900">{p.name}</span>
+              <span class="font-extrabold text-[#1B2B6B]">ab {p.price} €</span>
+            </div>
+            <ul class="space-y-1 mt-2">
+              {p.features.map((f) => (
+                <li class="flex items-start gap-2 text-xs text-gray-600">
+                  <Icons name="check-circle" class="w-3.5 h-3.5 text-[#3A7BD5] mt-0.5 flex-shrink-0" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </label>
+        ))}
+      </div>
+
+      <p id="error-paket" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+      <button type="button" data-wizard-back="paket" class="mt-6 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
+        Zurück
+      </button>
     </div>
 
-    <!-- Ankauf specific (user sells their car to PUX) -->
-    <div id="tab-ankauf" class="tab-content hidden space-y-5">
+    <!-- STEP (aufbereitung): Fahrzeuggröße -->
+    <div class="wizard-step hidden" data-step-id="fahrzeuggroesse" data-path="aufbereitung">
+      <label class="block text-sm font-medium text-gray-700 mb-2.5">Fahrzeuggröße <span class="font-normal text-gray-400">(optional)</span></label>
+      <div class="grid grid-cols-2 gap-4">
+        {FAHRZEUGGROESSEN.map((g) => (
+          <label class={`has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] flex flex-col items-center justify-center text-center border border-gray-200 rounded-2xl px-4 py-6 cursor-pointer transition-all ${g.full ? "col-span-2" : ""}`}>
+            <input type="radio" name="fahrzeuggroesse" value={g.value} class="sr-only" />
+            <span class="font-semibold text-gray-900">{g.value}</span>
+            <span class="text-sm text-gray-400 mt-1">{g.examples}</span>
+          </label>
+        ))}
+      </div>
+      <button type="button" data-wizard-back="fahrzeuggroesse" class="mt-6 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
+        Zurück
+      </button>
+    </div>
+
+    <!-- STEP (aufbereitung): Zusatzleistungen -->
+    <div class="wizard-step hidden" data-step-id="zusatzleistungen" data-path="aufbereitung">
+      <label class="block text-sm font-medium text-gray-700 mb-2.5">Zusatzleistungen <span class="font-normal text-gray-400">(optional)</span></label>
+      <div class="space-y-2.5">
+        {ZUSATZLEISTUNGEN.map((z) => (
+          <label data-zusatz-id={z.id} class="has-[:checked]:border-[#3A7BD5] has-[:checked]:bg-[#EEF3FB] flex items-center justify-between gap-3 border-2 border-gray-200 rounded-xl px-4 py-3 cursor-pointer transition-all">
+            <span class="flex items-center gap-3">
+              <input type="checkbox" name="zusatzleistung" value={z.value} data-price={z.price} class="w-4 h-4 rounded border-gray-300 accent-[#3A7BD5] flex-shrink-0" />
+              <span class="text-sm font-medium text-gray-700">{z.label}</span>
+            </span>
+            <span class="text-sm font-semibold text-gray-400">ab {z.price} €</span>
+          </label>
+        ))}
+      </div>
+      <button type="button" data-wizard-back="zusatzleistungen" class="mt-6 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
+        Zurück
+      </button>
+    </div>
+
+    <!-- STEP (ankauf): Fahrzeugdaten -->
+    <div class="wizard-step hidden" data-step-id="ankauf-felder" data-path="ankauf">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label for="fahrzeug-ank" class="block text-sm font-medium text-gray-700 mb-1.5">Fahrzeug (Marke & Modell) *</label>
@@ -116,7 +307,7 @@ import Icons from "./Icons.astro";
             class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
         </div>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
         <div>
           <label for="km-ank" class="block text-sm font-medium text-gray-700 mb-1.5">Kilometerstand</label>
           <input type="number" id="km-ank" name="km_ankauf" placeholder="85000"
@@ -134,10 +325,13 @@ import Icons from "./Icons.astro";
           </select>
         </div>
       </div>
+      <button type="button" data-wizard-back="ankauf-felder" class="mt-6 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
+        Zurück
+      </button>
     </div>
 
-    <!-- Verkauf specific (user wants to buy from PUX) -->
-    <div id="tab-verkauf" class="tab-content hidden space-y-5">
+    <!-- STEP (verkauf): Wunschfahrzeug -->
+    <div class="wizard-step hidden" data-step-id="verkauf-felder" data-path="verkauf">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label for="wunsch-fzg" class="block text-sm font-medium text-gray-700 mb-1.5">Gewünschtes Fahrzeug</label>
@@ -150,30 +344,65 @@ import Icons from "./Icons.astro";
             class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
         </div>
       </div>
+      <button type="button" data-wizard-back="verkauf-felder" class="mt-6 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
+        Zurück
+      </button>
     </div>
 
-    <!-- Message -->
-    <div class="mt-5">
-      <label for="message" class="block text-sm font-medium text-gray-700 mb-1.5">Nachricht / Anmerkungen</label>
-      <textarea id="message" name="nachricht" rows="3" placeholder="Weitere Infos zu Ihrem Anliegen..."
-        class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm resize-none"></textarea>
-    </div>
+    <!-- FINAL STEP (all paths): Kontaktdaten -->
+    <div class="wizard-step hidden" data-step-id="kontaktdaten">
+      <label class="block text-sm font-medium text-gray-700 mb-2.5">Ihre Kontaktdaten</label>
 
-    <!-- Next steps -->
-    <div class="mt-8 flex items-start gap-3 rounded-2xl bg-[#EEF3FB] p-5">
-      <Icons name="check-circle" class="w-5 h-5 text-[#3A7BD5] flex-shrink-0 mt-0.5" />
-      <p class="text-sm text-gray-600 leading-relaxed">
-        Die Anfrage ist unverbindlich. Wir melden uns so schnell es geht und stimmen uns zu Fragen und zu einem passenden Termin ab.
+      <div id="plz-field" class="mb-5">
+        <label for="plz" class="block text-sm font-medium text-gray-700 mb-1.5">PLZ *</label>
+        <input type="text" id="plz" name="plz" inputmode="numeric" maxlength="5" placeholder="z. B. 68159"
+          class="w-full sm:w-48 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+        <p id="error-plz" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">Name *</label>
+          <input type="text" id="name" name="name" placeholder="Max Mustermann"
+            class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+          <p id="error-name" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+        </div>
+        <div>
+          <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">Telefon *</label>
+          <input type="tel" id="phone" name="telefon" placeholder="+49 621 XXXXXXX"
+            class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+          <p id="error-telefon" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+        </div>
+      </div>
+
+      <div class="mb-5">
+        <label for="email" class="block text-sm font-medium text-gray-700 mb-1.5">E-Mail <span class="font-normal text-gray-400">(optional)</span></label>
+        <input type="email" id="email" name="email" placeholder="max@beispiel.de"
+          class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm" />
+        <p id="error-email" class="field-error hidden text-xs text-red-600 mt-1.5 font-medium"></p>
+      </div>
+
+      <div class="mb-5">
+        <label for="message" class="block text-sm font-medium text-gray-700 mb-1.5">Nachricht / Anmerkungen</label>
+        <textarea id="message" name="nachricht" rows="3" placeholder="Weitere Infos zu Ihrem Anliegen..."
+          class="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3A7BD5] focus:border-transparent transition text-sm resize-none"></textarea>
+      </div>
+
+      <div class="flex items-start gap-3 rounded-2xl bg-[#EEF3FB] p-5">
+        <Icons name="check-circle" class="w-5 h-5 text-[#3A7BD5] flex-shrink-0 mt-0.5" />
+        <p class="text-sm text-gray-600 leading-relaxed">
+          Die Anfrage ist unverbindlich. Wir melden uns so schnell es geht und stimmen uns zu Fragen und zu einem passenden Termin ab.
+        </p>
+      </div>
+
+      <button type="button" data-wizard-back="kontaktdaten" class="mt-6 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] transition-all duration-200">
+        Zurück
+      </button>
+
+      <p class="text-xs text-gray-400 text-center mt-4">
+        Keine Weitergabe Ihrer Daten an Dritte.
       </p>
     </div>
-
-    <button type="submit" id="submit-btn" class="btn-primary w-full justify-center mt-8 text-base">
-      <span id="submit-btn-text">Anfrage absenden →</span>
-    </button>
-
-    <p class="text-xs text-gray-400 text-center mt-4">
-      Keine Weitergabe Ihrer Daten an Dritte.
-    </p>
   </form>
 
   <!-- Success state -->
@@ -190,50 +419,264 @@ import Icons from "./Icons.astro";
   </div>
 </div>
 
-<script>
-  // Tabs
-  const tabBtns = document.querySelectorAll<HTMLButtonElement>(".tab-btn");
-  const tabContents = document.querySelectorAll<HTMLElement>(".tab-content");
-  const selectedTab = document.getElementById("selected-tab") as HTMLInputElement;
+<div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-sm text-gray-600">
+  {["SSL gesichert", "Keine Vorauszahlung", "Kostenlose Beratung"].map((item) => (
+    <span class="flex items-center gap-1.5">
+      <Icons name="check-circle" class="w-4 h-4 text-emerald-500 flex-shrink-0" />
+      {item}
+    </span>
+  ))}
+</div>
 
-  tabBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const tab = btn.dataset.tab!;
-      tabBtns.forEach((b) => { b.classList.remove("active"); b.setAttribute("aria-selected", "false"); });
-      tabContents.forEach((c) => c.classList.add("hidden"));
-      btn.classList.add("active");
-      btn.setAttribute("aria-selected", "true");
-      document.getElementById(`tab-${tab}`)?.classList.remove("hidden");
-      selectedTab.value = btn.textContent?.trim() ?? tab;
-      clearErrors();
+<!-- Spacer so the fixed sticky bar never covers page content -->
+<div class="h-24" aria-hidden="true"></div>
+
+<div id="sticky-bar" class="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+  <div class="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+    <div id="sticky-price-wrap" class="hidden leading-tight">
+      <span class="block text-xs text-gray-400">Gesamtpreis</span>
+      <span id="sticky-price-value" class="block text-xl sm:text-2xl font-extrabold text-gray-900">–</span>
+    </div>
+    <div class="flex-1"></div>
+    <button type="button" id="sticky-next-btn" class="btn-primary px-6 sm:px-8 py-3.5 text-sm font-semibold disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none">
+      <span id="sticky-next-text">Weiter</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  const STEP_SEQUENCES: Record<string, string[]> = {
+    aufbereitung: ["dienstleistung", "paket", "fahrzeuggroesse", "zusatzleistungen", "kontaktdaten"],
+    ankauf: ["dienstleistung", "ankauf-felder", "kontaktdaten"],
+    verkauf: ["dienstleistung", "verkauf-felder", "kontaktdaten"],
+  };
+  const STEP_LABELS: Record<string, string> = {
+    dienstleistung: "Dienstleistung",
+    paket: "Paket",
+    fahrzeuggroesse: "Fahrzeuggröße",
+    zusatzleistungen: "Zusatzleistungen",
+    "ankauf-felder": "Fahrzeugdaten",
+    "verkauf-felder": "Wunschfahrzeug",
+    kontaktdaten: "Kontaktdaten",
+  };
+
+  const selectedTab = document.getElementById("selected-tab") as HTMLInputElement;
+  const leistungField = document.getElementById("leistung-field") as HTMLInputElement;
+  const wizardProgress = document.getElementById("wizard-progress") as HTMLElement;
+  const wizardStepLabel = document.getElementById("wizard-step-label") as HTMLElement;
+  const wizardStepName = document.getElementById("wizard-step-name") as HTMLElement;
+  const wizardProgressBar = document.getElementById("wizard-progress-bar") as HTMLElement;
+  const plzField = document.getElementById("plz-field") as HTMLElement;
+  const stickyBar = document.getElementById("sticky-bar") as HTMLElement;
+  // The wrapping ".reveal" element on the /kontakt page (kontakt.astro) applies a
+  // transform/filter transition that never fully resets to the literal "none" value
+  // (translateY(0) / blur(0)), which per spec makes it a containing block for any
+  // position:fixed descendant. That traps the bar at the bottom of that wrapper
+  // instead of the real viewport edge, so we move it out to a direct child of
+  // <body> at runtime, where no ancestor sets transform/filter.
+  document.body.appendChild(stickyBar);
+  const stickyPriceWrap = document.getElementById("sticky-price-wrap") as HTMLElement;
+  const stickyPriceValue = document.getElementById("sticky-price-value") as HTMLElement;
+  const stickyNextBtn = document.getElementById("sticky-next-btn") as HTMLButtonElement;
+  const stickyNextText = document.getElementById("sticky-next-text") as HTMLElement;
+
+  let currentPath = "aufbereitung";
+  let currentIndex = 0;
+
+  function render() {
+    const sequence = STEP_SEQUENCES[currentPath];
+    const stepId = sequence[currentIndex];
+
+    document.querySelectorAll<HTMLElement>(".wizard-step").forEach((el) => {
+      el.classList.toggle("hidden", el.dataset.stepId !== stepId);
+    });
+
+    plzField.classList.toggle("hidden", currentPath !== "aufbereitung");
+    document.getElementById("plz")!.toggleAttribute("required", currentPath === "aufbereitung");
+
+    wizardStepLabel.textContent = `Schritt ${currentIndex + 1} von ${sequence.length}`;
+    wizardStepName.textContent = STEP_LABELS[stepId] ?? "";
+    wizardProgressBar.style.width = `${((currentIndex + 1) / sequence.length) * 100}%`;
+
+    updateStickyBar();
+  }
+
+  function canAdvance(): boolean {
+    const stepId = STEP_SEQUENCES[currentPath][currentIndex];
+    if (stepId === "dienstleistung") return !!document.querySelector('input[name="dienstleistung"]:checked');
+    if (stepId === "paket") return !!document.querySelector('input[name="paket"]:checked');
+    if (stepId === "ankauf-felder") return !!(document.getElementById("fahrzeug-ank") as HTMLInputElement).value.trim();
+    if (stepId === "kontaktdaten") {
+      const name = (document.getElementById("name") as HTMLInputElement).value.trim();
+      const telefon = (document.getElementById("phone") as HTMLInputElement).value.trim();
+      if (!name || !telefon) return false;
+      if (currentPath === "aufbereitung") {
+        const plz = (document.getElementById("plz") as HTMLInputElement).value.trim();
+        if (!/^\d{5}$/.test(plz)) return false;
+      }
+      return true;
+    }
+    return true;
+  }
+
+  function updateStickyBar() {
+    const sequence = STEP_SEQUENCES[currentPath];
+    const stepId = sequence[currentIndex];
+
+    stickyNextText.textContent = stepId === "kontaktdaten" ? "Anfrage absenden →" : "Weiter";
+    stickyNextBtn.disabled = !canAdvance();
+
+    if (currentPath === "aufbereitung") {
+      stickyPriceWrap.classList.remove("hidden");
+      const paketRadio = document.querySelector<HTMLInputElement>('input[name="paket"]:checked');
+      if (paketRadio) {
+        const paketPrice = Number(paketRadio.dataset.price || 0);
+        const extrasTotal = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="zusatzleistung"]:checked'))
+          .reduce((sum, cb) => sum + Number(cb.dataset.price || 0), 0);
+        stickyPriceValue.textContent = `ab ${paketPrice + extrasTotal} €`;
+      } else {
+        stickyPriceValue.textContent = "–";
+      }
+    } else {
+      stickyPriceWrap.classList.add("hidden");
+    }
+  }
+
+  function goToIndex(index: number) {
+    currentIndex = index;
+    render();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function setPath(path: string, skipFirstStep: boolean) {
+    currentPath = path;
+    currentIndex = skipFirstStep ? 1 : 0;
+    render();
+  }
+
+  document.querySelectorAll<HTMLInputElement>('input[name="dienstleistung"]').forEach((radio) => {
+    radio.addEventListener("change", () => {
+      selectedTab.value = radio.dataset.anliegen ?? "Aufbereitung";
+      updateStickyBar();
     });
   });
 
-  // Extra-Service: nur unter Innenreinigung / Außenreinigung anzeigbar, nicht bei Komplettpaket
-  const leistungRadios = document.querySelectorAll<HTMLInputElement>('input[name="leistung"]');
-
-  function updateExtraServiceVisibility() {
-    document.querySelectorAll<HTMLElement>(".extra-service-toggle").forEach((toggle) => {
-      const item = toggle.closest(".leistung-item")!;
-      const radio = item.querySelector<HTMLInputElement>('input[name="leistung"]')!;
-      const show = radio.checked;
-      toggle.style.display = show ? "flex" : "none";
-      if (!show) {
-        const checkbox = toggle.querySelector<HTMLInputElement>('input[name="extra_service"]')!;
-        checkbox.checked = false;
-      }
+  // Sub-tabs inside the "Paket" step: Innenreinigung / Außenreinigung / Komplettpaket
+  const paketTabBtns = document.querySelectorAll<HTMLButtonElement>(".paket-tab-btn");
+  function showPaketGroupFor(leistungValue: string) {
+    paketTabBtns.forEach((b) => {
+      const match = b.dataset.paketTab === leistungValue;
+      b.classList.toggle("active", match);
+      b.setAttribute("aria-selected", String(match));
+    });
+    document.querySelectorAll<HTMLElement>(".paket-group").forEach((g) => {
+      g.classList.toggle("hidden", g.dataset.for !== leistungValue);
     });
   }
+  paketTabBtns.forEach((btn) => {
+    btn.addEventListener("click", () => showPaketGroupFor(btn.dataset.paketTab!));
+  });
 
-  leistungRadios.forEach((radio) => radio.addEventListener("change", updateExtraServiceVisibility));
-  updateExtraServiceVisibility();
+  function updateZusatzleistungenAvailability() {
+    const checkedPaket = document.querySelector<HTMLInputElement>('input[name="paket"]:checked');
+    const isBundle = checkedPaket?.dataset.isBundle === "true";
+    const spruehItem = document.querySelector<HTMLElement>('[data-zusatz-id="spruehversiegelung"]');
+    if (spruehItem) {
+      const checkbox = spruehItem.querySelector<HTMLInputElement>('input[type="checkbox"]');
+      spruehItem.classList.toggle("hidden", !!isBundle);
+      if (isBundle && checkbox) checkbox.checked = false;
+    }
+  }
+  document.querySelectorAll<HTMLInputElement>('input[name="paket"]').forEach((r) =>
+    r.addEventListener("change", () => {
+      leistungField.value = r.dataset.leistung ?? "";
+      updateZusatzleistungenAvailability();
+      updateStickyBar();
+    })
+  );
+  document.querySelectorAll<HTMLInputElement>('input[name="zusatzleistung"]').forEach((cb) =>
+    cb.addEventListener("change", updateStickyBar)
+  );
+  ["fahrzeug-ank", "name", "phone", "plz"].forEach((id) => {
+    document.getElementById(id)?.addEventListener("input", updateStickyBar);
+  });
+
+  // Wizard navigation — the sticky bottom bar drives "Weiter" for every step,
+  // and becomes the actual submit trigger on the final "Kontaktdaten" step.
+  function attemptAdvance() {
+    const stepId = STEP_SEQUENCES[currentPath][currentIndex];
+    clearErrors();
+
+    if (stepId === "dienstleistung") {
+      const checked = document.querySelector<HTMLInputElement>('input[name="dienstleistung"]:checked');
+      if (!checked) { showFieldError("dienstleistung", "Bitte wähle eine Option aus."); return; }
+      setPath(checked.value, false);
+      goToIndex(1);
+      return;
+    }
+    if (stepId === "paket") {
+      const checked = document.querySelector<HTMLInputElement>('input[name="paket"]:checked');
+      if (!checked) { showFieldError("paket", "Bitte wähle ein Paket aus."); return; }
+    }
+    if (stepId === "ankauf-felder") {
+      const fahrzeug = (document.getElementById("fahrzeug-ank") as HTMLInputElement).value.trim();
+      if (!fahrzeug) { showFieldError("fahrzeug_ankauf", "Bitte gib Marke und Modell deines Fahrzeugs an."); return; }
+    }
+    if (stepId === "kontaktdaten") {
+      form.requestSubmit();
+      return;
+    }
+
+    goToIndex(currentIndex + 1);
+  }
+  stickyNextBtn.addEventListener("click", attemptAdvance);
+
+  document.querySelectorAll<HTMLButtonElement>("[data-wizard-back]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      clearErrors();
+      goToIndex(Math.max(0, currentIndex - 1));
+    });
+  });
+
+  render();
+
+  // Pre-fill from query params, e.g. /kontakt?tab=aufbereitung&paket=...&quelle=/ratgeber/...
+  const params = new URLSearchParams(location.search);
+  const wantedTab = params.get("tab");
+  if (wantedTab && STEP_SEQUENCES[wantedTab]) {
+    const radio = document.querySelector<HTMLInputElement>(`input[name="dienstleistung"][value="${wantedTab}"]`);
+    if (radio) {
+      radio.checked = true;
+      selectedTab.value = radio.dataset.anliegen ?? "Aufbereitung";
+    }
+    setPath(wantedTab, true);
+
+    if (wantedTab === "aufbereitung") {
+      const wantedPaket = params.get("paket");
+      if (wantedPaket) {
+        const paketRadio = document.querySelector<HTMLInputElement>(`input[name="paket"][value="${wantedPaket}"]`);
+        if (paketRadio) {
+          paketRadio.checked = true;
+          leistungField.value = paketRadio.dataset.leistung ?? "";
+          if (paketRadio.dataset.leistung) showPaketGroupFor(paketRadio.dataset.leistung);
+          updateZusatzleistungenAvailability();
+          updateStickyBar();
+        }
+      }
+    }
+  }
+
+  const quelle = params.get("quelle");
+  if (quelle) {
+    (document.getElementById("quelle-field") as HTMLInputElement).value = quelle;
+  }
 
   // Form submit + validation
   const form = document.getElementById("contact-form") as HTMLFormElement;
   const generalError = document.getElementById("form-general-error")!;
   const generalErrorText = document.getElementById("form-general-error-text")!;
-  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
-  const submitBtnText = document.getElementById("submit-btn-text")!;
+  const submitBtn = stickyNextBtn;
+  const submitBtnText = stickyNextText;
 
   const ERROR_INPUT_CLASSES = ["border-red-400", "focus:ring-red-200"];
 
@@ -265,7 +708,7 @@ import Icons from "./Icons.astro";
     generalError.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
-  function validateClientSide(activeTab: string, data: FormData): Record<string, string> {
+  function validateClientSide(path: string, data: FormData): Record<string, string> {
     const errors: Record<string, string> = {};
     const name = (data.get("name") as string || "").trim();
     const telefon = (data.get("telefon") as string || "").trim();
@@ -277,14 +720,14 @@ import Icons from "./Icons.astro";
       errors.email = "Bitte gib eine gültige E-Mail-Adresse an.";
     }
 
-    if (activeTab === "aufbereitung") {
+    if (path === "aufbereitung") {
       const plz = (data.get("plz") as string || "").trim();
       if (!plz) errors.plz = "Bitte gib deine Postleitzahl an.";
       else if (!/^\d{5}$/.test(plz)) errors.plz = "Bitte gib eine gültige 5-stellige Postleitzahl an.";
 
-      const leistung = (data.get("leistung") as string || "").trim();
-      if (!leistung) errors.leistung = "Bitte wähle eine gewünschte Leistung aus.";
-    } else if (activeTab === "ankauf") {
+      const paket = (data.get("paket") as string || "").trim();
+      if (!paket) errors.paket = "Bitte wähle ein Paket aus.";
+    } else if (path === "ankauf") {
       const fahrzeug = (data.get("fahrzeug_ankauf") as string || "").trim();
       if (!fahrzeug) errors.fahrzeug_ankauf = "Bitte gib Marke und Modell deines Fahrzeugs an.";
     }
@@ -296,9 +739,8 @@ import Icons from "./Icons.astro";
     e.preventDefault();
     clearErrors();
 
-    const activeTab = document.querySelector<HTMLButtonElement>(".tab-btn.active")?.dataset.tab || "aufbereitung";
     const formData = new FormData(form);
-    const errors = validateClientSide(activeTab, formData);
+    const errors = validateClientSide(currentPath, formData);
 
     if (Object.keys(errors).length > 0) {
       Object.entries(errors).forEach(([field, message]) => showFieldError(field, message));
@@ -307,7 +749,8 @@ import Icons from "./Icons.astro";
       return;
     }
 
-    const payload = Object.fromEntries(formData.entries());
+    const payload: Record<string, unknown> = Object.fromEntries(formData.entries());
+    payload.zusatzleistung = formData.getAll("zusatzleistung").filter(Boolean).join(", ");
 
     submitBtn.disabled = true;
     submitBtn.classList.add("opacity-70", "cursor-not-allowed");
@@ -329,6 +772,8 @@ import Icons from "./Icons.astro";
           ? `Vielen Dank, ${name}! Wir haben deine Anfrage erhalten und melden uns so schnell wie möglich bei dir.`
           : "Vielen Dank! Wir haben deine Anfrage erhalten und melden uns so schnell wie möglich bei dir.";
         form.classList.add("hidden");
+        wizardProgress.classList.add("hidden");
+        stickyBar.classList.add("hidden");
         document.getElementById("form-success")!.classList.remove("hidden");
       } else if (result.errors) {
         let hasFieldError = false;

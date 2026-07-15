@@ -3,11 +3,12 @@ interface Props {
   text?: string;
   variant?: "primary" | "ghost";
   class?: string;
+  tab?: "aufbereitung" | "ankauf" | "verkauf";
 }
-const { text = "Jetzt Kontakt aufnehmen", variant = "primary", class: cls = "" } = Astro.props;
+const { text = "Jetzt Kontakt aufnehmen", variant = "primary", class: cls = "", tab = "aufbereitung" } = Astro.props;
 ---
 
-<a href="#kontakt" class={`group ${variant === "primary" ? "btn-primary" : "btn-ghost"} text-base ${cls}`}>
+<a href={`/kontakt?tab=${tab}`} class={`group ${variant === "primary" ? "btn-primary" : "btn-ghost"} text-base ${cls}`}>
   {text}
   <svg class="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />

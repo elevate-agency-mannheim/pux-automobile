@@ -47,7 +47,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import StepByStep from "../../../components/ratgeber/StepByStep.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Wer einen Gebrauchtwagen kauft, sollte sich nicht allein auf die Angaben des Verkäufers verlassen, sondern die Fahrzeughistorie eigenständig prüfen. Fahrzeugpapiere, Serviceheft und spezialisierte Online-Abfragen liefern dabei wertvolle Anhaltspunkte. Dieser Ratgeber zeigt, wie Sie systematisch vorgehen.
@@ -83,10 +83,7 @@ Vergleichen Sie den aktuellen Kilometerstand mit den in TÜV-Berichten und Werks
   ]}
 />
 
-<ContactCTA
-  title="Unterstützung beim Gebrauchtwagenkauf"
-  description="Wir unterstützen Sie bei der Einschätzung eines Fahrzeugs im Raum Mannheim – melden Sie sich unverbindlich."
-/>
+<CTAButton text="Unterstützung beim Gebrauchtwagenkauf" tab="verkauf" />
 
 ## Warum sich der Aufwand lohnt
 
@@ -121,11 +118,7 @@ Fehlt ein lückenloses Serviceheft, bedeutet das nicht zwangsläufig, dass mit d
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Fahrzeug im Raum Mannheim einschätzen lassen"
-  description="Sie sind unsicher bei einem konkreten Angebot? Wir helfen Ihnen bei der Einschätzung."
-/>
+<CTAButton text="Fahrzeug im Raum Mannheim einschätzen lassen" tab="verkauf" />
 
 ## Was gilt für Fahrzeuge aus dem Ausland?
 

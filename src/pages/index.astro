@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import BeforeAfterSlider from "../components/BeforeAfterSlider.astro";
-import ContactForm from "../components/ContactForm.astro";
 import Icons from "../components/Icons.astro";
 import Footer from "../components/Footer.astro";
 ---
@@ -21,7 +20,7 @@ import Footer from "../components/Footer.astro";
     <div class="relative max-w-5xl mx-auto px-6 text-center">
       <div class="inline-flex items-center gap-2.5 text-[#1B2B6B] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-8 border border-[#1B2B6B]/15 bg-[#EEF3FB] reveal" style="max-width:calc(100vw - 3rem);">
         <span class="pulse-dot"></span>
-        <span class="whitespace-nowrap overflow-hidden text-ellipsis">Mannheim &amp; Umgebung · 30 km</span>
+        <span class="whitespace-nowrap overflow-hidden text-ellipsis">Mannheim &amp; Umgebung · 45 km</span>
       </div>
 
       <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-[1.08] tracking-tight mb-6 reveal" style="transition-delay:0.1s">
@@ -36,11 +35,11 @@ import Footer from "../components/Footer.astro";
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center reveal" style="transition-delay:0.3s">
-        <a href="#kontakt" class="btn-primary text-base group">
+        <a href="/kontakt" class="btn-primary text-base group justify-center">
           Unverbindlich anfragen
           <Icons name="arrow-right" class="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
         </a>
-        <a href="#ablauf" class="btn-ghost text-base">
+        <a href="#ablauf" class="btn-ghost text-base justify-center">
           Ablauf ansehen
         </a>
       </div>
@@ -88,6 +87,9 @@ import Footer from "../components/Footer.astro";
             />
           </div>
           <p class="text-xs text-gray-400 text-center tracking-wide">← Regler ziehen →</p>
+          <a href="/kontakt?tab=aufbereitung" class="group mt-1 mx-auto inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5 transition-all duration-200">
+            Außen-Paket anfragen <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
         </div>
 
         <div class="reveal flex flex-col gap-3" style="transition-delay:0.15s">
@@ -106,6 +108,9 @@ import Footer from "../components/Footer.astro";
             />
           </div>
           <p class="text-xs text-gray-400 text-center tracking-wide">← Regler ziehen →</p>
+          <a href="/kontakt?tab=aufbereitung" class="group mt-1 mx-auto inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5 transition-all duration-200">
+            Innen-Paket anfragen <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
         </div>
       </div>
     </div>
@@ -140,8 +145,8 @@ import Footer from "../components/Footer.astro";
               </li>
             ))}
           </ul>
-          <p class="text-xs text-gray-400 mb-5 border-t border-gray-100 pt-4 leading-relaxed">Kostenlos im 30-km-Umkreis Mannheim. Darüber hinaus zzgl. Anfahrtspauschale.</p>
-          <a href="#kontakt" data-tab="aufbereitung" class="group mt-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5 transition-all duration-200">
+          <p class="text-xs text-gray-400 mb-5 border-t border-gray-100 pt-4 leading-relaxed">Kostenlos im 45-km-Umkreis Mannheim. Ab 45 km: 0,80 € pro zusätzlichem Kilometer.</p>
+          <a href="/kontakt?tab=aufbereitung" class="group mt-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5 transition-all duration-200">
             Jetzt anfragen <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
@@ -182,7 +187,7 @@ import Footer from "../components/Footer.astro";
                 </li>
               ))}
             </ul>
-            <a href="#kontakt" data-tab="ankauf" class="group inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5 transition-all duration-200">
+            <a href="/kontakt?tab=ankauf" class="group inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5 transition-all duration-200">
               Fahrzeug verkaufen <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
@@ -216,7 +221,7 @@ import Footer from "../components/Footer.astro";
                 </li>
               ))}
             </ul>
-            <a href="#kontakt" data-tab="verkauf" class="group inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5 transition-all duration-200">
+            <a href="/kontakt?tab=verkauf" class="group inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5 transition-all duration-200">
               Fahrzeug kaufen <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
@@ -234,68 +239,77 @@ import Footer from "../components/Footer.astro";
         <p class="text-gray-500 text-lg max-w-lg mx-auto">Mobile Fahrzeugaufbereitung direkt vor Ihrer Haustür – transparent &amp; ohne versteckte Kosten.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-20">
+      <!-- Innenraum-Pakete -->
+      <div class="mb-4 reveal">
+        <h3 class="text-center text-xs font-bold text-gray-400 tracking-widest uppercase">Innenraum-Pakete</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-16">
         {[
           {
             icon: "seat" as const,
-            title: "Innenraum",
-            subtitle: "Komfort",
-            price: "130",
+            title: "Basic",
+            price: "100",
+            leistung: "Innenreinigung",
+            paket: "Innenraum Basic – 100 €",
             features: [
-              "Gründliches Aussaugen des gesamten Innenraums inkl. Kofferraum",
-              "Reinigung und Pflege von Armaturenbrett und Innenverkleidungen",
-              "Fleckenentfernung aus Polstern und Teppichen",
-              "Lederreinigung und -pflege",
-              "Sorgfältige Reinigung bis in jeden Schlitz und jedes Detail",
-            ],
-            featured: false,
-          },
-          {
-            icon: "car" as const,
-            title: "Außen",
-            subtitle: "Glanz",
-            price: "90",
-            features: [
-              "Lackschonende Handaußenwäsche",
-              "Gründliche Felgen- und Radkastenreinigung",
-              "Entfernung von Teer-, Harz- und Insektenresten",
-              "Trocknung mit hochwertigen Mikrofasertüchern",
-              "Alle äußeren Details wieder sauber, gepflegt und glänzend",
+              "Müll entfernen",
+              "Innenraum & Kofferraum saugen",
+              "Fußräume wischen",
+              "Türverkleidungen & Kunststoffflächen wischen",
+              "Scheiben innen reinigen",
             ],
             featured: false,
           },
           {
             icon: "sparkles" as const,
-            title: "Komplettpaket",
-            subtitle: "Premium",
-            price: "220",
-            combo: "Innen & Außen kombiniert",
+            title: "Komfort",
+            price: "150",
+            leistung: "Innenreinigung",
+            paket: "Innenraum Komfort – 150 €",
+            combo: "Enthält Basic +",
             features: [
-              "Alle Leistungen aus Innenraum Komfort",
-              "Alle Leistungen aus Außen Glanz",
-              "Inklusive Anfahrt & Aufbau",
-              "Inklusive Entsorgung von Schmutzwasser & Müll",
+              "Druckluftreinigung schwer erreichbarer Stellen",
+              "Intensive Reinigung von Schaltern, Lüftungen etc.",
+              "Pflege aller Kunststoff-, Leder- & Gummiflächen",
+              "Mittelkonsole, Bedienelemente, Lenkrad & Cockpit",
+              "Polster-/Leder-Tiefenreinigung inkl. Pflege",
+              "Detailreinigung aller Sitzkanten, Ablagen & Einlageteile",
             ],
-            bonus: { title: "Kostenlose einstufige Lackpolitur inkl. Keramikversiegelung", was: "350 €" },
             featured: true,
+            badge: "BESTSELLER",
+          },
+          {
+            icon: "shield-check" as const,
+            title: "Premium",
+            price: "230",
+            leistung: "Innenreinigung",
+            paket: "Innenraum Premium – 230 €",
+            combo: "Enthält Komfort +",
+            features: [
+              "Kunststoffversiegelung im Innenraum",
+              "Lederversiegelung",
+              "Klimaanlagen-Desinfektion",
+              "Ozonbehandlung",
+            ],
+            featured: false,
           },
         ].map((pkg, i) => (
-          <div class={`reveal spotlight ${pkg.featured ? "glow-behind" : ""} relative bg-white rounded-3xl border ${pkg.featured ? "border-[#3A7BD5] shadow-xl md:-translate-y-3" : "border-gray-100 shadow-sm"} hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col h-full`} style={`transition-delay:${i * 0.1}s`}>
-            {pkg.featured && (
+          <div class={`reveal spotlight ${pkg.featured ? "glow-behind" : ""} relative bg-white rounded-3xl border ${pkg.featured ? "border-amber-300 shadow-xl md:-translate-y-3" : "border-gray-100 shadow-sm"} hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col h-full`} style={`transition-delay:${i * 0.1}s`}>
+            {pkg.badge && (
               <span class="badge-shimmer absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 bg-amber-400 text-gray-900 text-xs font-bold px-4 py-1.5 rounded-full shadow-md whitespace-nowrap">
-                <Icons name="star" class="w-3.5 h-3.5" /> SEHR BELIEBT
+                <Icons name="star" class="w-3.5 h-3.5" /> {pkg.badge}
               </span>
             )}
             <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-white flex-shrink-0" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
               <Icons name={pkg.icon} class="w-6 h-6" />
             </div>
             <h3 class="text-xl font-bold text-gray-900 leading-tight">{pkg.title}</h3>
-            <p class="text-sm font-bold tracking-widest uppercase mb-4" style="color:#3A7BD5;">{pkg.subtitle}</p>
-            <div class="mb-1">
-              <span class="price-counter text-4xl font-extrabold text-gray-900" data-target={pkg.price}>0</span><span class="text-4xl font-extrabold text-gray-900"> €</span>
+            {pkg.combo && <p class="text-sm font-semibold mb-2 mt-1" style="color:#3A7BD5;">{pkg.combo}</p>}
+            <div class="mb-1 flex items-baseline gap-1.5 mt-2">
+              <span class="text-base font-bold text-gray-400">ab</span>
+              <span class="price-counter text-4xl font-extrabold text-gray-900" data-target={pkg.price}>0</span><span class="text-4xl font-extrabold text-gray-900">€</span>
             </div>
             <p class="text-xs text-gray-400 mb-4">inkl. MwSt.</p>
-            {pkg.combo && <p class="text-sm font-semibold mb-4" style="color:#3A7BD5;">{pkg.combo}</p>}
             <ul class="reveal stagger space-y-2.5 mb-6 flex-1">
               {pkg.features.map((f) => (
                 <li class="flex items-start gap-2.5 text-sm text-gray-600">
@@ -304,36 +318,98 @@ import Footer from "../components/Footer.astro";
                 </li>
               ))}
             </ul>
-            {pkg.bonus && (
-              <div class="rounded-2xl border-2 border-amber-300 bg-amber-50 p-4 mb-6">
-                <p class="text-xs font-bold text-amber-700 tracking-widest uppercase mb-1">Inklusive</p>
-                <p class="text-sm font-extrabold text-gray-900 leading-snug">{pkg.bonus.title}</p>
-                <p class="text-xs text-gray-500 mt-1">statt <span class="line-through">{pkg.bonus.was}</span></p>
-              </div>
-            )}
-            <a href="#kontakt" data-tab="aufbereitung" class={`group mt-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold transition-all duration-200 ${pkg.featured ? "btn-primary" : "text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5"}`}>
+            <a href={`/kontakt?tab=aufbereitung&paket=${encodeURIComponent(pkg.paket)}`} class={`group mt-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold transition-all duration-200 ${pkg.featured ? "btn-primary" : "text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5"}`}>
               Paket anfragen <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
         ))}
       </div>
 
+      <!-- Außen-Paket & PUX-Bundle -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-20">
+        <div class="reveal spotlight relative bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col h-full">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-white flex-shrink-0" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+            <Icons name="car" class="w-6 h-6" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 leading-tight">Außen-Paket</h3>
+          <p class="text-sm font-bold tracking-widest uppercase mb-4 mt-1" style="color:#3A7BD5;">Premium</p>
+          <div class="mb-1 flex items-baseline gap-1.5">
+            <span class="text-base font-bold text-gray-400">ab</span>
+            <span class="price-counter text-4xl font-extrabold text-gray-900" data-target="100">0</span><span class="text-4xl font-extrabold text-gray-900">€</span>
+          </div>
+          <p class="text-xs text-gray-400 mb-4">inkl. MwSt.</p>
+          <ul class="reveal stagger space-y-2.5 mb-6 flex-1">
+            {[
+              "Felgenreinigung inkl. Radkästen",
+              "Reifenreinigung & Reifenglanz",
+              "Vorwäsche mit Snow Foam & Insektenentfernung",
+              "Handwäsche, Türholme & Einstiege",
+              "Detailreinigung von Emblemen & Zierleisten",
+              "Scheiben innen & außen, Handtrocknung mit Mikrofasertüchern",
+            ].map((f) => (
+              <li class="flex items-start gap-2.5 text-sm text-gray-600">
+                <Icons name="check-circle" class="w-4 h-4 text-[#3A7BD5] mt-0.5 flex-shrink-0" />
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href={`/kontakt?tab=aufbereitung&paket=${encodeURIComponent("Außen Premium – 100 €")}`} class="group mt-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold text-[#1B2B6B] border-2 border-[#1B2B6B]/20 hover:border-[#1B2B6B] hover:bg-[#EEF3FB] hover:-translate-y-0.5 transition-all duration-200">
+            Paket anfragen <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        </div>
+
+        <div class="reveal spotlight glow-behind relative bg-white rounded-3xl border border-[#3A7BD5] shadow-xl md:-translate-y-3 hover:shadow-xl hover:-translate-y-4 transition-all duration-300 p-8 flex flex-col h-full" style="transition-delay:0.1s">
+          <span class="badge-shimmer absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 bg-amber-400 text-gray-900 text-xs font-bold px-4 py-1.5 rounded-full shadow-md whitespace-nowrap">
+            <Icons name="star" class="w-3.5 h-3.5" /> BESTER WERT
+          </span>
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-white flex-shrink-0" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
+            <Icons name="sparkles" class="w-6 h-6" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 leading-tight">PUX-Bundle</h3>
+          <p class="text-sm font-semibold mb-4 mt-1" style="color:#3A7BD5;">Innen & Außen kombiniert</p>
+          <div class="mb-1 flex items-baseline gap-1.5">
+            <span class="text-base font-bold text-gray-400">ab</span>
+            <span class="price-counter text-4xl font-extrabold text-gray-900" data-target="240">0</span><span class="text-4xl font-extrabold text-gray-900">€</span>
+          </div>
+          <p class="text-xs text-gray-400 mb-4">inkl. MwSt.</p>
+          <ul class="reveal stagger space-y-2.5 mb-6 flex-1">
+            {[
+              "Innenraum Komfort Paket",
+              "Außen Premium Paket",
+            ].map((f) => (
+              <li class="flex items-start gap-2.5 text-sm text-gray-600">
+                <Icons name="check-circle" class="w-4 h-4 text-[#3A7BD5] mt-0.5 flex-shrink-0" />
+                {f}
+              </li>
+            ))}
+          </ul>
+          <div class="rounded-2xl border-2 border-amber-300 bg-amber-50 p-4 mb-6">
+            <p class="text-xs font-bold text-amber-700 tracking-widest uppercase mb-1">Inklusive</p>
+            <p class="text-sm font-extrabold text-gray-900 leading-snug">Kostenlose Sprühversiegelung im Wert von 50 €</p>
+            <p class="text-xs text-gray-500 mt-1">UV-Schutz, weniger Schmutzanhaftung, intensiver Glanz & starker Wasser-Abperleffekt.</p>
+          </div>
+          <a href={`/kontakt?tab=aufbereitung&paket=${encodeURIComponent("PUX-Bundle – 240 €")}`} class="group mt-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold btn-primary transition-all duration-200">
+            Paket anfragen <Icons name="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
+
       <!-- Zubuchbare Extras -->
       <div class="reveal">
         <h3 class="text-center text-xs font-bold text-gray-400 tracking-widest uppercase mb-8">Zubuchbare Extras</h3>
-        <div class="max-w-xl mx-auto">
-          <div class="spotlight bg-white rounded-2xl border-2 border-amber-200 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 p-6 flex items-start gap-4">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center text-amber-600 bg-amber-50 flex-shrink-0">
-              <Icons name="shield-check" class="w-6 h-6" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+          {[
+            { title: "Starke Verschmutzung", price: "30 €" },
+            { title: "Extreme Verschmutzung", price: "70 €" },
+            { title: "Starke Tierhaarentfernung", price: "40 €" },
+            { title: "Sprühversiegelung außen", price: "50 €" },
+            { title: "Motorwäsche", price: "49 €" },
+          ].map((extra) => (
+            <div class="spotlight bg-white rounded-2xl border-2 border-amber-200 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 p-5 flex items-center justify-between gap-4">
+              <h4 class="font-bold text-gray-900 text-sm">{extra.title}</h4>
+              <span class="text-sm font-extrabold text-white bg-[#1B2B6B] px-3 py-1 rounded-full flex-shrink-0">ab {extra.price}</span>
             </div>
-            <div class="flex-1">
-              <div class="flex items-center justify-between gap-3 flex-wrap mb-1.5">
-                <h4 class="font-bold text-gray-900">Extra-Service hinzufügen</h4>
-                <span class="text-sm font-extrabold text-white bg-[#1B2B6B] px-3 py-1 rounded-full flex-shrink-0">350 €</span>
-              </div>
-              <p class="text-sm text-gray-500 leading-relaxed">Einstufige Lackpolitur inkl. Keramikversiegelung.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
@@ -344,7 +420,7 @@ import Footer from "../components/Footer.astro";
     <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
       {[
         { icon: "map-pin" as const,      title: "Mobil & flexibel",  desc: "Wir kommen zu Ihnen – kein Umweg." },
-        { icon: "shield-check" as const, title: "30 km Umkreis",     desc: "Mannheim & gesamte Rhein-Neckar-Region." },
+        { icon: "shield-check" as const, title: "45 km Umkreis",     desc: "Mannheim & gesamte Rhein-Neckar-Region." },
         { icon: "star" as const,         title: "Profi-Qualität",    desc: "Showroom-Ergebnis, jedes Mal." },
         { icon: "handshake" as const,    title: "Faire Preise",      desc: "Transparent, ohne versteckte Kosten." },
       ].map(({ icon, title, desc }, i) => (
@@ -488,6 +564,18 @@ import Footer from "../components/Footer.astro";
         card.dataset.playing = "false";
       };
 
+      // Scrolls the track horizontally to a given card without ever touching
+      // page-level (vertical) scroll — unlike scrollIntoView, which can bubble
+      // up to the document and cause an unwanted jump on some browsers/hosts.
+      const scrollToCard = (index: number) => {
+        const card = cards[index];
+        if (!card) return;
+        const trackRect = track.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
+        const offset = track.scrollLeft + (cardRect.left - trackRect.left);
+        track.scrollTo({ left: offset, behavior: "smooth" });
+      };
+
       // Clicking/tapping a card toggles play/pause; clicking a different
       // card switches to it (and pauses whatever was playing before).
       cards.forEach((card, index) => {
@@ -506,7 +594,7 @@ import Footer from "../components/Footer.astro";
             // Desktop: auto-advance through the set, one video after another.
             const next = (index + 1) % cards.length;
             playVideo(next);
-            cards[next]?.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+            scrollToCard(next);
           } else {
             // Mobile: stay on the swiped-to video, just loop it.
             video.currentTime = 0;
@@ -554,22 +642,6 @@ import Footer from "../components/Footer.astro";
     })();
   </script>
 
-  <!-- CONTACT -->
-  <section id="kontakt" class="py-24 px-6 bg-gray-50">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-12 reveal">
-        <span class="inline-block bg-[#EEF3FB] text-[#1B2B6B] text-xs font-bold px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">Kontakt</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Unverbindlich anfragen</h2>
-        <p class="text-gray-500 text-lg max-w-lg mx-auto">
-          Wählen Sie Ihr Anliegen – wir melden uns <strong class="text-gray-700 font-semibold">innerhalb von 24 Stunden</strong> bei Ihnen.
-        </p>
-      </div>
-      <div class="reveal" style="transition-delay:0.1s">
-        <ContactForm />
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ -->
   <section id="faq" class="py-24 px-6 bg-white">
     <div class="max-w-3xl mx-auto">
@@ -591,7 +663,7 @@ import Footer from "../components/Footer.astro";
           },
           {
             q: "Welches Gebiet fahren Sie an?",
-            a: "Wir sind im Umkreis von 30 km rund um Mannheim unterwegs. Darüber hinaus berechnen wir 0,80 € pro zusätzlichem Kilometer.",
+            a: "Wir sind im Umkreis von 45 km rund um Mannheim unterwegs. Ab 45 km berechnen wir 0,80 € pro zusätzlichem Kilometer.",
           },
           {
             q: "Wie lange dauert eine Fahrzeugaufbereitung?",
@@ -630,13 +702,6 @@ import Footer from "../components/Footer.astro";
 </Layout>
 
 <script>
-  document.querySelectorAll<HTMLAnchorElement>("a[data-tab]").forEach((link) => {
-    link.addEventListener("click", () => {
-      const btn = document.querySelector<HTMLButtonElement>(`.tab-btn[data-tab="${link.dataset.tab}"]`);
-      if (btn) setTimeout(() => btn.click(), 400);
-    });
-  });
-
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // FAQ accordion

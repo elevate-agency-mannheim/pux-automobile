@@ -49,7 +49,7 @@ faq:
   - frage: "Lohnt sich eine Aufbereitung vor dem Verkauf?"
     antwort: "In vielen Fällen ja. Ein gepflegtes, sauberes Fahrzeug erzielt bei der Besichtigung häufig einen besseren ersten Eindruck, was sich positiv auf die Preisverhandlung auswirken kann. Mehr dazu in unserem Ratgeber zur Kratzerentfernung."
   - frage: "Verkaufen Sie auch Fahrzeuge aus Heidelberg oder Ludwigshafen an?"
-    antwort: "Ja, unser Einsatzgebiet umfasst Mannheim und den Umkreis von rund 30 km, wozu auch Heidelberg, Ludwigshafen und weitere Städte der Rhein-Neckar-Region gehören."
+    antwort: "Ja, unser Einsatzgebiet umfasst Mannheim und den Umkreis von rund 45 km, wozu auch Heidelberg, Ludwigshafen und weitere Städte der Rhein-Neckar-Region gehören."
 ---
 
 import InfoBox from "../../../components/ratgeber/InfoBox.astro";
@@ -58,7 +58,7 @@ import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro"
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
 import Calculator from "../../../components/ratgeber/Calculator.tsx";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Wer sein **Auto in Mannheim verkaufen** möchte, durchläuft bei PUX Automobile vier klar strukturierte Schritte: Anfrage, Fahrzeugbewertung, verbindliches Angebot und Übergabe inklusive Abmeldung. Der gesamte Prozess ist in der Regel innerhalb weniger Tage abgeschlossen. Dieser Ratgeber erklärt den Ablauf im Detail, listet die benötigten Unterlagen auf und zeigt, wie der Ankaufspreis zustande kommt.
@@ -116,10 +116,7 @@ Die Bewertung Ihres Fahrzeugs basiert auf mehreren Faktoren, die gemeinsam den e
   ]}
 />
 
-<ContactCTA
-  title="Kostenlose Fahrzeugbewertung anfragen"
-  description="Erfahren Sie unverbindlich, was Ihr Fahrzeug wert ist – wir melden uns so schnell es geht."
-/>
+<CTAButton text="Kostenlose Fahrzeugbewertung anfragen" tab="ankauf" />
 
 ## Sonderfälle: Auch diese Fahrzeuge können Sie verkaufen
 
@@ -169,15 +166,11 @@ Beim Vor-Ort-Termin nehmen wir uns Zeit für eine gründliche, aber unkomplizier
 
 ## Unser Einsatzgebiet
 
-Wir kaufen Fahrzeuge nicht nur in Mannheim, sondern im gesamten Umkreis von rund 30 km an – dazu zählen unter anderem Heidelberg und Ludwigshafen. Mehr zu unserem Service vor Ort finden Sie auf unserer [Standortseite Mannheim](/ratgeber/standorte/mannheim).
+Wir kaufen Fahrzeuge nicht nur in Mannheim, sondern im gesamten Umkreis von rund 45 km an – dazu zählen unter anderem Heidelberg und Ludwigshafen. Mehr zu unserem Service vor Ort finden Sie auf unserer [Standortseite Mannheim](/ratgeber/standorte/mannheim).
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt unverbindlich Auto verkaufen"
-  description="Schildern Sie uns Ihr Fahrzeug – wir melden uns zeitnah mit einer ersten Einschätzung."
-/>
+<CTAButton text="Jetzt unverbindlich Auto verkaufen" tab="ankauf" />
 
 ## Muss ich den Verkaufserlös versteuern?
 

@@ -38,7 +38,7 @@ faq:
   - frage: "Sollte ich den Zustand vor der Rückgabe dokumentieren?"
     antwort: "Ja, Fotos des aufbereiteten Fahrzeugs vor der Übergabe sind eine sinnvolle Absicherung, falls es später zu Unstimmigkeiten über den Zustand bei der Rückgabe kommen sollte."
   - frage: "Was kostet eine Aufbereitung vor der Leasingrückgabe?"
-    antwort: "Die Kosten hängen vom Zustand des Fahrzeugs ab. Unsere Grundpakete beginnen bei ca. 90 € für die Außenreinigung, ein Komplettpaket bei ca. 220 €. Zusatzleistungen wie Kratzerentfernung werden individuell kalkuliert."
+    antwort: "Die Kosten hängen vom Zustand des Fahrzeugs ab. Unsere Grundpakete beginnen ab ca. 100 € für die Außenreinigung, ein Komplettpaket ab ca. 240 €. Zusatzleistungen wie Kratzerentfernung werden individuell kalkuliert."
   - frage: "Lohnt sich eine Aufbereitung auch bei einem sehr gepflegten Fahrzeug?"
     antwort: "Ja, auch bei einem grundsätzlich gepflegten Fahrzeug kann eine professionelle Endreinigung letzte Zweifel bei der Begutachtung ausräumen und den Rückgabeprozess reibungsloser gestalten."
   - frage: "Was passiert, wenn ich gar nichts vor der Rückgabe unternehme?"
@@ -49,7 +49,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import StepByStep from "../../../components/ratgeber/StepByStep.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Die Rückgabe eines Leasingfahrzeugs ist mit einer genauen Zustandsprüfung verbunden, bei der auch kleinere Mängel schnell zu Nachberechnungen führen können. Eine professionelle Aufbereitung vor dem Rückgabetermin kann helfen, unnötige Kosten zu vermeiden. Dieser Ratgeber erklärt, worauf es dabei ankommt.
@@ -92,10 +92,7 @@ Was als normale, altersübliche Abnutzung gilt, ist im jeweiligen Leasingvertrag
   ]}
 />
 
-<ContactCTA
-  title="Fahrzeug für die Leasingrückgabe aufbereiten lassen"
-  description="Wir bereiten Ihr Fahrzeug gründlich für die Rückgabe vor – von der Reinigung bis zur Kratzerentfernung."
-/>
+<CTAButton text="Fahrzeug für die Leasingrückgabe aufbereiten lassen" tab="aufbereitung" />
 
 ## Der richtige Zeitpunkt für die Aufbereitung
 
@@ -138,8 +135,4 @@ Eine professionelle Aufbereitung vor der Leasingrückgabe ist eine überschaubar
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Termin vor der Rückgabe sichern"
-  description="Nennen Sie uns Ihren Rückgabetermin – wir planen die Aufbereitung rechtzeitig davor ein."
-/>
+<CTAButton text="Jetzt Termin vor der Rückgabe sichern" tab="aufbereitung" />

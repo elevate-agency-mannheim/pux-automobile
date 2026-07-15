@@ -40,7 +40,7 @@ faq:
   - frage: "Kann ich Eigenarbeit und professionelle Aufbereitung kombinieren?"
     antwort: "Ja, viele Fahrzeughalter kombinieren regelmäßige Eigenpflege zwischen den Terminen mit ein bis zwei professionellen Komplettaufbereitungen pro Jahr, um sowohl Zeit als auch Kosten sinnvoll zu verteilen."
   - frage: "Wie viel kostet eine professionelle Aufbereitung im Vergleich zu Eigenarbeit?"
-    antwort: "Unsere Grundpakete beginnen bei ca. 90 € für die Außenreinigung. Die reinen Materialkosten für Eigenarbeit liegen oft niedriger, dafür entfallen Erfahrung, professionelle Ausrüstung und die investierte Zeit."
+    antwort: "Unsere Grundpakete beginnen ab ca. 100 € für die Außenreinigung. Die reinen Materialkosten für Eigenarbeit liegen oft niedriger, dafür entfallen Erfahrung, professionelle Ausrüstung und die investierte Zeit."
   - frage: "Was passiert, wenn ich bei der Politur einen Fehler mache?"
     antwort: "Fehler wie durchpolierte Kanten oder Verbrennungen im Lack durch zu lange Bearbeitung entstehen schnell und erfordern oft eine aufwendigere, teurere Nachbesserung durch einen Profi, als eine von Anfang an professionelle Behandlung gekostet hätte."
 ---
@@ -49,7 +49,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Samstagmorgen mit Eimer und Schwamm selbst ran, oder doch lieber einen professionellen Anbieter beauftragen? Diese Frage stellt sich vielen Fahrzeughaltern regelmäßig. Dieser Ratgeber vergleicht Zeitaufwand, Kosten und Ergebnisqualität beider Ansätze ehrlich und zeigt, wo sich welche Variante lohnt.
@@ -93,10 +93,7 @@ Bei anspruchsvolleren Arbeiten wie Politur, Lackversiegelung oder der Entfernung
   ]}
 />
 
-<ContactCTA
-  title="Professionelle Aufbereitung statt Eigenversuch"
-  description="Wir übernehmen die anspruchsvollen Arbeiten – Sie sparen Zeit und vermeiden Risiken."
-/>
+<CTAButton text="Professionelle Aufbereitung statt Eigenversuch" tab="aufbereitung" />
 
 ## Mobiler Service als dritte Option
 
@@ -135,8 +132,4 @@ Für einfache, regelmäßige Pflegeschritte ist Eigenarbeit eine sinnvolle und k
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt unverbindlich anfragen"
-  description="Lassen Sie uns die anspruchsvollen Arbeiten übernehmen – schnell, sicher und mit gleichbleibender Qualität."
-/>
+<CTAButton text="Jetzt unverbindlich anfragen" tab="aufbereitung" />

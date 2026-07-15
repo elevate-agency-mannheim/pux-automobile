@@ -47,7 +47,7 @@ faq:
 import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Beim Verkauf eines Fahrzeugs stellt sich früher oder später die Frage nach dem passenden Zahlweg: Barzahlung oder Überweisung? Beide Varianten sind gängig, bergen aber jeweils spezifische Risiken, die Verkäufer kennen sollten. Dieser Ratgeber zeigt, worauf Sie bei beiden Zahlwegen achten sollten, um sich vor Betrug zu schützen.
@@ -79,10 +79,7 @@ Barzahlung bietet den Vorteil, dass der vereinbarte Betrag sofort verfügbar ist
 
 Eine Überweisung gilt grundsätzlich als gut nachvollziehbarer Zahlweg, da die Transaktion dokumentiert und im Nachhinein belegbar ist. Entscheidend ist jedoch der Zeitpunkt der Übergabe: Erst wenn der Betrag tatsächlich und vollständig auf dem eigenen Konto verbucht ist, sollte das Fahrzeug übergeben werden. Vorgelegte Überweisungsbelege oder Buchungsbestätigungen des Käufers sind kein ausreichender Nachweis, da solche Dokumente gefälscht werden können.
 
-<ContactCTA
-  title="Sicheren Fahrzeugverkauf anfragen"
-  description="Wir wickeln die Bezahlung transparent und sicher ab – Sie entscheiden, welcher Zahlweg für Sie passt."
-/>
+<CTAButton text="Sicheren Fahrzeugverkauf anfragen" tab="ankauf" />
 
 ## Typische Warnsignale erkennen
 
@@ -115,8 +112,4 @@ Weder Barzahlung noch Überweisung ist grundsätzlich sicherer – entscheidend 
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt sicher Auto verkaufen"
-  description="Kontaktieren Sie uns – wir sorgen für eine transparente und sichere Zahlungsabwicklung bei Ihrem Fahrzeugverkauf."
-/>
+<CTAButton text="Jetzt sicher Auto verkaufen" tab="ankauf" />

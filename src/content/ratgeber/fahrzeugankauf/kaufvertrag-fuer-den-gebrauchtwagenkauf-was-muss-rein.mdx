@@ -49,7 +49,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Ein sorgfältig ausgefüllter Kaufvertrag ist beim Gebrauchtwagenkauf mehr als reine Formalität – er schützt Käufer und Verkäufer gleichermaßen vor späteren Missverständnissen und Streitigkeiten. Dieser Ratgeber zeigt, welche Angaben zwingend hineingehören und worauf Sie bei der Formulierung besonders achten sollten.
@@ -79,10 +79,7 @@ Zusätzliche mündliche Absprachen, etwa über mitgelieferte Zubehörteile oder 
   ]}
 />
 
-<ContactCTA
-  title="Fragen zum Kaufvertrag?"
-  description="Wir beraten Sie gerne rund um den Ablauf und die rechtssichere Gestaltung Ihres Fahrzeugverkaufs."
-/>
+<CTAButton text="Fragen zum Kaufvertrag?" tab="verkauf" />
 
 ## "Gekauft wie gesehen": Was diese Klausel wirklich bedeutet
 
@@ -126,11 +123,7 @@ Mehr zu den wichtigsten Prüfpunkten beim Gebrauchtwagenkauf insgesamt lesen Sie
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Unterstützung beim Fahrzeugverkauf"
-  description="Wir begleiten Sie durch einen transparenten, rechtssicheren Verkaufsprozess."
-/>
+<CTAButton text="Unterstützung beim Fahrzeugverkauf" tab="verkauf" />
 
 ## Fahrzeugübergabe: Der letzte wichtige Schritt
 

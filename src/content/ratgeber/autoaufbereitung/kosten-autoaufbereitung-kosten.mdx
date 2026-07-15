@@ -21,22 +21,22 @@ relatedArticles:
 title: "Autoaufbereitung Kosten: Die wichtigsten Preise auf einen Blick"
 category: "autoaufbereitung"
 summary:
-  - "Unsere Grundpakete beginnen bei ca. 90 € für die Außenreinigung und ca. 130 € für die Innenreinigung."
-  - "Ein Komplettpaket mit Innen- und Außenreinigung liegt bei ca. 220 €."
-  - "Zusatzleistungen wie Politur und Keramikversiegelung werden individuell nach Aufwand kalkuliert, ca. 350 € als Richtwert."
+  - "Unsere Grundpakete beginnen ab ca. 100 € für die Außenreinigung und ab ca. 100 € für die Innenreinigung."
+  - "Ein Komplettpaket mit Innen- und Außenreinigung liegt ab ca. 240 €."
+  - "Zusatzleistungen wie Politur und Keramikversiegelung werden individuell nach Aufwand kalkuliert."
   - "Fahrzeuggröße und Verschmutzungsgrad sind die wichtigsten Preisfaktoren innerhalb der Pakete."
   - "Eine unverbindliche Preiseinschätzung erhalten Sie vorab anhand Ihrer Fahrzeugangaben."
 publishDate: 2026-02-19
 updatedDate: 2026-06-18
 faq:
   - frage: "Was kostet eine Autoaufbereitung kurz zusammengefasst?"
-    antwort: "Als grobe Richtwerte gelten: Außenreinigung ab ca. 90 €, Innenreinigung ab ca. 130 € und ein Komplettpaket aus beidem ab ca. 220 €. Zusatzleistungen wie Politur werden individuell kalkuliert."
+    antwort: "Als grobe Richtwerte gelten: Außenreinigung ab ca. 100 €, Innenreinigung ab ca. 100 € und ein Komplettpaket aus beidem ab ca. 240 €. Zusatzleistungen wie Politur werden individuell kalkuliert."
   - frage: "Gibt es eine feste Preisliste für alle Fahrzeugtypen?"
     antwort: "Unsere Grundpakete haben feste Startpreise, die für Fahrzeuge in normalem Pflegezustand gelten. Größere Fahrzeuge oder starke Verschmutzung können den tatsächlichen Preis erhöhen, was wir vorab transparent kommunizieren."
   - frage: "Ist das Komplettpaket günstiger als Einzelleistungen?"
-    antwort: "Ja, das Komplettpaket mit Innen- und Außenreinigung liegt bei ca. 220 € und ist damit günstiger als beide Leistungen einzeln gebucht, da sich Anfahrt und Vorbereitung nur einmal anfallen."
+    antwort: "Ja, das Komplettpaket mit Innen- und Außenreinigung liegt ab ca. 240 € und ist damit günstiger als beide Leistungen einzeln gebucht, da sich Anfahrt und Vorbereitung nur einmal anfallen."
   - frage: "Was kostet eine Politur zusätzlich zur Grundreinigung?"
-    antwort: "Politur und Keramikversiegelung bieten wir als Zusatzleistung zu unseren Paketen an, mit ca. 350 € als grobem Richtwert. Die genaue Höhe hängt vom Lackzustand ab und wird nach kurzer Einschätzung final bestätigt."
+    antwort: "Politur und Keramikversiegelung bieten wir als Zusatzleistung zu unseren Paketen an. Die genaue Höhe hängt vom Lackzustand ab und wird nach kurzer Einschätzung final bestätigt."
   - frage: "Warum kann sich der Preis nach der Anfrage noch ändern?"
     antwort: "Weicht der tatsächliche Fahrzeugzustand deutlich von den bei der Anfrage gemachten Angaben ab, etwa durch starke Verschmutzung oder Tierhaare, besprechen wir mögliche Anpassungen offen mit Ihnen, bevor die Arbeiten beginnen."
   - frage: "Fallen bei mobiler Aufbereitung zusätzliche Kosten an?"
@@ -52,7 +52,7 @@ faq:
 import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Calculator from "../../../components/ratgeber/Calculator.tsx";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Wer sich vorab einen schnellen Überblick über die **Kosten einer Autoaufbereitung** verschaffen möchte, findet hier die wichtigsten Preise kompakt zusammengefasst. Eine ausführliche Erklärung aller Preisfaktoren finden Sie in unserem Hauptratgeber [Kosten & Preise für Autoaufbereitung](/ratgeber/autoaufbereitung/kosten-autoaufbereitung).
@@ -63,14 +63,16 @@ Wer sich vorab einen schnellen Überblick über die **Kosten einer Autoaufbereit
   title="Grundpakete im Überblick"
   headers={["Paket", "Leistungen", "Preis"]}
   rows={[
-    ["Innenraum-Komfort", "Absaugen, Polsterpflege, Armaturenbrett, Lederpflege", "ab 130 €"],
-    ["Außen-Glanz", "Handwäsche, Felgenreinigung, Insekten-/Teerentfernung", "ab 90 €"],
-    ["Komplettpaket Premium", "Innen- und Außenreinigung kombiniert", "ab 220 €"],
+    ["Innenraum Basic", "Saugen, Fußräume & Kunststoffflächen wischen, Scheiben innen", "ab 100 €"],
+    ["Innenraum Komfort", "Basic + Tiefenreinigung von Polstern, Leder & Kunststoff", "ab 150 €"],
+    ["Innenraum Premium", "Komfort + Versiegelung, Klimaanlagen-Desinfektion, Ozonbehandlung", "ab 230 €"],
+    ["Außen Premium", "Handwäsche, Felgenreinigung, Insekten-/Teerentfernung", "ab 100 €"],
+    ["PUX-Bundle", "Innenraum Komfort & Außen Premium kombiniert, inkl. gratis Sprühversiegelung", "ab 240 €"],
   ]}
 />
 
 <InfoBox type="info" title="Zusatzleistung Politur & Versiegelung">
-Politur und Keramikversiegelung bieten wir als Zusatzleistung zu unseren Paketen an. Als Richtwert kalkulieren wir hierfür ca. 350 €, die genaue Höhe hängt vom individuellen Lackzustand ab.
+Politur und Keramikversiegelung bieten wir als Zusatzleistung zu unseren Paketen an. Wir kalkulieren diese stets individuell, da die genaue Höhe vom Lackzustand abhängt.
 </InfoBox>
 
 <Calculator client:load />
@@ -83,10 +85,7 @@ Die genannten Startpreise gelten für Fahrzeuge in normalem Pflegezustand. Zwei 
 
 Auch wenn feste Startpreise Orientierung bieten, lässt sich der tatsächliche Endpreis erst nach einer kurzen Einschätzung des konkreten Fahrzeugs verlässlich benennen. Wir kommunizieren mögliche Abweichungen von den Startpreisen stets vorab transparent, sodass Sie vor Beginn der Arbeiten wissen, womit Sie rechnen müssen. Eine nachträgliche Preiserhöhung ohne Ihre Zustimmung gibt es bei uns nicht.
 
-<ContactCTA
-  title="Individuelle Preisanfrage stellen"
-  description="Schildern Sie uns Ihr Fahrzeug – wir melden uns zeitnah mit einer transparenten Preiseinschätzung."
-/>
+<CTAButton text="Individuelle Preisanfrage stellen" tab="aufbereitung" />
 
 ## Woran Sie ein faires Preis-Leistungs-Verhältnis erkennen
 
@@ -104,10 +103,6 @@ Wer nach "Auto aufbereitung Kosten in der Nähe" sucht, denkt oft zuerst an eine
 
 ## Fazit
 
-Als grobe Orientierung gelten für unsere Kernpakete ca. 90 € für die Außenreinigung, ca. 130 € für die Innenreinigung und ca. 220 € für das Komplettpaket. Zusatzleistungen wie Politur richten sich nach dem individuellen Aufwand. Für eine verbindliche Preiseinschätzung Ihres konkreten Fahrzeugs kontaktieren Sie uns gerne unverbindlich.
+Als grobe Orientierung gelten für unsere Kernpakete ab ca. 100 € für die Außenreinigung, ab ca. 100 € für die Innenreinigung und ab ca. 240 € für das Komplettpaket. Zusatzleistungen wie Politur richten sich nach dem individuellen Aufwand. Für eine verbindliche Preiseinschätzung Ihres konkreten Fahrzeugs kontaktieren Sie uns gerne unverbindlich.
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Preis anfragen"
-  description="Nennen Sie uns Details zu Ihrem Fahrzeug – wir erstellen Ihnen eine faire, transparente Preiseinschätzung."
-/>
+<CTAButton text="Jetzt Preis anfragen" tab="aufbereitung" />

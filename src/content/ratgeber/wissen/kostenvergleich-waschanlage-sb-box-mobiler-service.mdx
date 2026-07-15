@@ -41,13 +41,13 @@ faq:
   - frage: "Bietet PUX Automobile einen mobilen Service an?"
     antwort: "Ja, wir kommen mit vollständiger Ausrüstung direkt zu Ihnen nach Hause oder ins Büro und bieten Innenreinigung, Außenreinigung und Komplettpakete an."
   - frage: "Was kostet ein mobiler Aufbereitungstermin im Vergleich?"
-    antwort: "Unsere Pakete starten bei ca. 90 € für die Außenreinigung, ca. 130 € für die Innenreinigung und ca. 220 € für ein Komplettpaket – jeweils inklusive Anfahrt innerhalb unseres Einsatzgebiets."
+    antwort: "Unsere Pakete starten ab ca. 100 € für die Außenreinigung, ab ca. 100 € für die Innenreinigung und ab ca. 240 € für ein Komplettpaket – jeweils inklusive Anfahrt innerhalb unseres Einsatzgebiets."
 ---
 
 import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 
 Wer sein Fahrzeug reinigen möchte, hat grundsätzlich drei Optionen: die klassische **Waschanlage**, die **SB-Box** zum Selberwaschen oder einen **mobilen Aufbereitungsservice**. Dieser Ratgeber vergleicht alle drei Varianten hinsichtlich Kosten, Leistungsumfang und Lackschonung.
 
@@ -88,10 +88,7 @@ Automatische Waschanlagen bieten die schnellste und meist günstigste Möglichke
   ]}
 />
 
-<ContactCTA
-  title="Mobiler Service statt Wartezeit an der Waschanlage"
-  description="Wir kommen mit vollständiger Ausrüstung zu Ihnen und bieten deutlich mehr als eine reine Außenwäsche."
-/>
+<CTAButton text="Mobiler Service statt Wartezeit an der Waschanlage" tab="aufbereitung" />
 
 ## SB-Box: Kontrolle gegen Zeitaufwand
 
@@ -101,11 +98,7 @@ Die SB-Box bietet mehr Kontrolle über den Reinigungsumfang als eine automatisch
 
 Ein mobiler Aufbereitungsservice bietet den umfassendsten Leistungsumfang: professionelle Handwäsche, gründliche Innenreinigung und optional Zusatzleistungen wie Politur oder Versiegelung – alles direkt bei Ihnen vor Ort. Zwar liegt der Preis pro Termin über dem einer einfachen Waschanlage, doch relativiert sich das durch den deutlich größeren Leistungsumfang und die eingesparte Zeit für Anfahrt und Wartezeit.
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt mobilen Termin anfragen"
-  description="Nennen Sie uns Ihre Adresse und den gewünschten Leistungsumfang – wir kommen zu Ihnen."
-/>
+<CTAButton text="Jetzt mobilen Termin anfragen" tab="aufbereitung" />
 
 ## Versteckte Kosten bei jeder Option bedenken
 

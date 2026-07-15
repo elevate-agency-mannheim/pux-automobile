@@ -54,7 +54,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
 import Calculator from "../../../components/ratgeber/Calculator.tsx";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Was die Entfernung eines Kratzers oder einer Delle kostet, hängt in erster Linie vom Schadensbild ab: Oberflächliche Kratzer im Klarlack lassen sich meist im Rahmen einer Politur beheben, tiefere Schäden erfordern eine Lackausbesserung, und Dellen ohne Lackschaden können häufig über Smart Repair schonend ausgebeult werden. Dieser Ratgeber ordnet die typischen Preisspannen ein und zeigt, welche Faktoren die tatsächlichen Kosten beeinflussen.
@@ -72,7 +72,7 @@ Was die Entfernung eines Kratzers oder einer Delle kostet, hängt in erster Lini
 />
 
 <InfoBox type="info" title="Warum wir keine Pauschalpreise nennen können">
-Kratzer und Dellen unterscheiden sich stark in Größe, Tiefe und Lage am Fahrzeug. Ein seriöser Kostenrahmen entsteht deshalb erst nach einer kurzen Begutachtung – anhand von Fotos oder direkt vor Ort. Unsere Standardpakete zur Aufbereitung dienen dabei als Orientierung: Ein Komplettpaket liegt bei ca. 220 €, Politur als Zusatzleistung inklusive Keramikversiegelung bei ca. 350 €.
+Kratzer und Dellen unterscheiden sich stark in Größe, Tiefe und Lage am Fahrzeug. Ein seriöser Kostenrahmen entsteht deshalb erst nach einer kurzen Begutachtung – anhand von Fotos oder direkt vor Ort. Unsere Standardpakete zur Aufbereitung dienen dabei als Orientierung: Ein PUX-Bundle liegt ab ca. 240 €, Politur inklusive Keramikversiegelung bieten wir als individuell kalkulierte Zusatzleistung an.
 </InfoBox>
 
 <Calculator client:load />
@@ -92,10 +92,7 @@ Neben der reinen Schadenstiefe spielen weitere Aspekte eine Rolle: Die Länge un
   ]}
 />
 
-<ContactCTA
-  title="Kostenlose Einschätzung Ihres Schadens"
-  description="Senden Sie uns Fotos von Kratzer oder Delle – wir geben Ihnen eine erste, unverbindliche Einschätzung."
-/>
+<CTAButton text="Kostenlose Einschätzung Ihres Schadens" tab="aufbereitung" />
 
 ## Politur oder Smart Repair – was passt zu meinem Schaden?
 
@@ -111,8 +108,4 @@ Die Kosten für Kratzer- und Dellenentfernung lassen sich nicht pauschal beziffe
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Angebot für Ihre Kratzer- oder Dellenentfernung anfragen"
-  description="Wir melden uns zeitnah mit einer fairen, nachvollziehbaren Einschätzung."
-/>
+<CTAButton text="Jetzt Angebot für Ihre Kratzer- oder Dellenentfernung anfragen" tab="aufbereitung" />

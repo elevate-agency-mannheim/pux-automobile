@@ -43,6 +43,7 @@ interface Props {
   related?: RelatedItem[];
   schemaTypes?: string[];
   url: string;
+  ctaTab?: "aufbereitung" | "ankauf" | "verkauf";
 }
 const {
   seoTitle,
@@ -61,6 +62,7 @@ const {
   related = [],
   schemaTypes = ["Article"],
   url,
+  ctaTab = "aufbereitung",
 } = Astro.props;
 ---
 
@@ -84,7 +86,7 @@ const {
       <RelatedArticles items={related} />
     </article>
 
-    <ArticleSidebar headings={headings} related={related.map((r) => ({ title: r.title, url: r.url }))} />
+    <ArticleSidebar headings={headings} related={related.map((r) => ({ title: r.title, url: r.url }))} ctaTab={ctaTab} />
   </div>
 </RatgeberLayout>
 
@@ -120,6 +122,14 @@ const {
   .prose-article li { margin-bottom: 0.4rem; }
   .prose-article a { color: #1B2B6B; text-decoration: underline; text-underline-offset: 2px; }
   .prose-article a:hover { color: #3A7BD5; }
+  .prose-article a.btn-primary,
+  .prose-article a.btn-ghost {
+    text-decoration: none;
+  }
+  .prose-article a.btn-primary { color: #ffffff; }
+  .prose-article a.btn-primary:hover { color: #ffffff; }
+  .prose-article a.btn-ghost { color: #1B2B6B; }
+  .prose-article a.btn-ghost:hover { color: #ffffff; }
   .prose-article strong { color: #111827; font-weight: 700; }
   .prose-article img { border-radius: 1rem; margin: 1.5rem 0; }
 </style>

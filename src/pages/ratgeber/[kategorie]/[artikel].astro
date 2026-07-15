@@ -7,10 +7,10 @@ import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro"
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
 import Calculator from "../../../components/ratgeber/Calculator.tsx";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
-const mdxComponents = { InfoBox, StepByStep, ComparisonTable, ProConTable, Checklist, Calculator, ContactCTA, LocalCitiesWidget };
+const mdxComponents = { InfoBox, StepByStep, ComparisonTable, ProConTable, Checklist, Calculator, CTAButton, LocalCitiesWidget };
 
 export async function getStaticPaths() {
   const entries = await getCollection("ratgeber");
@@ -59,6 +59,14 @@ const related = (
 
 const categoryUrl = `/ratgeber/${entry.data.category}`;
 const canonicalUrl = `https://pux-automobile.de/ratgeber/${entry.data.category}/${entry.data.slug}`;
+
+const CATEGORY_TAB: Record<string, "aufbereitung" | "ankauf" | "verkauf"> = {
+  autoaufbereitung: "aufbereitung",
+  wissen: "aufbereitung",
+  fahrzeugverkauf: "ankauf",
+  fahrzeugankauf: "verkauf",
+};
+const ctaTab = CATEGORY_TAB[entry.data.category] ?? "aufbereitung";
 ---
 
 <ArtikelLayout
@@ -83,6 +91,7 @@ const canonicalUrl = `https://pux-automobile.de/ratgeber/${entry.data.category}/
   faq={entry.data.faq}
   related={related}
   schemaTypes={entry.data.schemaType}
+  ctaTab={ctaTab}
 >
   <Content components={mdxComponents} />
 </ArtikelLayout>

@@ -49,7 +49,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Mattlack sieht edel und unverwechselbar aus, verlangt in der Pflege aber ein komplett anderes Vorgehen als glänzender Lack. Wer klassische Politur oder Wachs verwendet, riskiert sichtbare, kaum reversible Schäden am charakteristischen Matt-Effekt. Dieser Ratgeber zeigt, worauf es bei der Pflege von Mattlack ankommt.
@@ -93,10 +93,7 @@ Bei der Handwäsche sollte ausschließlich pH-neutrales, speziell für Mattlack 
   ]}
 />
 
-<ContactCTA
-  title="Mattlack fachgerecht pflegen lassen"
-  description="Wir arbeiten mit speziell für Mattlack geeigneten Produkten und erhalten den charakteristischen Look Ihres Fahrzeugs."
-/>
+<CTAButton text="Mattlack fachgerecht pflegen lassen" tab="aufbereitung" />
 
 ## Fingerabdrücke und Flecken: Ein bekanntes Problem
 
@@ -135,8 +132,4 @@ Mattlack erfordert ein grundlegend anderes Pflegevorgehen als glänzender Lack: 
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Mattlack-Pflege anfragen"
-  description="Lassen Sie Ihr mattlackiertes Fahrzeug von uns fachgerecht reinigen und schützen."
-/>
+<CTAButton text="Jetzt Mattlack-Pflege anfragen" tab="aufbereitung" />

@@ -38,7 +38,7 @@ faq:
   - frage: "Lohnt sich eine professionelle Innenreinigung auch bei knappem Budget?"
     antwort: "Ja, insbesondere bei ersten Anzeichen von Feuchtigkeit oder hartnäckigen Gerüchen kann eine gezielte professionelle Behandlung teurere Folgeprobleme wie Schimmelbildung verhindern und ist damit langfristig eine sinnvolle Investition."
   - frage: "Was kostet die günstigste Form der professionellen Aufbereitung bei Ihnen?"
-    antwort: "Unsere Basispakete für Innen- oder Außenreinigung starten bei ca. 90 € bis ca. 130 €. Diese lassen sich gezielt einzeln buchen, statt gleich ein umfassenderes Komplettpaket in Anspruch zu nehmen."
+    antwort: "Unsere Basispakete für Innen- oder Außenreinigung starten jeweils ab ca. 100 €. Diese lassen sich gezielt einzeln buchen, statt gleich ein umfassenderes PUX-Bundle in Anspruch zu nehmen."
   - frage: "Wie vermeide ich versteckte Kosten bei günstigen Angeboten?"
     antwort: "Fragen Sie vor der Buchung genau nach dem Leistungsumfang eines günstigen Angebots. Ein transparentes Angebot nennt bereits vorab, welche Leistungen enthalten sind, um spätere Zusatzkosten zu vermeiden."
 ---
@@ -46,7 +46,7 @@ faq:
 import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Autopflege muss nicht teuer sein, um wirksam zu sein. Mit den richtigen Prioritäten lässt sich auch mit kleinem Budget viel für den Zustand des Fahrzeugs erreichen. Dieser Ratgeber zeigt, welche Maßnahmen sich auch bei knappem Budget lohnen und wo Sparen langfristig teurer werden kann.
@@ -61,9 +61,9 @@ Der wichtigste Grundsatz bei begrenztem Budget: Vorbeugung ist fast immer günst
   rows={[
     ["Regelmäßige Handwäsche", "Gering (Eigenleistung)", "Verhindert Salz- und Schmutzschäden"],
     ["Grundlegendes Absaugen", "Gering (Eigenleistung)", "Beugt Schmutzansammlung vor"],
-    ["Basis-Außenreinigung professionell", "Ab ca. 90 €", "Gründlicher als Eigenwäsche, ohne hohe Zusatzkosten"],
-    ["Basis-Innenreinigung professionell", "Ab ca. 130 €", "Verhindert Feuchtigkeits- und Geruchsprobleme"],
-    ["Komplettpaket", "Ab ca. 220 €", "Sinnvoll bei größerem, kombiniertem Bedarf"],
+    ["Basis-Außenreinigung professionell", "Ab ca. 100 €", "Gründlicher als Eigenwäsche, ohne hohe Zusatzkosten"],
+    ["Basis-Innenreinigung professionell", "Ab ca. 100 €", "Verhindert Feuchtigkeits- und Geruchsprobleme"],
+    ["PUX-Bundle", "Ab ca. 240 €", "Sinnvoll bei größerem, kombiniertem Bedarf"],
   ]}
 />
 
@@ -75,10 +75,7 @@ Wer nur begrenztes Budget hat, kann gezielt nur die Leistung buchen, die aktuell
 
 Viele grundlegende Pflegemaßnahmen lassen sich mit wenig finanziellem Aufwand selbst durchführen: regelmäßiges Waschen mit geeigneter Autoshampoo-Lauge, gründliches Absaugen des Innenraums sowie das zeitnahe Entfernen von Vogelkot und Baumharz, bevor diese den Lack angreifen. Auch eine gelegentliche Wachsauffrischung ist vergleichsweise kostengünstig und bietet zumindest kurzfristigen Schutz, auch wenn sie nicht an die Haltbarkeit einer professionellen Versiegelung heranreicht.
 
-<ContactCTA
-  title="Gezielte Einzelleistung anfragen"
-  description="Auch mit begrenztem Budget finden wir eine passende Lösung – fragen Sie gezielt nach der für Sie wichtigsten Leistung."
-/>
+<CTAButton text="Gezielte Einzelleistung anfragen" tab="aufbereitung" />
 
 ## Wo sich Sparen langfristig nicht lohnt
 
@@ -105,15 +102,11 @@ Wie Sie Ihr begrenztes Pflegebudget am sinnvollsten einsetzen, hängt auch von d
 
 ## Kleine Investitionen mit großer Wirkung
 
-Manche Maßnahmen bringen ein überdurchschnittlich gutes Verhältnis von Kosten zu Nutzen. Eine professionelle Basis-Außenreinigung ab ca. 90 € entfernt Verschmutzungen gründlicher und lackschonender als die meiste Eigenwäsche und reduziert damit das Risiko feiner Kratzer durch unsachgemäße Reinigung. Ebenso kann eine gezielte Innenreinigung ab ca. 130 € frühzeitig Feuchtigkeitsprobleme aufdecken, bevor daraus teurere Schimmelschäden entstehen.
+Manche Maßnahmen bringen ein überdurchschnittlich gutes Verhältnis von Kosten zu Nutzen. Eine professionelle Basis-Außenreinigung ab ca. 100 € entfernt Verschmutzungen gründlicher und lackschonender als die meiste Eigenwäsche und reduziert damit das Risiko feiner Kratzer durch unsachgemäße Reinigung. Ebenso kann eine gezielte Innenreinigung ab ca. 100 € frühzeitig Feuchtigkeitsprobleme aufdecken, bevor daraus teurere Schimmelschäden entstehen.
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Passende Pflege für Ihr Budget anfragen"
-  description="Nennen Sie uns Ihr Budget und Ihre Prioritäten – wir finden gemeinsam die sinnvollste Lösung."
-/>
+<CTAButton text="Passende Pflege für Ihr Budget anfragen" tab="aufbereitung" />
 
 ## Mobile Aufbereitung als kosteneffiziente Lösung
 

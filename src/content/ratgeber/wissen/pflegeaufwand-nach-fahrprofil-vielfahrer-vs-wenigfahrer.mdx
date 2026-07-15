@@ -47,7 +47,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Wie viel Pflege ein Fahrzeug braucht, hängt nicht nur vom Alter, sondern maßgeblich vom individuellen Fahrprofil ab. Ein Pendlerfahrzeug mit hoher jährlicher Kilometerleistung hat andere Bedürfnisse als ein Zweitwagen, der nur gelegentlich bewegt wird. Dieser Ratgeber zeigt, worauf Vielfahrer und Wenigfahrer jeweils besonders achten sollten.
@@ -75,10 +75,7 @@ Da Vielfahrer häufiger waschen müssen, reduziert eine hochwertige Keramikversi
 
 Bei selten genutzten Fahrzeugen, etwa einem Zweitwagen oder einem Saisonfahrzeug, steht weniger der Verschleiß durch Nutzung im Vordergrund, sondern typische Standschäden. Reifen, die lange auf derselben Stelle stehen, können Plattstellen entwickeln. Fehlende regelmäßige Ladezyklen schwächen die Batterie, und mangelnde Belüftung im Innenraum kann zu muffigen Gerüchen oder im ungünstigen Fall zu Feuchtigkeitsproblemen führen. Auch der Lack profitiert von gelegentlicher Bewegung, da langes, unbewegtes Stehen unter Bäumen oder in praller Sonne die Belastung an denselben Stellen konzentriert, statt sie zu verteilen.
 
-<ContactCTA
-  title="Individuellen Pflegeplan für Ihr Fahrprofil erstellen"
-  description="Ob Vielfahrer oder Wenigfahrer – wir empfehlen die passenden Intervalle für Ihr Fahrzeug."
-/>
+<CTAButton text="Individuellen Pflegeplan für Ihr Fahrprofil erstellen" tab="aufbereitung" />
 
 <ProConTable
   prosTitle="Vielfahrer-Pflege"
@@ -120,11 +117,7 @@ Ein mobiler Aufbereitungsservice bietet für beide Fahrprofile praktische Vortei
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Pflegeplan nach Ihrem Fahrprofil anfragen"
-  description="Nennen Sie uns Ihre jährliche Fahrleistung und Nutzung – wir erstellen einen passenden Pflegevorschlag."
-/>
+<CTAButton text="Pflegeplan nach Ihrem Fahrprofil anfragen" tab="aufbereitung" />
 
 ## Firmenwagen und Dienstfahrzeuge als Sonderfall
 

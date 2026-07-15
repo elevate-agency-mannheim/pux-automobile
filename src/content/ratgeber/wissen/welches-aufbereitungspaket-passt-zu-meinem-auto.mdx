@@ -27,15 +27,15 @@ faq:
   - frage: "Wie finde ich heraus, welches Paket zu meinem Auto passt?"
     antwort: "Am besten beurteilen Sie zunächst getrennt den Zustand von Innenraum und Außenlack. Ist nur einer der beiden Bereiche stark verschmutzt, reicht meist das entsprechende Einzelpaket. Sind beide betroffen, ist ein Komplettpaket in der Regel wirtschaftlicher."
   - frage: "Reicht eine Innenreinigung, wenn der Lack in Ordnung ist?"
-    antwort: "Ja, wenn der Außenlack bereits gepflegt ist und lediglich der Innenraum Aufmerksamkeit braucht, deckt unsere Innenreinigung ab ca. 130 € die notwendigen Arbeiten wie Absaugen, Polsterpflege und Fleckenentfernung ab."
+    antwort: "Ja, wenn der Außenlack bereits gepflegt ist und lediglich der Innenraum Aufmerksamkeit braucht, deckt unsere Innenreinigung ab ca. 100 € die notwendigen Arbeiten wie Absaugen, Polsterpflege und Fleckenentfernung ab."
   - frage: "Wann lohnt sich ein Komplettpaket statt Einzelleistungen?"
-    antwort: "Ein Komplettpaket ab ca. 220 € lohnt sich, wenn sowohl Innenraum als auch Außenlack Pflege benötigen, da die Kombination meist günstiger ist, als beide Leistungen einzeln zu unterschiedlichen Zeitpunkten zu buchen."
+    antwort: "Ein Komplettpaket ab ca. 240 € lohnt sich, wenn sowohl Innenraum als auch Außenlack Pflege benötigen, da die Kombination meist günstiger ist, als beide Leistungen einzeln zu unterschiedlichen Zeitpunkten zu buchen."
   - frage: "Welches Paket eignet sich vor dem Fahrzeugverkauf?"
     antwort: "Vor einem Verkauf empfiehlt sich in der Regel ein Komplettpaket, da ein rundum gepflegtes Fahrzeug bei der Besichtigung einen deutlich besseren Eindruck hinterlässt als ein nur teilweise aufbereitetes."
   - frage: "Wann sollte ich zusätzlich eine Politur buchen?"
     antwort: "Eine Politur als Zusatzleistung lohnt sich, wenn der Lack sichtbare feine Kratzer, Swirls oder eine matte Erscheinung zeigt, die durch reine Reinigung nicht behoben werden können."
   - frage: "Ist eine Keramikversiegelung Teil des Komplettpakets?"
-    antwort: "Nein, eine Politur mit Keramikversiegelung wird bei uns als eigene Zusatzleistung mit ca. 350 € angeboten und kann je nach Bedarf zum gewählten Grundpaket ergänzt werden."
+    antwort: "Nein, eine Politur mit Keramikversiegelung wird bei uns als eigene, individuell kalkulierte Zusatzleistung angeboten und kann je nach Bedarf zum gewählten Grundpaket ergänzt werden."
   - frage: "Was, wenn ich mir unsicher bin, welches Paket passt?"
     antwort: "In diesem Fall beraten wir Sie gerne unverbindlich anhand einer kurzen Beschreibung oder von Fotos Ihres Fahrzeugs und empfehlen das passende Paket für Ihren individuellen Bedarf."
   - frage: "Kann ich später noch Zusatzleistungen ergänzen?"
@@ -47,7 +47,7 @@ faq:
 import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Innenreinigung, Außenreinigung oder gleich das Komplettpaket – wer sich für eine professionelle Autoaufbereitung entscheidet, steht schnell vor der Frage, welches Angebot wirklich zum eigenen Fahrzeug passt. Dieser Ratgeber hilft bei der Einordnung anhand von Fahrzeugzustand, Nutzungszweck und Budget.
@@ -58,10 +58,11 @@ Innenreinigung, Außenreinigung oder gleich das Komplettpaket – wer sich für 
   title="Welches Paket passt zu welchem Bedarf?"
   headers={["Paket", "Geeignet für", "Richtpreis"]}
   rows={[
-    ["Innenreinigung", "Verschmutzter Innenraum, Lack in Ordnung", "ab ca. 130 €"],
-    ["Außenreinigung", "Stumpfer Lack, Innenraum in Ordnung", "ab ca. 90 €"],
-    ["Komplettpaket", "Beide Bereiche brauchen Pflege, vor besonderen Anlässen", "ab ca. 220 €"],
-    ["Politur & Keramikversiegelung (Zusatzleistung)", "Sichtbare Kratzer, Mattierung, langfristiger Lackschutz", "ca. 350 €"],
+    ["Innenreinigung Basic", "Verschmutzter Innenraum, Grundreinigung reicht", "ab ca. 100 €"],
+    ["Innenreinigung Komfort", "Verschmutzter Innenraum, Lack in Ordnung", "ab ca. 150 €"],
+    ["Außenreinigung", "Stumpfer Lack, Innenraum in Ordnung", "ab ca. 100 €"],
+    ["PUX-Bundle", "Beide Bereiche brauchen Pflege, vor besonderen Anlässen", "ab ca. 240 €"],
+    ["Sprühversiegelung außen (Zusatzleistung)", "Zusätzlicher Lackschutz mit UV-Schutz und Glanzeffekt", "ab ca. 50 €"],
   ]}
 />
 
@@ -84,10 +85,7 @@ Der einfachste Weg zur passenden Entscheidung ist eine getrennte Betrachtung von
   ]}
 />
 
-<ContactCTA
-  title="Persönliche Paketempfehlung erhalten"
-  description="Beschreiben Sie uns kurz den Zustand Ihres Fahrzeugs – wir empfehlen Ihnen das passende Paket."
-/>
+<CTAButton text="Persönliche Paketempfehlung erhalten" tab="aufbereitung" />
 
 ## Besondere Anlässe: Verkauf, Übernahme, Saisonwechsel
 

@@ -13,8 +13,9 @@ interface RelatedItem {
 interface Props {
   headings?: Heading[];
   related?: RelatedItem[];
+  ctaTab?: "aufbereitung" | "ankauf" | "verkauf";
 }
-const { headings = [], related = [] } = Astro.props;
+const { headings = [], related = [], ctaTab = "aufbereitung" } = Astro.props;
 const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
 ---
 
@@ -38,7 +39,7 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
     <div class="rounded-2xl p-5 text-center" style="background:linear-gradient(135deg,#1B2B6B,#3A7BD5);">
       <p class="text-white font-bold mb-1">Fragen zu diesem Thema?</p>
       <p class="text-blue-100 text-xs mb-4 leading-relaxed">Wir beraten Sie unverbindlich und melden uns schnell zurück.</p>
-      <CTAButton text="Kontakt aufnehmen" class="w-full text-sm !py-2.5" />
+      <CTAButton text="Kontakt aufnehmen" tab={ctaTab} class="w-full text-sm !py-2.5" />
     </div>
 
     {related.length > 0 && (

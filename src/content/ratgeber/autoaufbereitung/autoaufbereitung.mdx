@@ -22,7 +22,7 @@ summary:
   - "Autoaufbereitung reicht von der einfachen Wäsche bis zur professionellen Politur und Versiegelung."
   - "Die drei Kernbereiche sind Außenreinigung, Innenreinigung und Lackpflege."
   - "Mobile Anbieter kommen direkt zu Ihnen und sparen Ihnen Zeit und Anfahrtsweg."
-  - "Die Kosten hängen vom Leistungsumfang ab und liegen meist zwischen ca. 90 € und 220 €."
+  - "Die Kosten hängen vom Leistungsumfang ab und liegen meist zwischen ca. 100 € und 240 €."
   - "Regelmäßige Pflege erhält den Wiederverkaufswert und verlängert die Lebensdauer von Lack und Interieur."
 publishDate: 2026-01-10
 updatedDate: 2026-06-05
@@ -38,7 +38,7 @@ faq:
   - frage: "Lohnt sich mobile Autoaufbereitung?"
     antwort: "Ja, mobile Autoaufbereitung spart Ihnen den Weg zu einer Waschanlage oder Werkstatt. Der Anbieter kommt mit vollständiger Ausrüstung zu Ihnen nach Hause oder ins Büro, Sie benötigen lediglich Strom- und Wasseranschluss."
   - frage: "Was kostet eine Autoaufbereitung durchschnittlich?"
-    antwort: "Einzelpakete wie reine Innen- oder Außenreinigung liegen meist zwischen ca. 90 € und 130 €, ein Komplettpaket mit beidem bei ca. 220 €. Zusatzleistungen wie Keramikversiegelung erhöhen den Preis."
+    antwort: "Einzelpakete wie reine Innen- oder Außenreinigung starten jeweils ab ca. 100 €, ein Komplettpaket mit beidem (PUX-Bundle) ab ca. 240 €. Zusatzleistungen wie eine Sprühversiegelung erhöhen den Preis."
   - frage: "Kann ich mein Auto selbst aufbereiten?"
     antwort: "Grundlegende Pflege wie Staubsaugen und Wäsche können Sie problemlos selbst durchführen. Für Politur, Kratzerentfernung und Versiegelung empfiehlt sich aufgrund der benötigten Erfahrung und Ausrüstung meist eine professionelle Aufbereitung."
   - frage: "Wie lange dauert eine komplette Autoaufbereitung?"
@@ -57,7 +57,7 @@ import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro"
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
 import Calculator from "../../../components/ratgeber/Calculator.tsx";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Autoaufbereitung bezeichnet die umfassende Reinigung und Pflege eines Fahrzeugs – deutlich mehr als eine einfache Wäsche. Sie umfasst typischerweise drei Kernbereiche: Außenreinigung, Innenreinigung und Lackpflege, oft ergänzt um Versiegelung. Dieser Ratgeber gibt Ihnen einen kompletten Überblick über Leistungen, Ablauf und Kosten, damit Sie die passende Wahl für Ihr Fahrzeug treffen können.
@@ -74,9 +74,11 @@ Eine vollständige Autoaufbereitung deckt in der Regel folgende Bereiche ab, die
   title="Kernbereiche im Überblick"
   headers={["Bereich", "Leistungen", "Typischer Preis"]}
   rows={[
-    ["Innenreinigung", "Absaugen, Polsterpflege, Armaturenbrett, Lederpflege", "ab 130 €"],
-    ["Außenreinigung", "Handwäsche, Felgenreinigung, Teer-/Insektenentfernung", "ab 90 €"],
-    ["Komplettpaket", "Innen- und Außenreinigung kombiniert", "ab 220 €"],
+    ["Innenreinigung Basic", "Saugen, Fußräume & Kunststoffflächen wischen, Scheiben innen", "ab 100 €"],
+    ["Innenreinigung Komfort", "Basic + Tiefenreinigung von Polstern, Leder & Kunststoff", "ab 150 €"],
+    ["Innenreinigung Premium", "Komfort + Versiegelung, Klimaanlagen-Desinfektion, Ozonbehandlung", "ab 230 €"],
+    ["Außenreinigung", "Handwäsche, Felgenreinigung, Teer-/Insektenentfernung", "ab 100 €"],
+    ["PUX-Bundle (Innen & Außen)", "Innenraum Komfort + Außen Premium inkl. gratis Sprühversiegelung", "ab 240 €"],
   ]}
 />
 
@@ -121,10 +123,7 @@ Wer sein Fahrzeug regelmäßig aufbereiten lässt, profitiert nicht nur von eine
   ]}
 />
 
-<ContactCTA
-  title="Jetzt Autoaufbereitung anfragen"
-  description="Nennen Sie uns Ihr Fahrzeug und gewünschte Leistung – wir melden uns mit einem passenden Angebot."
-/>
+<CTAButton text="Jetzt Autoaufbereitung anfragen" tab="aufbereitung" />
 
 ## Was kostet eine Autoaufbereitung?
 
@@ -171,11 +170,7 @@ Je nach individuellem Bedarf lohnt sich ein tieferer Blick in spezifische Bereic
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Beratung zur passenden Aufbereitung"
-  description="Unsicher, welches Paket zu Ihrem Fahrzeug passt? Wir beraten Sie unverbindlich."
-/>
+<CTAButton text="Beratung zur passenden Aufbereitung" tab="aufbereitung" />
 
 ## Nachhaltigkeit bei der Fahrzeugpflege
 

@@ -26,7 +26,7 @@ faq:
   - frage: "Bietet PUX Automobile auch in Karlsruhe mobile Autoaufbereitung an?"
     antwort: "Ja, wir sind auch für Kunden im Raum Karlsruhe tätig. Da Karlsruhe außerhalb unseres direkten Kernbereichs um Mannheim liegt, stimmen wir Termine individuell ab, um eine effiziente Anfahrt zu ermöglichen."
   - frage: "Fällt für Termine in Karlsruhe eine Anfahrtspauschale an?"
-    antwort: "Da Karlsruhe außerhalb unseres Einsatzgebiets von rund 30 km um Mannheim liegt, kann ein moderater Aufschlag pro Kilometer anfallen. Diesen kommunizieren wir Ihnen vorab transparent, bevor der Termin verbindlich vereinbart wird."
+    antwort: "Da Karlsruhe außerhalb unseres Einsatzgebiets von rund 45 km um Mannheim liegt, kann ein moderater Aufschlag pro Kilometer anfallen. Diesen kommunizieren wir Ihnen vorab transparent, bevor der Termin verbindlich vereinbart wird."
   - frage: "Was benötige ich für einen mobilen Termin in Karlsruhe?"
     antwort: "Sie benötigen lediglich einen Strom- und Wasseranschluss in der Nähe des Fahrzeugs, etwa an Ihrem Wohnhaus oder Büro. Den Rest – Ausrüstung, Reinigungsmittel und Zubehör – bringen wir mit."
   - frage: "Wie schnell bekomme ich einen Termin in Karlsruhe?"
@@ -47,12 +47,12 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import StepByStep from "../../../components/ratgeber/StepByStep.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Auch außerhalb unseres direkten Kernbereichs rund um Mannheim sind wir für Fahrzeughalter in **Karlsruhe** ansprechbar: Mit unserem mobilen Aufbereitungsservice kommen wir mit vollständiger Ausrüstung zu Ihnen nach Hause oder ins Büro. Sie benötigen lediglich einen Strom- und Wasseranschluss in der Nähe des Fahrzeugs.
 
-Da Karlsruhe außerhalb unseres engeren Einsatzgebiets von rund 30 km um Mannheim liegt, stimmen wir Termine hier individuell ab, um eine effiziente Anfahrt zu ermöglichen. So können wir auch für Kunden in Karlsruhe eine zuverlässige, professionelle Aufbereitung anbieten, ohne dass dabei die Qualität unseres Services leidet.
+Da Karlsruhe außerhalb unseres engeren Einsatzgebiets von rund 45 km um Mannheim liegt, stimmen wir Termine hier individuell ab, um eine effiziente Anfahrt zu ermöglichen. So können wir auch für Kunden in Karlsruhe eine zuverlässige, professionelle Aufbereitung anbieten, ohne dass dabei die Qualität unseres Services leidet.
 
 ## Unser Service in Karlsruhe
 
@@ -80,16 +80,15 @@ Trotz der etwas größeren Entfernung profitieren Kunden in Karlsruhe von densel
   title="Unsere Pakete im Überblick"
   headers={["Paket", "Leistungen", "Preis"]}
   rows={[
-    ["Innenraum-Komfort", "Absaugen, Polsterpflege, Armaturenbrett, Lederpflege", "ab 130 €"],
-    ["Außen-Glanz", "Handwäsche, Felgenreinigung, Insekten-/Teerentfernung", "ab 90 €"],
-    ["Komplettpaket Premium", "Innen- und Außenreinigung kombiniert", "ab 220 €"],
+    ["Innenraum Basic", "Saugen, Fußräume & Kunststoffflächen wischen, Scheiben innen", "ab 100 €"],
+    ["Innenraum Komfort", "Basic + Tiefenreinigung von Polstern, Leder & Kunststoff", "ab 150 €"],
+    ["Innenraum Premium", "Komfort + Versiegelung, Klimaanlagen-Desinfektion, Ozonbehandlung", "ab 230 €"],
+    ["Außen Premium", "Handwäsche, Felgenreinigung, Insekten-/Teerentfernung", "ab 100 €"],
+    ["PUX-Bundle", "Innenraum Komfort & Außen Premium kombiniert, inkl. gratis Sprühversiegelung", "ab 240 €"],
   ]}
 />
 
-<ContactCTA
-  title="Termin in Karlsruhe anfragen"
-  description="Nennen Sie uns Ihren Wunschtermin und die gewünschte Leistung – wir prüfen die Anfahrt und melden uns mit einer Bestätigung."
-/>
+<CTAButton text="Termin in Karlsruhe anfragen" tab="aufbereitung" />
 
 ## Effiziente Terminplanung für weiter entfernte Kunden
 
@@ -112,15 +111,11 @@ Während unser Schwerpunkt im Fahrzeughandel im Rhein-Neckar-Kernbereich liegt, 
 
 ## Politur und Zusatzleistungen auch in Karlsruhe verfügbar
 
-Neben den Grundpaketen bieten wir auch in Karlsruhe Politur und Keramikversiegelung als Zusatzleistung an. Mehr zu diesem Thema lesen Sie in unserem Ratgeber [Autopolitur & Lackpflege](/ratgeber/autoaufbereitung/autopolitur). Da der Aufwand für Politur stark vom individuellen Lackzustand abhängt, kalkulieren wir diese Leistung nach einer kurzen Einschätzung, mit ca. 350 € als grobem Richtwert.
+Neben den Grundpaketen bieten wir auch in Karlsruhe Politur und Keramikversiegelung als Zusatzleistung an. Mehr zu diesem Thema lesen Sie in unserem Ratgeber [Autopolitur & Lackpflege](/ratgeber/autoaufbereitung/autopolitur). Da der Aufwand für Politur stark vom individuellen Lackzustand abhängt, kalkulieren wir diese Leistung stets nach einer kurzen Einschätzung individuell.
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt unverbindlich anfragen"
-  description="Ob Innenreinigung, Politur oder Komplettpaket – wir prüfen gerne, wie wir Sie in Karlsruhe unterstützen können."
-/>
+<CTAButton text="Jetzt unverbindlich anfragen" tab="aufbereitung" />
 
 ## Karlsruhe: Eine Stadt mit vielfältigen Anforderungen an die Fahrzeugpflege
 

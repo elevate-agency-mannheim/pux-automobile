@@ -2,13 +2,14 @@ import { useMemo, useState } from "react";
 
 // Prices match the real packages shown on the PUX Automobile homepage (/#pakete).
 // No invented figures — this mirrors the actual priced offerings.
+// Innenreinigung starts at the Basic tier price; Komplettpaket = PUX-Bundle.
 const PACKAGES = [
-  { id: "innen", label: "Innenreinigung", price: 130 },
-  { id: "aussen", label: "Außenreinigung", price: 90 },
-  { id: "komplett", label: "Komplettpaket", price: 220 },
+  { id: "innen", label: "Innenreinigung", price: 100 },
+  { id: "aussen", label: "Außenreinigung", price: 100 },
+  { id: "komplett", label: "Komplettpaket", price: 240 },
 ] as const;
 
-const EXTRA_SERVICE = { label: "Polieren + Keramikversiegelung", price: 350 };
+const EXTRA_SERVICE = { label: "Sprühversiegelung außen", price: 50 };
 
 export default function Calculator() {
   const [selected, setSelected] = useState<(typeof PACKAGES)[number]["id"]>("komplett");

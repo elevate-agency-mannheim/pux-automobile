@@ -46,7 +46,7 @@ faq:
 
 import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Nach dem Tod eines nahen Angehörigen stellt sich für Erben häufig auch die Frage, wie mit dem geerbten Fahrzeug umzugehen ist. Ein Verkauf ist grundsätzlich möglich, erfordert aber einige zusätzliche Nachweise gegenüber einem regulären Fahrzeugverkauf. Dieser Ratgeber erklärt, was rechtlich zu beachten ist.
@@ -74,10 +74,7 @@ Erben mehrere Personen gemeinsam, entsteht eine sogenannte Erbengemeinschaft, in
   ]}
 />
 
-<ContactCTA
-  title="Geerbtes Fahrzeug verkaufen"
-  description="Wir begleiten Sie durch den Verkaufsprozess und erklären, welche Nachweise konkret benötigt werden."
-/>
+<CTAButton text="Geerbtes Fahrzeug verkaufen" tab="ankauf" />
 
 ## Offene Finanzierungen und Belastungen klären
 
@@ -101,8 +98,4 @@ Der Verkauf eines geerbten Fahrzeugs ist mit den richtigen Nachweisen unkomplizi
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt geerbtes Fahrzeug verkaufen"
-  description="Kontaktieren Sie uns – wir beraten Sie zu den notwendigen Schritten und erstellen ein faires Angebot."
-/>
+<CTAButton text="Jetzt geerbtes Fahrzeug verkaufen" tab="ankauf" />

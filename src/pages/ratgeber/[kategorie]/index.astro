@@ -46,6 +46,14 @@ export async function getStaticPaths() {
 
 const { slug, eyebrow, title, intro, subcategories } = Astro.props;
 
+const CATEGORY_TAB: Record<string, "aufbereitung" | "ankauf" | "verkauf"> = {
+  autoaufbereitung: "aufbereitung",
+  wissen: "aufbereitung",
+  fahrzeugverkauf: "ankauf",
+  fahrzeugankauf: "verkauf",
+};
+const ctaTab = CATEGORY_TAB[slug] ?? "aufbereitung";
+
 const allEntries = await getCollection("ratgeber");
 const entries = allEntries.filter((e) => e.data.category === slug);
 
@@ -78,4 +86,5 @@ const articles = entries.map((e) => ({
   intro={intro}
   subcategories={subcategories}
   articles={articles}
+  ctaTab={ctaTab}
 />

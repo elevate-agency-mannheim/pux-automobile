@@ -49,7 +49,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Vor dem Verkauf eines Fahrzeugs stellt sich für viele Halter dieselbe Frage: Lohnt sich eine Aufbereitung wirklich, oder ist das Geld besser gespart? Die klare Antwort: In den meisten Fällen zahlt sich eine gezielte Aufbereitung aus, da der erste Eindruck bei der Besichtigung die Preisverhandlung erheblich beeinflusst. Dieser Ratgeber zeigt, welche Maßnahmen den größten Effekt haben und wo sich Investitionen weniger lohnen.
@@ -76,10 +76,7 @@ Interessenten verbringen bei der Besichtigung meist mehr Zeit im Innenraum als b
   ]}
 />
 
-<ContactCTA
-  title="Aufbereitung vor dem Verkauf anfragen"
-  description="Wir empfehlen Ihnen, welche Maßnahmen für Ihr Fahrzeug den größten Effekt bringen."
-/>
+<CTAButton text="Aufbereitung vor dem Verkauf anfragen" tab="aufbereitung" />
 
 ## Wo sich Investitionen weniger lohnen
 
@@ -126,11 +123,7 @@ Mehr zum gesamten Ablauf des Fahrzeugverkaufs, inklusive der Rolle der Aufbereit
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Fahrzeug verkaufsfertig aufbereiten lassen"
-  description="Wir bereiten Ihr Fahrzeug gezielt für die Besichtigung vor – mit Fokus auf die Maßnahmen mit dem größten Effekt."
-/>
+<CTAButton text="Fahrzeug verkaufsfertig aufbereiten lassen" tab="aufbereitung" />
 
 ## Privatverkauf oder Ankauf durch einen Händler: Lohnt sich Aufbereitung in beiden Fällen?
 

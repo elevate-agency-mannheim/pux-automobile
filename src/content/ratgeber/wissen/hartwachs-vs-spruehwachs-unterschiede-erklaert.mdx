@@ -49,7 +49,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Wer seinen Lack nach der Wäsche zusätzlich schützen möchte, stößt schnell auf zwei klassische Optionen: Hartwachs und Sprühwachs. Beide bieten Schutz und Glanz, unterscheiden sich aber deutlich in Anwendung und Haltbarkeit. Dieser Ratgeber erklärt die Unterschiede und ordnet beide Varianten im Vergleich zur moderneren Keramikversiegelung ein.
@@ -93,10 +93,7 @@ Sprühwachs punktet vor allem mit seiner einfachen Anwendung: aufsprühen, kurz 
   ]}
 />
 
-<ContactCTA
-  title="Professionelle Lackversiegelung anfragen"
-  description="Statt Wachs alle paar Wochen aufzutragen, bieten wir langlebige Keramikversiegelungen an. Fragen Sie unverbindlich an."
-/>
+<CTAButton text="Professionelle Lackversiegelung anfragen" tab="aufbereitung" />
 
 ## Wo Keramikversiegelung ansetzt
 
@@ -135,8 +132,4 @@ Hartwachs punktet mit längerer Haltbarkeit und intensivem Glanz, erfordert daf�
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Beratung zur Lackpflege anfragen"
-  description="Wir helfen Ihnen, die passende Schutzlösung für Ihren Lack zu finden."
-/>
+<CTAButton text="Jetzt Beratung zur Lackpflege anfragen" tab="aufbereitung" />

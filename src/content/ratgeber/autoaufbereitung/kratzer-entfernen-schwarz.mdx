@@ -38,7 +38,7 @@ faq:
   - frage: "Warum entstehen bei schwarzem Lack häufiger sichtbare Swirls?"
     antwort: "Swirls entstehen meist durch trockenes Abwischen oder Waschanlagenbürsten. Auf schwarzem Lack werden diese feinen, netzartigen Kratzer bei Sonneneinstrahlung deutlich sichtbarer als auf helleren Farbtönen, obwohl die eigentliche Schädigung identisch ist."
   - frage: "Was kostet die Entfernung von Kratzern bei schwarzem Lack?"
-    antwort: "Die Kosten hängen vom Schadensbild ab und unterscheiden sich nicht grundsätzlich von anderen Lackfarben. Als Zusatzleistung zu unseren Paketen kalkulieren wir Politur mit ca. 350 € als Richtwert für Politur inklusive Keramikversiegelung."
+    antwort: "Die Kosten hängen vom Schadensbild ab und unterscheiden sich nicht grundsätzlich von anderen Lackfarben. Als Zusatzleistung zu unseren Paketen kalkulieren wir Politur inklusive Keramikversiegelung individuell nach Aufwand."
   - frage: "Hilft eine zweistufige Politur bei schwarzem Lack besser?"
     antwort: "Ja, gerade bei schwarzem Lack zeigt eine zweistufige Politur oft deutlich bessere Ergebnisse: Nach der groben Bearbeitung entfernt eine feine Politur die dabei entstehenden Mikrokratzer, was für einen besonders tiefen, gleichmäßigen Glanz sorgt."
   - frage: "Können tiefe Kratzer im schwarzen Lack durch Polieren komplett verschwinden?"
@@ -53,7 +53,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Kaum eine Lackfarbe zeigt Kratzer und feine Swirls so gnadenlos wie **Schwarz**. Was auf hellerem Lack kaum auffällt, wird auf schwarzem Untergrund bei Sonnenlicht zu einem deutlich sichtbaren Netz aus Mikrokratzern. Dieser Ratgeber erklärt, wie Sie bei schwarzem Lack die Schadenstiefe einschätzen und welche Behandlung sich am besten eignet. Allgemeine Grundlagen zur Kratzerentfernung finden Sie in unserem Hauptratgeber [Kratzer im Autolack entfernen](/ratgeber/autoaufbereitung/kratzer-entfernen).
@@ -96,10 +96,7 @@ Gerade bei schwarzem Lack zahlt sich eine sorgfältige, mehrstufige Politur aus:
   ]}
 />
 
-<ContactCTA
-  title="Kratzer in schwarzem Lack entfernen lassen"
-  description="Wir beurteilen den Schaden unverbindlich vor Ort und erstellen Ihnen ein individuelles Angebot."
-/>
+<CTAButton text="Kratzer in schwarzem Lack entfernen lassen" tab="aufbereitung" />
 
 ## Nach der Politur: Versiegelung nicht vergessen
 
@@ -130,8 +127,4 @@ Kratzer in schwarzem Lack lassen sich mit der richtigen Politur zuverlässig beh
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Termin sichern"
-  description="Ob einzelner Kratzer oder komplette Politur – wir beraten Sie unverbindlich zu Ihrem schwarzen Fahrzeug."
-/>
+<CTAButton text="Jetzt Termin sichern" tab="aufbereitung" />

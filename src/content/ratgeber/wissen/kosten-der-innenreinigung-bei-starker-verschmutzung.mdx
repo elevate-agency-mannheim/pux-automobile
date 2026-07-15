@@ -17,7 +17,7 @@ title: "Kosten der Innenreinigung bei starker Verschmutzung: Was Sie einplanen s
 category: "wissen"
 summary:
   - "Starke Verschmutzung durch Tierhaare, Flecken oder Gerüche erhöht den Zeitaufwand und damit die Kosten."
-  - "Eine reguläre Innenreinigung liegt bei uns bei ca. 130 €, bei starker Verschmutzung kalkulieren wir individuell."
+  - "Eine reguläre Innenreinigung liegt bei uns ab ca. 100 €, bei starker Verschmutzung kalkulieren wir individuell."
   - "Je länger stark verschmutzte Bereiche unbehandelt bleiben, desto aufwendiger wird die spätere Reinigung."
   - "Eine ehrliche Beschreibung des Zustands vorab ermöglicht ein realistisches, faires Angebot."
   - "Regelmäßige Grundpflege verhindert, dass es überhaupt zu extremer Verschmutzung kommt."
@@ -29,7 +29,7 @@ faq:
   - frage: "Warum kostet die Reinigung bei starker Verschmutzung mehr?"
     antwort: "Starke Verschmutzung erfordert deutlich mehr Arbeitszeit, teils zusätzliche Spezialprodukte und mehrfache Behandlungsschritte, um ein gutes Ergebnis zu erzielen. Dieser Mehraufwand spiegelt sich entsprechend im Preis wider."
   - frage: "Was kostet eine reguläre Innenreinigung im Vergleich?"
-    antwort: "Eine reguläre Innenreinigung liegt bei unseren Paketen bei ca. 130 €. Bei deutlich stärkerer Verschmutzung erstellen wir nach kurzer Einschätzung ein individuelles Angebot, das den zusätzlichen Aufwand berücksichtigt."
+    antwort: "Eine reguläre Innenreinigung liegt bei unseren Paketen ab ca. 100 €. Bei deutlich stärkerer Verschmutzung erstellen wir nach kurzer Einschätzung ein individuelles Angebot, das den zusätzlichen Aufwand berücksichtigt."
   - frage: "Kann ich vorab eine Kosteneinschätzung für mein stark verschmutztes Auto erhalten?"
     antwort: "Ja, anhand einer ehrlichen Beschreibung oder Fotos des aktuellen Zustands können wir Ihnen eine erste Einschätzung geben, bevor der Termin verbindlich vereinbart wird."
   - frage: "Sind Tierhaare besonders aufwendig zu entfernen?"
@@ -45,7 +45,7 @@ faq:
 import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import Calculator from "../../../components/ratgeber/Calculator.tsx";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 
 Ein stark verschmutzter Innenraum, etwa nach längerer Vernachlässigung, intensiver Tierhaltung oder gelegentlichem Rauchen, wirft bei vielen Fahrzeughaltern die Frage auf: Was kostet die Reinigung eines solchen Fahrzeugs im Vergleich zu einer regulären Innenreinigung? Dieser Ratgeber schafft Klarheit über den Zusammenhang zwischen Verschmutzungsgrad und Kosten.
 
@@ -58,7 +58,7 @@ Der Preis einer Innenreinigung richtet sich maßgeblich nach dem tatsächlichen 
   headers={["Aspekt", "Reguläre Reinigung", "Bei starker Verschmutzung"]}
   rows={[
     ["Zeitaufwand", "Standard", "Deutlich erhöht"],
-    ["Basispreis-Richtwert", "ca. 130 €", "Individuell nach Aufwand"],
+    ["Basispreis-Richtwert", "ab ca. 100 €", "Individuell nach Aufwand"],
     ["Spezialprodukte", "Selten nötig", "Häufig erforderlich"],
     ["Behandlungsschritte", "Einmalig", "Teils mehrfach"],
   ]}
@@ -74,10 +74,7 @@ Da der Aufwand bei starker Verschmutzung stark variiert, kalkulieren wir diese F
 
 Zu den häufigsten Ursachen für deutlich höheren Reinigungsaufwand zählen große Mengen Tierhaare, die sich hartnäckig in Polsterstoffen festsetzen, tief eingezogene Flecken durch verschüttete Getränke oder Essensreste, starke Geruchsbelastung etwa durch Rauchen sowie allgemein vernachlässigte Fahrzeuge, die über längere Zeit keine gründliche Reinigung erhalten haben. Jede dieser Situationen erfordert eine angepasste Herangehensweise mit entsprechend höherem Zeitaufwand.
 
-<ContactCTA
-  title="Angebot für stark verschmutztes Fahrzeug anfragen"
-  description="Beschreiben Sie uns den Zustand Ihres Fahrzeugs ehrlich – wir erstellen ein faires, individuelles Angebot."
-/>
+<CTAButton text="Angebot für stark verschmutztes Fahrzeug anfragen" tab="aufbereitung" />
 
 ## Warum ehrliche Kommunikation vorab wichtig ist
 
@@ -99,8 +96,4 @@ Auch wenn die Kosten bei starker Verschmutzung höher ausfallen als bei einer re
 
 Die Kosten einer Innenreinigung bei starker Verschmutzung liegen naturgemäß über denen einer regulären Reinigung, da der tatsächliche Arbeitsaufwand deutlich höher ausfällt. Eine ehrliche Beschreibung des Zustands vorab ermöglicht ein realistisches, individuelles Angebot. Wer regelmäßige Grundpflege betreibt, kann extreme Verschmutzung und die damit verbundenen höheren Kosten meist von vornherein vermeiden.
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt individuelles Angebot einholen"
-  description="Kontaktieren Sie uns mit einer kurzen Beschreibung Ihres Fahrzeugzustands für eine faire Kosteneinschätzung."
-/>
+<CTAButton text="Jetzt individuelles Angebot einholen" tab="aufbereitung" />

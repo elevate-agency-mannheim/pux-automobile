@@ -2,7 +2,6 @@
 import RatgeberLayout from "./RatgeberLayout.astro";
 import CTAButton from "../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../components/ratgeber/LocalCitiesWidget.astro";
-import ContactCTA from "../components/ratgeber/ContactCTA.astro";
 import Icons from "../components/Icons.astro";
 
 interface Crumb {
@@ -32,6 +31,7 @@ interface Props {
   articles: ArticleItem[];
   articlesHeading?: string;
   showLocalSection?: boolean;
+  ctaTab?: "aufbereitung" | "ankauf" | "verkauf";
 }
 const {
   seoTitle,
@@ -45,6 +45,7 @@ const {
   articles,
   articlesHeading = "Alle Artikel",
   showLocalSection = true,
+  ctaTab = "aufbereitung",
 } = Astro.props;
 ---
 
@@ -55,7 +56,7 @@ const {
       <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-5 tracking-tight">{title}</h1>
       <p class="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">{intro}</p>
       <div class="mt-8 flex justify-center">
-        <CTAButton />
+        <CTAButton tab={ctaTab} />
       </div>
     </div>
 
@@ -95,6 +96,8 @@ const {
 
     {showLocalSection && <div class="reveal"><LocalCitiesWidget /></div>}
 
-    <ContactCTA />
+    <div class="reveal not-prose my-12 flex justify-center">
+      <CTAButton text="Jetzt unverbindlich anfragen" tab={ctaTab} />
+    </div>
   </div>
 </RatgeberLayout>

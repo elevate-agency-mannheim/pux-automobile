@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import RatgeberLayout from "../../layouts/RatgeberLayout.astro";
 import CTAButton from "../../components/ratgeber/CTAButton.astro";
-import ContactCTA from "../../components/ratgeber/ContactCTA.astro";
 import Icons from "../../components/Icons.astro";
 import type { IconName } from "../../components/Icons.astro";
 
@@ -103,6 +102,8 @@ const CATEGORY_LABELS: Record<string, string> = {
       </div>
     )}
 
-    <ContactCTA />
+    <div class="reveal not-prose my-12 flex justify-center">
+      <CTAButton text="Jetzt unverbindlich anfragen" />
+    </div>
   </div>
 </RatgeberLayout>

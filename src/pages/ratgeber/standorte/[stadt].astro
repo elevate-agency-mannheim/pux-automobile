@@ -2,7 +2,7 @@
 import { getCollection, render } from "astro:content";
 import RatgeberLayout from "../../../layouts/RatgeberLayout.astro";
 import ArticleSchema from "../../../components/ratgeber/ArticleSchema.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import FAQ from "../../../components/ratgeber/FAQ.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 import Icons from "../../../components/Icons.astro";
@@ -13,7 +13,7 @@ import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
 import Calculator from "../../../components/ratgeber/Calculator.tsx";
 
-const mdxComponents = { InfoBox, StepByStep, ComparisonTable, ProConTable, Checklist, Calculator, ContactCTA, LocalCitiesWidget };
+const mdxComponents = { InfoBox, StepByStep, ComparisonTable, ProConTable, Checklist, Calculator, CTAButton, LocalCitiesWidget };
 
 export async function getStaticPaths() {
   const entries = await getCollection("ratgeber", (e) => e.data.category === "standorte");
@@ -26,9 +26,9 @@ const canonicalUrl = `https://pux-automobile.de/ratgeber/standorte/${entry.data.
 const cityName = entry.data.targetCities[0] ?? entry.data.title;
 
 const PACKAGES = [
-  { name: "Innenraum Komfort", price: 130 },
-  { name: "Außen Glanz", price: 90 },
-  { name: "Komplettpaket Premium", price: 220 },
+  { name: "Innenraum", price: 100 },
+  { name: "Außen Premium", price: 100 },
+  { name: "PUX-Bundle", price: 240 },
 ];
 ---
 
@@ -83,7 +83,9 @@ const PACKAGES = [
 
     {entry.data.faq.length > 0 && <FAQ items={entry.data.faq} title={`Häufige Fragen zu ${cityName}`} />}
 
-    <ContactCTA title={`Termin in ${cityName} anfragen`} description={`Wir kommen zu Ihnen nach ${cityName} – unverbindlich und ohne versteckte Kosten.`} />
+    <div class="reveal not-prose my-10 flex justify-center">
+      <CTAButton text={`Termin in ${cityName} anfragen`} tab="aufbereitung" />
+    </div>
 
     <LocalCitiesWidget currentCity={cityName} />
   </div>

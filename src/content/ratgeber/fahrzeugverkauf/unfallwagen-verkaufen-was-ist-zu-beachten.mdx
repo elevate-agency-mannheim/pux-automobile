@@ -41,13 +41,13 @@ faq:
   - frage: "Was passiert mit meinem Unfallwagen nach dem Verkauf?"
     antwort: "Je nach Schadensumfang wird das Fahrzeug entweder fachgerecht instand gesetzt und weiterverkauft oder für die Ersatzteilgewinnung beziehungsweise fachgerechte Verwertung genutzt."
   - frage: "Verkaufen Sie auch Unfallwagen aus Heidelberg oder Ludwigshafen an?"
-    antwort: "Ja, unser Einsatzgebiet umfasst Mannheim und den Umkreis von rund 30 km, wozu auch Heidelberg, Ludwigshafen und weitere Städte der Rhein-Neckar-Region gehören."
+    antwort: "Ja, unser Einsatzgebiet umfasst Mannheim und den Umkreis von rund 45 km, wozu auch Heidelberg, Ludwigshafen und weitere Städte der Rhein-Neckar-Region gehören."
 ---
 
 import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import StepByStep from "../../../components/ratgeber/StepByStep.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Ein Unfallschaden bedeutet nicht das Ende der Verkaufsmöglichkeiten für Ihr Fahrzeug. Auch beschädigte oder nicht fahrbereite Autos lassen sich in der Regel verkaufen – wichtig ist dabei vor allem eine korrekte, transparente Vorgehensweise. Dieser Ratgeber erklärt, was Sie beim Verkauf eines Unfallwagens rechtlich und praktisch beachten sollten. Weitere Informationen zum allgemeinen Verkaufsprozess finden Sie in unserem Ratgeber [Auto verkaufen in Mannheim](/ratgeber/fahrzeugverkauf/auto-verkaufen-in-mannheim-ablauf-und-ansprechpartner-vor-ort).
@@ -76,10 +76,7 @@ Auch wenn ein Unfallschaden fachgerecht repariert wurde und optisch nicht mehr e
 
 Die Bewertung eines Unfallwagens unterscheidet sich von einem unbeschädigten Fahrzeug vor allem durch die Berücksichtigung von Reparaturaufwand und Restwert. Neben dem Schadensumfang fließen auch der allgemeine Fahrzeugzustand, das Alter und die aktuelle Marktlage für vergleichbare Modelle in die Einschätzung ein. Bei größeren Schäden kann ein unabhängiges Gutachten helfen, den Wert nachvollziehbar zu belegen, ist aber nicht in jedem Fall zwingend erforderlich.
 
-<ContactCTA
-  title="Unfallwagen unverbindlich bewerten lassen"
-  description="Schildern Sie uns den Schaden – wir geben Ihnen eine faire, transparente Einschätzung für Ihr Fahrzeug."
-/>
+<CTAButton text="Unfallwagen unverbindlich bewerten lassen" tab="ankauf" />
 
 ## Auch stark beschädigte Fahrzeuge sind verkäuflich
 
@@ -109,8 +106,4 @@ Ein Unfallschaden schließt den Verkauf eines Fahrzeugs nicht aus – wichtig si
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Unfallwagen verkaufen"
-  description="Kontaktieren Sie uns mit einer Schadensbeschreibung – wir melden uns mit einem fairen Angebot."
-/>
+<CTAButton text="Jetzt Unfallwagen verkaufen" tab="ankauf" />

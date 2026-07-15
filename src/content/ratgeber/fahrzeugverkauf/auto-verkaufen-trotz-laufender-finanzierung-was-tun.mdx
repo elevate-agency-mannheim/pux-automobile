@@ -47,7 +47,7 @@ faq:
 import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import StepByStep from "../../../components/ratgeber/StepByStep.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Läuft auf Ihrem Fahrzeug noch eine **Finanzierung**, bedeutet das nicht, dass ein Verkauf ausgeschlossen ist. Mit der richtigen Vorgehensweise lässt sich auch ein finanziertes Fahrzeug problemlos verkaufen. Dieser Ratgeber erklärt, wie die Ablösung der Restschuld funktioniert und worauf Sie achten sollten.
@@ -73,10 +73,7 @@ Kontaktieren Sie Ihre Bank frühzeitig, um die aktuelle Restschuld zu erfahren. 
   ]}
 />
 
-<ContactCTA
-  title="Finanziertes Fahrzeug verkaufen"
-  description="Wir koordinieren die Ablösung Ihrer Restschuld gemeinsam mit Ihrer Bank – kontaktieren Sie uns für eine erste Einschätzung."
-/>
+<CTAButton text="Finanziertes Fahrzeug verkaufen" tab="ankauf" />
 
 ## Wenn der Verkaufspreis die Restschuld nicht deckt
 
@@ -103,11 +100,7 @@ Der Verkauf trotz laufender Finanzierung lässt sich in der Regel gut mit andere
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt unverbindlich anfragen"
-  description="Nennen Sie uns Ihre Situation – wir beraten Sie zum weiteren Vorgehen bei laufender Finanzierung."
-/>
+<CTAButton text="Jetzt unverbindlich anfragen" tab="ankauf" />
 
 ## Fazit
 

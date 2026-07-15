@@ -48,7 +48,7 @@ import InfoBox from "../../../components/ratgeber/InfoBox.astro";
 import ComparisonTable from "../../../components/ratgeber/ComparisonTable.astro";
 import ProConTable from "../../../components/ratgeber/ProConTable.astro";
 import Checklist from "../../../components/ratgeber/Checklist.astro";
-import ContactCTA from "../../../components/ratgeber/ContactCTA.astro";
+import CTAButton from "../../../components/ratgeber/CTAButton.astro";
 import LocalCitiesWidget from "../../../components/ratgeber/LocalCitiesWidget.astro";
 
 Beim Gebrauchtwagenkauf bieten viele Händler eine zusätzliche **Garantie** an – doch lohnt sich diese wirklich, oder handelt es sich um eine unnötige Zusatzausgabe? Dieser Ratgeber erklärt den Unterschied zwischen Gewährleistung und Garantie und zeigt, worauf Sie bei der Entscheidung achten sollten.
@@ -91,10 +91,7 @@ Bei jüngeren Fahrzeugen mit noch bestehender Herstellergarantie ist eine zusät
   ]}
 />
 
-<ContactCTA
-  title="Beratung zum Gebrauchtwagenkauf"
-  description="Wir beraten Sie gerne zu passenden Fahrzeugen und den Möglichkeiten einer Zusatzabsicherung."
-/>
+<CTAButton text="Beratung zum Gebrauchtwagenkauf" tab="verkauf" />
 
 ## Worauf Sie bei den Vertragsbedingungen achten sollten
 
@@ -113,11 +110,7 @@ Auch bei einer bestehenden Garantie bleibt eine sorgfältige technische Prüfung
 
 <LocalCitiesWidget currentCity="Mannheim" />
 
-<ContactCTA
-  id="kontakt-2"
-  title="Jetzt Gebrauchtwagen mit Beratung finden"
-  description="Wir unterstützen Sie bei der Suche nach einem passenden Fahrzeug im Raum Mannheim."
-/>
+<CTAButton text="Jetzt Gebrauchtwagen mit Beratung finden" tab="verkauf" />
 
 ## Herstellergarantie, Händlergarantie oder Versicherungsgarantie
 
